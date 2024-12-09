@@ -8,8 +8,8 @@
 \newcommand{\bs}{\boldsymbol}
 \newcommand{\ra}{\rightarrow}
 \newcommand{\la}{\leftarrow}
-\usepackage{algorithm}
-\usepackage{algorithmic}
+%\usepackage{algorithm}
+%\usepackage{algorithmic}
 \topmargin = 0pt
 \voffset = -80pt
 \oddsidemargin = 15pt
@@ -171,7 +171,7 @@ Algorithms can be described in this chapter if not already covered in previous s
 
 \begin{algorithm}[th]
 \caption{ The Newton-Raphson method }
-\begin{algorithmic}[1]
+%\begin{algorithmic}[1]
 \STATE Initialise root based on estimate
 \STATE Set stop criterion
 \\ \texttt{const double error = 0.000001;}
@@ -180,7 +180,7 @@ Algorithms can be described in this chapter if not already covered in previous s
 	\STATE Compute f'(root)
 	\STATE root := root - f(root)/f'(root)
 \ENDWHILE
-\end{algorithmic}
+%\end{algorithmic}
 \end{algorithm}
 
 
