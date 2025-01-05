@@ -1,7 +1,6 @@
-% Current Progress - 1.2 UNFIN, heavy proofreading of current work required
+
 \documentclass[a4paper, oneside, 11pt]{report}
 \usepackage{epsfig,pifont,float,multirow,amsmath,amssymb}
-\usepackage{natbib}
 \newcommand{\mc}{\multicolumn{1}{c|}}
 \newcommand{\mb}{\mathbf}
 \newcommand{\mi}{\mathit}
@@ -9,8 +8,8 @@
 \newcommand{\bs}{\boldsymbol}
 \newcommand{\ra}{\rightarrow}
 \newcommand{\la}{\leftarrow}
-\usepackage{algorithm}
-\usepackage{algorithmic}
+%\usepackage{algorithm}
+%\usepackage{algorithmic}
 \topmargin = 0pt
 \voffset = -80pt
 \oddsidemargin = 15pt
@@ -19,690 +18,234 @@
 
 \begin{document}
 
-	\begin{titlepage}
-		\begin{center}
-			\rule{12cm}{1mm} \\
-			\vspace{1cm}
-			{\large  CMP-6048A/7009A Advanced Programming} %Delete as appropriate
-			\vspace{7.5cm}
-			\\{\Large Project Report - 13 January 2025}
-			\vspace{1.5cm}
-			\\{\LARGE Maths Interpreter software} % You can add to this title of modify it if you wish
-			\vspace{1.0cm}
-			\\{\Large Group members: \\ Ethan Colman, Taylor Holton, Aaron Hurrell, Evelyn Stansfield.\ }
-			\vspace{10.0cm}
-			\\{\large School of Computing Sciences, University of East Anglia}
-			\\ \rule{12cm}{0.5mm}
-			\\ \hspace{8.5cm} {\large Version 2.0}
-		\end{center}
-	\end{titlepage}
+\begin{titlepage}
+\begin{center}
+\rule{12cm}{1mm} \\
+\vspace{1cm}
+{\large  CMP-6048A Advanced Programming} %Delete as appropriate
+\vspace{7.5cm}
+\\{\Large Project Report - 13 January 2025}
+\vspace{1.5cm}
+\\{\LARGE Maths Interpreter software} % You can add to this title of modify it if you wish
+\vspace{1.0cm}
+\\{\Large Group members: \\ Connor Stansfield, Ethan Colman, Taylor Holton, Aaron Hurrell\ }
+\vspace{10.0cm}
+\\{\large School of Computing Sciences, University of East Anglia}
+\\ \rule{12cm}{0.5mm}
+\\ \hspace{8.5cm} {\large Version 2.0}
+\end{center}
+\end{titlepage}
 
 
-	\setcounter{page}{1}
+\setcounter{page}{1}
 %\pagenumbering{roman}
 %\newpage
 
-% ============================================================== ABSTRACT ================================================================
-	\begin{abstract}
-		Please replace this section with your own abstract. An abstract is a brief summary (maximum 250 words) of your entire project. It should cover your objectives, your methodologies used, a brief developmental history, your final results, in particular covering the optional tasks, and a discussion and conclusion. You do not cover the literature or background in an abstract nor should you use abbreviations or acronyms. The remainder of this report template has clear chapter titles and we suggest to stick to these although you can organise your material inside each chapter to your own preferences. A guideline in size is approximately 3,500 words (not including abstract, captions and references) but no real limit on figures, tables, diagrams, pseudo-code etc.
-	\end{abstract}
 
-% ============================================================== CHAPTER 1 ===============================================================
-	\chapter{Introduction}
-	\label{chap:intro}
-	The introduction should be brief and comprise the following:
+\begin{abstract}
+Please replace this section with your own abstract. An abstract is a brief summary (maximum 250 words) of your entire project. It should cover your objectives, your methodologies used, a brief developmental history, your final results, in particular covering the optional tasks, and a discussion and conclusion. You do not cover the literature or background in an abstract nor should you use abbreviations or acronyms. The remainder of this report template has clear chapter titles and we suggest to stick to these although you can organise your material inside each chapter to your own preferences. A guideline in size is approximately 3,500 words (not including abstract, captions and references) but no real limit on figures, tables, diagrams, pseudo-code etc.
+\end{abstract}
 
-	\section{Project statement}
-% \paragraph{}
-% We will produce a mathematics package written using the .NET environment. We will use C# with Avalonia to produce an application with a graphical user interface, which includes a graph plotting utility as well as a mathematical interpreter capable of processing a wide range of common mathematical utilities.
-% \paragraph{}
-% Said interpreter will be written in F#, a functional language. The interpreter will deconstruct user input into a series of tokens, which are then processed by a parser to produce a result or create some binding such as a function or variable.
-	\paragraph{}
-	We will produce a mathematics package written using the .NET environment. We will produce an application with a graphical user interface, which includes a graph plotting utility as well as a mathematical interpreter capable of processing a wide range of common mathematical operations. The application will take user input, which is then lexed and parsed by the interpreter. The output will then be written to an output field while also being plotted to the graph window.
+\chapter{Introduction}
+\label{chap:intro}
 
-	\section{Aims and objectives}
-	\paragraph{}
-	We plan to:
-	\begin{itemize}
-		\item produce a basic mathematical interpreter
-		\item produce a gui to plot the results of said interpreter
-		\item expand our implementation of the interpreter to cover complex features, such as complex numbers, function bindings with parameter passing and evaluating boolean expressions
-	\end{itemize}
-	\paragraph{}
-	To be more specific about the requirements of our project, a table is included below indicating the priority of different objectives.
+The introduction should be brief and comprise the following:
 
-% \paragraph{}
-% On top of this, we should aim to implement different representations of numbers, such as rational numbers which are more suitable for storing numbers when exact precision is required (which a floating point number cannot provide). We should also add further features, such as functions - sequences of tokens stored to be evaluated at the point of execution, complete with a parameter system to provide function-level scope to the expression. Features like this, in addition to the implementation of expression iteration (either in the GUI or interpreter) could be used to generate a series of coordinates for the graph plotting utility of the application.
+\section{Project statement}
+A (brief) statement including the nature of the project, i.e.\ what you will do, how you will accomplish it and what the final deliverable will be.
 
-% Clearly specify the main aim and objective(s) and subsequent tasks of your project. You can use a MoSCoW to further elaborate on each individual task. If you do so, use a table with three columns (e.g.\ Table \ref{Table1}), the first one having the four categories; the second column a brief description of the task and the third column further elaboration or comments on the task. Note that a MoSCoW is normally for functional requirements only. You should treat non-functional requirements in a separate MoSCoW.
+\section{Aims and objectives}
 
-	\begin{table}[h]
-		\caption{MoSCoW}
-		\begin{center}
-			\begin{tabular}{|p{1in}|p{2in}|p{2.5in}|} \hline
-			Priority & Task & Comments \\ \hline \hline
+Clearly specify the main aim and objective(s) and subsequent tasks of your project. You can use a MoSCoW to further elaborate on each individual task. If you do so, use a table with three columns (e.g.\ Table \ref{Table1}), the first one having the four categories; the second column a brief description of the task and the third column further elaboration or comments on the task. Note that a MoSCoW is normally for functional requirements only. You should treat non-functional requirements in a separate MoSCoW.
 
-% MUST
-			\multirow{3}{1in}{Must}
-			& Expressions (INT1) & - \\ \cline{2-3}
-			& Assignment (INT2) & - \\ \cline{2-3}
-			& GUI (GUI1) & - \\ \cline{2-3}
-			& Plotting (GUI2) & - \\ \cline{2-3}
-			& Numbers as Floats/Ints & Related to INT1 and mandatory \\ \hline \hline
+\begin{table}[h]
+\caption{MoSCoW}
+\begin{center}
+\begin{tabular}{|p{1in}|p{2in}|p{2.5in}|} \hline
+Priority & Task & Comments \\ \hline \hline
+\multirow{3}{1in}{Must}
+& Task M1 & Comment M1 \\ \cline{2-3}
+& Task M2 & Comment M2 \\ \cline{2-3}
+& ... & ... \\ \hline \hline
+\multirow{3}{1in}{Should}
+& Task S1 & Comment S1 \\ \cline{2-3}
+& Task S2 & Comment S2 \\ \cline{2-3}
+& ... & ... \\ \hline \hline
+\multirow{3}{1in}{Could}
+& Task C1 & Comment C1 \\ \cline{2-3}
+& Task C2 & Comment C2 \\ \cline{2-3}
+& ... & ... \\ \hline \hline
+\multirow{3}{1in}{Should not}
+& Task SN1 & Comment SN1 \\ \cline{2-3}
+& ... & ... \\ \hline
+\end{tabular}
+\label{Table1}
+\end{center}
+\end{table}
 
-% SHOULD
-			\multirow{3}{1in}{Should}
-			& Rational Numbers & - \\ \cline{2-3}
-			& Complex Numbers & - \\ \cline{2-3}
-			& Functions & - \\ \cline{2-3}
-			& Booleans & - \\ \cline{2-3}
-			& Static Type System & - \\ \hline \hline
 
-% COULD
-			\multirow{3}{1in}{Could}
-			& Iteration and Control Flow (INT3) & - \\ \cline{2-3}
-			& Condition Control & - \\ \cline{2-3}
-			& Math Tools (INT4) & - \\ \hline \hline
+\chapter{Background}
 
-% SHOULD NOT
-			\multirow{3}{1in}{Should not}
-			& Compiler (INT5) & Would involve modifying the entire interpreter package to output a target language and would take a prohibitive amount of time. \\ \cline{2-3}
-			& Updated GUI (GUI4) & - \\ \hline
-			\end{tabular}
-			\label{Table1}
-		\end{center}
-	\end{table}
+Give a brief background on similar software, e.g.\ \cite{Desmos:2023}, \cite{Matlab:2023}, etc.
+Also cite the books \cite{Nystrom:2021} or documentation \cite{WPF:2023} that you consulted.
+You should add additional references to the corresponding bib file (References.bib) referred to in the bottom of this document.
 
-% ============================================================== CHAPTER 2 ===============================================================
-	\chapter{Background}
 
-	When developing this project, we consulted and referenced some similar systems. These systems were Desmos \citep{Desmos:2023} Matlab \citep{Matlab:2023} and Wolfram Alpha \citep{Wolfram-Alpha:2025}. \\
+\chapter{Development History}\label{Chap:DevHist}
 
-	Focusing on Desmos first, this web application has a series of calculators available to users. The graphing calculator with its small input area and much larger plotting area is useful for graphs and lines. The scientific calculator has a large input area with buttons for functions, numbers, and other purposes. These are just two calculators available to users. Some of its capabilities include Interactive variables for graphs, various function graphing, and calculus with a limitation of limits. \\
+Describe the history of your development in terms of the iterations or sprints in your project (your Github repository or other version control should help you to retrospectively identify these). Use different sections for different sprints and subsections for specific details on the same sprint. Feel free to use subsubsections or paragraphs (which are not numbered) if needed. 
 
-	MatLab is a programming language that is used across data analysis, control systems, and robots. For these services, it has features such as; interactive apps, specialised libraries, and tools used for generating embedded code. It can do matrix manipulation \citep{Matlab-Feat:2025} and because of its large library of mathematical functions, it can also fulfil a role similar to our system or Desmos. \\
+\section{Sprint 1: Basic expressions and GUI}
+\subsection{Grammar in BNF}
+\begin{verbatim}
+<E>    ::= <T> <Eopt>
+<Eopt> ::= "+" <T> <Eopt> | "-" <T> <Eopt> | <empty>
+<T>    ::= <NR> <Topt>
+<Topt> ::= "*" <NR> <Topt> | "/" <NR> <Topt> | <empty>
+<NR>   ::= "Num" <value> | "(" <E> ")"
+\end{verbatim}
 
-	Wolfram Alpha, similarly to Desmos, is also a web application with the capacity to solve mathematical problems inputted into it and graph lines. Unlike Desmos, Wolfram Alpha fulfils a purpose of answering questions across a much broader range from questions about maths to questions about nutritional content of food. Another difference is that rather than having a number of environments for the user, it has one with a text input. Then it will output the solution based on the input. For example, an input of "plot sin 30" will create a linear line of 0.5 on the y axis. (\ref{WolframPlotted})
-	However, if you just enter "sin 30", you will not get a result formatted as a graph. (\ref{WolframUnplotted})
-	Therefore its acts similarly to a search engine with a number of functions that you can call to alter its output format. \\
+\subsection{Basic GUI}
+We used WPF with C\# to develop a basic GUI - see Figure \ref{gui01}.
 
-	Here is a feature comparison of the three systems. \\//////
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=0.9 \columnwidth]{GUI_01.png}
+\caption{A very basic GUI!}
+\label{gui01}
+\end{center}
+\end{figure}
 
-	With an idea of what our system would do and potential ways to show it, we now needed an understanding of how we were going to do it.
+\subsection{Testing}
+A subset of Table \ref{Table2} in Appendix \ref{app:test} could be referred to from here.
 
-	To solve the first problem, we
+\section{Sprint 2: Adding unary minus, powers and mod}
 
-	Also, cite the books \citep{Nystrom:2021} or documentation \citep{WPF:2023} that you consulted.
-% ============================================================== CHAPTER 3 ===============================================================
-	\chapter{Development History}\label{Chap:DevHist}
+\subsection{BNF}
 
-% IN ORDER
+\subsection{Updated GUI}
 
-% ADD RATIONALS SOMEWHERE!!!!
-% -----------------
-% Basic Implementation (INT1) & GUI (GUI1)
-% Variable Assignment (INT2)
-% Plotting (GUI2)
+\section{Sprint 3: ...}
 
-% Trigonometric and Natural Logarithm Functions
-% Functions
+\section{Sprint n: Your penultimate version}
 
-% Pi and Abs
-% Static Type System
+Make sure that the total number of sprints n(+1) does not become too unwieldy. A rule of thumb would expect it to be somewhere between 6 and 12.
 
-% Booleans
-% Count Controlled Loops
-% Symbol Table as a Class, Embedded Type Checks
+\subsection{BNF}
 
-	\paragraph{Foreword} The presentation of the sprints below is as accurate as possible. However, most of these sprints have some level of overlap with others. This is because for each feature we would work individually on it and add it to the main git branch when it was complete. Additionally, small-scale commits for minor tweaks or bugfixes have been omitted, unless substantially relevant.
+\subsection{}
 
+\chapter{Final deliverable}\label{Impl}
 
-% ---------------------------------------------------------------- SPRINT 1 ----------------------------------------------------------------
-	\section{Sprint 1: Basic Implementation and GUI}
-	\subsection{Grammar in BNF}
-	\begin{verbatim}
-// <E>        ::= <T> <Eopt>
-// <Eopt>     ::= "+" <T> <Eopt> | "-" <T> <Eopt> | <empty>
-// <T>        ::= <F> <Topt>
-// <Topt>     ::= "*" <F> <Topt> | "/" <F> <Topt> |  "%" <F> <Topt> |<empty>
-// <F>        ::= <NR> <Fopt>
-// <Fopt>     ::= "^" <NR> <Fopt> | "-" <NR> | "+" <NR> | <empty>
-// <NR>       ::= "Int" <value> | "Flt" <value> | "(" <E> ")"
-	\end{verbatim}
+In this chapter you cover the final or ``ultimate'' version of your project. It will show the final BNF, the final GUI, the architecture (which should be MVVM or MVC) that includes UML diagrams, additional algorithms if not already included in the previous sprint sections.
 
-	\subsection{Basic GUI}
-	We used Avalonia with C\# to develop a basic GUI - see Figure \ref{gui01}.
-	\begin{figure}[htb]
-		\begin{center}
+\section{Final BNF}
 
-% REPLACE IMAGE!!!!
-			\includegraphics[width=0.9 \columnwidth]{GUI_01}
+\section{Final GUI}
 
-			\caption{GUI, first revision.}
-			\label{gui01}
-		\end{center}
-	\end{figure}
+See Figure \ref{gui02}.
 
-	\subsection{Commentary}
-	An additional pair of functions, F and Fopt, were added to the parser to offer an additional level of precedence. This allows the parser to evaluate the unary minus and power operators before the rest. This allows unary minus to be evaluated properly (as instead it would be evaluated as a binary minus) and it preserves the order of operations for the power operator.
-
-	\subsection{Testing}
-	Refer to Appendix \{X.n\} for unit tests.
-
-	\clearpage
-% ------------------------------------------------------------- END OF SPRINT ------------------------------------------------------------------
-% ---------------------------------------------------------------- SPRINT 2 ----------------------------------------------------------------
-	\section{Sprint 2: Variable Assignment}
-	\subsection{Grammar in BNF}
-	\begin{verbatim}
-Grammar in BNF:
-<E>        ::= <T> <Eopt>
-<Eopt>     ::= "+" <T> <Eopt> | "-" <T> <Eopt> | <empty>
-<T>        ::= <F> <Topt>
-<Topt>     ::= "*" <F> <Topt> | "/" <F> <Topt> |  "%" <F> <Topt> |<empty>
-<F>        ::= <NR> <Fopt>
-<Fopt>     ::= "^" <NR> <Fopt> | "-" <NR> | <empty>
-<NR>       ::= "Var" <value> "Assign" <NR> | "Var" <value> | "Int" <value> |                  "Flt" <value> | "(" <E> ")"
-
-	\end{verbatim}
-
-	\subsection{Commentary}
-	In order to store variables we made use of a hash map for fast access to the variable associated with the requested binding. This table is the only mutable component of our software.
-
-	The lexer reads any string of characters not beginning with a numeric character as a "Var". It parses the remaining characters until it finds white space to create a string associated with the "Var" terminal symbol.
-
-	The parser then looks for the pattern "Var :: Assign :: tail" ("=" is lexed as Assign). It then calls NR on the tail, and adds the string associated with the "Var" symbol and the the result of "NR tail" to the symbol table as a key value pair.
-
-	When the "Var :: tail" pattern if found, and the "Var :: Assign :: tail" pattern isn't, the program checks to see if the requested variable is in the symbol table. If it is, a number is returned; if it isn't, an exception is raised.
-
-	\subsection{Testing}
-	Refer to Appendix \{X.n\} for unit tests.
-
-	\clearpage
-% ------------------------------------------------------------- END OF SPRINT ------------------------------------------------------------------
-% ---------------------------------------------------------------- SPRINT 3 ----------------------------------------------------------------
-	\section{Sprint 3: Plotting}
-	\subsection{Grammar in BNF}
-	No change was made to the grammar at this stage, as plotting is not directly relevant to the interpreter.
-
-	\subsection{Commentary}
-	\{FOR TAYLOR TO WRITE\}
-
-	\subsection{Testing}
-	Refer to Appendix \{X.n\} for unit tests.
-
-	\clearpage
-% ------------------------------------------------------------- END OF SPRINT ------------------------------------------------------------------
-% ---------------------------------------------------------------- SPRINT 4 ----------------------------------------------------------------
-	\section{Sprint 4: Trigonometric and Natural Logarithm Functions}
-	\subsection{Grammar in BNF}
-	\begin{verbatim}
-Grammar in BNF:
-
-<E>        ::= <T> <Eopt>
-<Eopt>     ::= "+" <T> <Eopt> | "-" <T> <Eopt> | <empty>
-<T>        ::= <F> <Topt>
-<Topt>     ::= "*" <F> <Topt> | "/" <F> <Topt> |  "%" <F> <Topt> |<empty>
-<F>        ::= <NR> <Fopt>
-<Fopt>     ::= "^" <NR> <Fopt> | "-" <NR> |<empty>
-<NR>       ::=  "Var" <value> "Assign" <NR> |
-                "Var" <value> |
-                "Num Int" <value> | "Num Flt" <value> |
-                "Sin" <NR>  | "Cos" <NR> | "Tan" <NR> |
-                "Asin" <NR> | "Acos" <NR> | "Atan" <NR> |
-                "LogNat" <NR> | "LogNum" <NR> | "Exp" <NR> |
-                "(" <E> ")"
-	\end{verbatim}
-	\subsection{Commentary}
-	To have a good maths interpreter, trigonometry and logarithmic functions are key. Therefore, we have implemented cosine, sine and tangent with their inverse variants. When using these functions, they are expected to input the values in degrees and also get the result corresponding in degrees.
-
-	Additionally, we implemented logarithm functions during this sprint, as well as the natural constant "e".
-
-	\subsection{Basic GUI}
-	We used WPF with C\# to develop a basic GUI - see Figure \ref{gui01}.
-	\begin{figure}[htb]
-		\begin{center}
-
-% REPLACE IMAGE!!!!
-			\includegraphics[width=0.9 \columnwidth]{GUI_01}
-
-			\caption{GUI, first revision.}
-			\label{gui01}
-		\end{center}
-	\end{figure}
-
-	\subsection{Testing}
-	Refer to Appendix \{X.n\} for unit tests.
-
-	\clearpage
-% ------------------------------------------------------------- END OF SPRINT ------------------------------------------------------------------
-% ---------------------------------------------------------------- SPRINT 5 ----------------------------------------------------------------
-	\section{Sprint 5: Functions}
-	\subsection{Grammar in BNF}
-	\begin{verbatim}
-Grammar in BNF:
-
-<E>        ::= <T> <Eopt>
-<Eopt>     ::= "+" <T> <Eopt> | "-" <T> <Eopt> | <empty>
-<T>        ::= <F> <Topt>
-<Topt>     ::= "*" <F> <Topt> | "/" <F> <Topt> |  "%" <F> <Topt> |<empty>
-<F>        ::= <NR> <Fopt>
-<Fopt>     ::= "^" <NR> <Fopt> | "-" <NR> |<empty>
-<NR>       ::=  "Var" <value> "Assign" <NR> |
-                "Fn" "Var" <value> "Assign" 0 |
-                "Var" <value> |
-                "Num Int" <value> | "Flt" <value> |
-                "Sin" <NR>  | "Cos" <NR> | "Tan" <NR> |
-                "Asin" <NR> | "Acos" <NR> | "Atan" <NR> |
-                "LogNat" <NR> | "LogNum" <NR> | "Exp" <NR> |
-                "(" <E> ")"
-	\end{verbatim}
-
-	\subsection{Commentary}
-	Here, we updated the symbol table to hold functions as well as variables. This is achieved by modifying the table to take a 3-tuple as a value - this tuple contains a BindingType (indicating if a binding is a Function or Variable), a list of parameters, and a list of tokens representing the function body. For variables, the parameter list is left intentionally blank when being assigned, and the token list is only one token long, holding a "Num".
-
-	The "Fn" token is used in the assign pattern to specify that the binding is a function - the assignment code sets the BindingType to "Function" and parses a parameter sequence out of the left side of the assignment.
-
-	When "Var::tail" is matched, the parser checks if the binding is in the table, and either the value of the variable is returned or the body of the function has parameters substituted before being executed with the result being returned.
-
-	\subsection{Testing}
-	Refer to Appendix \{X.n\} for unit tests.
-
-	\clearpage
-% ------------------------------------------------------------- END OF SPRINT ------------------------------------------------------------------
-% ---------------------------------------------------------------- SPRINT 6 ----------------------------------------------------------------
-	\section{Sprint 6: Pi and Abs}
-	\subsection{Grammar in BNF}
-	\begin{verbatim}
-Grammar in BNF:
-
-<E>        ::= <T> <Eopt>
-<Eopt>     ::= "+" <T> <Eopt> | "-" <T> <Eopt> | <empty>
-<T>        ::= <F> <Topt>
-<Topt>     ::= "*" <F> <Topt> | "/" <F> <Topt> |  "%" <F> <Topt> |<empty>
-<F>        ::= <NR> <Fopt>
-<Fopt>     ::= "^" <NR> <Fopt> | "-" <NR> |<empty>
-<NR>       ::=  "Var" <value> "Assign" <NR> |
-                "Fn" "Var" <value> "Assign" 0 |
-                "Var" <value> |
-                "Num Int" <value> | "Num Flt" <value> |
-                "Sin" <NR>  | "Cos" <NR> | "Tan" <NR> |
-                "Asin" <NR> | "Acos" <NR> | "Atan" <NR> |
-                "LogNat" <NR> | "LogNum" <NR> | "Exp" <NR> |
-                "Pi" | "Abs" <NR>
-                "(" <E> ")"
-	\end{verbatim}
-
-	\subsection{Commentary}
-	During this sprint we added a token that returns the value of Pi as a float, and the Abs function which returns the absolute value of a number.
-
-
-	\subsection{Testing}
-	Refer to Appendix \{X.n\} for unit tests.
-
-	\clearpage
-% ------------------------------------------------------------- END OF SPRINT ------------------------------------------------------------------
-% ---------------------------------------------------------------- SPRINT 7 ----------------------------------------------------------------
-	\section{Sprint 7: Static Type System}
-	\subsection{Grammar in BNF}
-	\begin{verbatim}
-Grammar in BNF:
-
-<E>        ::= <T> <Eopt>
-<Eopt>     ::= "+" <T> <Eopt> | "-" <T> <Eopt> | <empty>
-<T>        ::= <F> <Topt>
-<Topt>     ::= "*" <F> <Topt> | "/" <F> <Topt> |  "%" <F> <Topt> |<empty>
-<F>        ::= <NR> <Fopt>
-<Fopt>     ::= "^" <NR> <Fopt> | "-" <NR> |<empty>
-<NR>       ::=  "Var" <value> "Assign" <NR> |
-                "Typ Auto" "Var" <value> "Assign" <NR> |
-                "Typ Integer" "Var" <value> "Assign" <NR> |
-                "Typ Float" "Var" <value> "Assign" <NR> |
-                "Fn" "Var" <value> "Assign" 0 |
-                "Var" <value> |
-                "Num Int" <value> | "Num Flt" <value> |
-                "Sin" <NR>  | "Cos" <NR> | "Tan" <NR> |
-                "Asin" <NR> | "Acos" <NR> | "Atan" <NR> |
-                "LogNat" <NR> | "LogNum" <NR> | "Exp" <NR> |
-                "Pi" | "Abs" <NR> |
-                "(" <E> ")"
-	\end{verbatim}
-	\subsection{Commentary}
-	Additional patterns are added for variable assignment such that users can either explicitly specify the type of a variable assignment, or let the interpreter infer it. If one of the explicit assignments are used (such as "Typ Integer::Var::Assign::tail"), or a variables value is being reassigned, then the interpreter checks that the types match before assignment, throwing an error if they do not.
-
-	\subsection{Testing}
-	Refer to Appendix \{X.n\} for unit tests.
-
-	\clearpage
-% ------------------------------------------------------------- END OF SPRINT ------------------------------------------------------------------
-% ---------------------------------------------------------------- SPRINT 8 ----------------------------------------------------------------
-	\section{Sprint 8: Rational Numbers}
-	\subsection{Grammar in BNF}
-	\begin{verbatim}
-Grammar in BNF:
-
-<E>        ::= <T> <Eopt>
-<Eopt>     ::= "+" <T> <Eopt> | "-" <T> <Eopt> | <empty>
-<T>        ::= <F> <Topt>
-<Topt>     ::= "*" <F> <Topt> | "/" <F> <Topt> |  "%" <F> <Topt> |<empty>
-<F>        ::= <NR> <Fopt>
-<Fopt>     ::= "^" <NR> <Fopt> | "-" <NR> |<empty>
-<NR>       ::=  "Var" <value> "Assign" <NR> |
-                "Typ Auto" "Var" <value> "Assign" <NR> |
-                "Typ Integer" "Var" <value> "Assign" <NR> |
-                "Typ Float" "Var" <value> "Assign" <NR> |
-                "Typ Frac" "Var" <value> "Assign" <NR> |
-                "Fn" "Var" <value> "Assign" 0 |
-                "Var" <value> |
-                "Num Int" <value> | "Num Flt" <value> |
-                "Frac" "Num Frac" <value> |
-                "Sin" <NR>  | "Cos" <NR> | "Tan" <NR> |
-                "Asin" <NR> | "Acos" <NR> | "Atan" <NR> |
-                "LogNat" <NR> | "LogNum" <NR> | "Exp" <NR> |
-                "Pi" | "Abs" <NR> |
-                "(" <E> ")"
-	\end{verbatim}
-	\subsection{Commentary}
-	Here we implemented rational numbers, internally represented as two numbers for a fractions numerator and denominator. This is ideal for use cases where an exact representation of a non-integer number is needed, where the imprecision of a float is not sufficient.
-
-	\subsection{Testing}
-	Refer to Appendix \{X.n\} for unit tests.
-
-	\clearpage
-% ------------------------------------------------------------- END OF SPRINT ------------------------------------------------------------------
-% ---------------------------------------------------------------- SPRINT 9 ----------------------------------------------------------------
-	\section{Sprint 9: Booleans }
-	\subsection{Grammar in BNF}
-	\begin{verbatim}
-Grammar in BNF:
-
-<L>        ::= <R> <Lopt>
-<Lopt>     ::= "&&" <R> <Lopt> | "||" <R> <Lopt>
-<R>        ::= <E> <Ropt>
-<Ropt>     ::=  "<" <E> <Ropt> |
-                ">" <E> <Ropt> |
-                "<=" <E> <Ropt> |
-                ">=" <E> <Ropt> |
-                "==" <E> <Ropt>
-<E>        ::= <T> <Eopt>
-<Eopt>     ::= "+" <T> <Eopt> | "-" <T> <Eopt> | <empty>
-<T>        ::= <F> <Topt>
-<Topt>     ::= "*" <F> <Topt> | "/" <F> <Topt> |  "%" <F> <Topt> |<empty>
-<F>        ::= <NR> <Fopt>
-<Fopt>     ::= "^" <NR> <Fopt> | "-" <NR> |<empty>
-<NR>       ::=  "!" <NR>
-                "Var" <value> "Assign" <NR> |
-                "Typ Auto" "Var" <value> "Assign" <NR> |
-                "Typ Integer" "Var" <value> "Assign" <NR> |
-                "Typ Float" "Var" <value> "Assign" <NR> |
-                "Typ Frac" "Var" <value> "Assign" <NR> |
-                "Typ Bool" "Var" <value> "Assign" <NR> |
-                "Fn" "Var" <value> "Assign" 0 |
-                "Var" <value> |
-                "Num Int" <value> | "Num Flt" <value> |
-                "Num Bool" <value> | "Frac" "Num Frac" <value> |
-                "Sin" <NR>  | "Cos" <NR> | "Tan" <NR> |
-                "Asin" <NR> | "Acos" <NR> | "Atan" <NR> |
-                "LogNat" <NR> | "LogNum" <NR> | "Exp" <NR> |
-                "Pi" | "Abs" <NR> |
-                "(" <L> ")"
-	\end{verbatim}
-	\subsection{Commentary}
-	In this sprint we added Boolean values, logical operators and relational operators to our code, allowing it to evaluate logical expressions and make comparisons between numbers. Here, booleans are internally represented as a number (0 for false, 1 for true).
-
-	Four new functions - "L", "R", "Lopt" and "Ropt" - are introduced. This is done such that the mathematical result of an expression can be derived before relational or logical evaluation occurs for a given expression.
-
-	\subsection{Testing}
-	Refer to Appendix \{X.n\} for unit tests.
-% ------------------------------------------------------------- END OF SPRINT ------------------------------------------------------------------
-% ---------------------------------------------------------------- SPRINT 10 ----------------------------------------------------------------
-	\section{Sprint 10: Count Controlled Loops}
-	\subsection{Grammar in BNF}
-	\begin{verbatim}
-Grammar in BNF:
-
-<L>        ::= <R> <Lopt>
-<Lopt>     ::= "&&" <R> <Lopt> | "||" <R> <Lopt>
-<R>        ::= <E> <Ropt>
-<Ropt>     ::=  "<" <E> <Ropt> |
-                ">" <E> <Ropt> |
-                "<=" <E> <Ropt> |
-                ">=" <E> <Ropt> |
-                "==" <E> <Ropt>
-<E>        ::= <T> <Eopt>
-<Eopt>     ::= "+" <T> <Eopt> | "-" <T> <Eopt> | <empty>
-<T>        ::= <F> <Topt>
-<Topt>     ::= "*" <F> <Topt> | "/" <F> <Topt> |  "%" <F> <Topt> |<empty>
-<F>        ::= <NR> <Fopt>
-<Fopt>     ::= "^" <NR> <Fopt> | "-" <NR> |<empty>
-<NR>       ::=  "!" <NR>
-                "Var" <value> "Assign" <NR> |
-                "Typ Auto" "Var" <value> "Assign" <NR> |
-                "Typ Integer" "Var" <value> "Assign" <NR> |
-                "Typ Float" "Var" <value> "Assign" <NR> |
-                "Typ Frac" "Var" <value> "Assign" <NR> |
-                "Typ Bool" "Var" <value> "Assign" <NR> |
-                "Fn" "Var" <value> "Assign" <L> |
-                "Var" <value> |
-                "Num Int" <value> | "Num Flt" <value> |
-                "Num Bool" <value> | "Frac" "Num Frac" <value> |
-                "Sin" <NR>  | "Cos" <NR> | "Tan" <NR> |
-                "Asin" <NR> | "Acos" <NR> | "Atan" <NR> |
-                "LogNat" <NR> | "LogNum" <NR> | "Exp" <NR> |
-                "Pi" | "Abs" <NR> |
-                "For" "(" "Num Int" <value> ")" "{" <L> "}"
-                "(" <L> ")"
-	\end{verbatim}
-	\subsection{Commentary}
-	During this sprint we added count controlled loops. A user specifies the number of iterations in the parentheses, and the function to iterate in the braces. This feature does return a number, but it returns the value returned by the last execution of the code in the braces.
-
-	\subsection{Testing}
-	Refer to Appendix \{X.n\} for unit tests.
-
-	\clearpage
-% ------------------------------------------------------------- END OF SPRINT ------------------------------------------------------------------
-
-% % ---------------------------------------------------------------- SPRINT 11 ----------------------------------------------------------------
-% \section{Sprint 11: Symbol Table as a Class}
-% \subsection{Grammar in BNF}
-% During this sprint no changes are made to the BNF.
-
-% \subsection{Commentary}
-% During this sprint the symbol table was added to a type as a class. Now, member functions of the symbol table handle type checking instead of code written into the match statements.
-
-% \subsection{Testing}
-% Refer to Appendix \{X.n\} for unit tests.
-% % ------------------------------------------------------------- END OF SPRINT ------------------------------------------------------------------
-
-	\chapter{Final deliverable}\label{Impl}
-
-	In this chapter you cover the final or ``ultimate'' version of your project. It will show the final BNF, the final GUI, the architecture (which should be MVVM or MVC) that includes UML diagrams, additional algorithms if not already included in the previous sprint sections.
-
-	\section{Final BNF}
-	\begin{verbatim}
-Grammar in BNF:
-
-<L>        ::= <R> <Lopt>
-<Lopt>     ::= "&&" <R> <Lopt> | "||" <R> <Lopt>
-<R>        ::= <E> <Ropt>
-<Ropt>     ::=  "<" <E> <Ropt> |
-                ">" <E> <Ropt> |
-                "<=" <E> <Ropt> |
-                ">=" <E> <Ropt> |
-                "==" <E> <Ropt>
-<E>        ::= <T> <Eopt>
-<Eopt>     ::= "+" <T> <Eopt> | "-" <T> <Eopt> | <empty>
-<T>        ::= <F> <Topt>
-<Topt>     ::= "*" <F> <Topt> | "/" <F> <Topt> |  "%" <F> <Topt> |<empty>
-<F>        ::= <NR> <Fopt>
-<Fopt>     ::= "^" <NR> <Fopt> | "-" <NR> |<empty>
-<NR>       ::=  "!" <NR>
-                "Var" <value> "Assign" <NR> |
-                "Typ Auto" "Var" <value> "Assign" <NR> |
-                "Typ Integer" "Var" <value> "Assign" <NR> |
-                "Typ Float" "Var" <value> "Assign" <NR> |
-                "Typ Frac" "Var" <value> "Assign" <NR> |
-                "Typ Bool" "Var" <value> "Assign" <NR> |
-                "Fn" "Var" <value> "Assign" <L> |
-                "Var" <value> |
-                "Num Int" <value> | "Num Flt" <value> |
-                "Num Bool" <value> | "Frac" "Num Frac" <value> |
-                "Sin" <NR>  | "Cos" <NR> | "Tan" <NR> |
-                "Asin" <NR> | "Acos" <NR> | "Atan" <NR> |
-                "LogNat" <NR> | "LogNum" <NR> | "Exp" <NR> |
-                "Pi" | "Abs" <NR> |
-                "For" "(" "Num Int" <value> ")" "{" <L> "}"
-                "(" <L> ")"
-	\end{verbatim}
-	\section{Final GUI}
-
-	See Figure \ref{gui02}.
-
-	\begin{figure}[htb]
+\begin{figure}[htb]
 %\begin{center}
-		\includegraphics[width=0.9 \columnwidth]{GUI_02.png}
-		\caption{A potentially final GUI!}
-		\label{gui02}
+\includegraphics[width=0.9 \columnwidth]{GUI_02.png}
+\caption{A potentially final GUI!}
+\label{gui02}
 %\end{center}
-	\end{figure}
+\end{figure}
 
-	\section{Code architecture}
+\section{Code architecture}
 
-	Fig.\ \ref{class} shows a UML class diagram (class, sequence and state diagrams are the most frequently used UML diagrams). Illustrating your code architecture - that should be of the MVC family and, considering it is developed in C\# with WPF more specifcally the MVVM pattern - is very important.
+Fig.\ \ref{class} shows a UML class diagram (class, sequence and state diagrams are the most frequently used UML diagrams). Illustrating your code architecture - that should be of the MVC family and, considering it is developed in C\# with WPF more specifcally the MVVM pattern - is very important.
 
-	\begin{figure}[htb]
+\begin{figure}[htb]
 %\begin{center}
-		\includegraphics[width=1.0 \columnwidth]{class.png}
-		\caption{A UML class diagram to be replaced with yours!}
-		\label{class}
+\includegraphics[width=1.0 \columnwidth]{class.png}
+\caption{A UML class diagram to be replaced with yours!}
+\label{class}
 %\end{center}
-	\end{figure}
+\end{figure}
 
-	\section{Algorithms}
+\section{Algorithms}
 
-	Algorithms can be described in this chapter if not already covered in previous sections. Pseudo-code is preferred over code snippets. If you use the latter then make sure it is well commented inside the code or via the figure caption.
+Algorithms can be described in this chapter if not already covered in previous sections. Pseudo-code is preferred over code snippets. If you use the latter then make sure it is well commented inside the code or via the figure caption. 
 
-	\begin{algorithm}[th]
-		\caption{ The Newton-Raphson method }
-		\begin{algorithmic}[1]
-			\STATE Initialise root based on estimate
-			\STATE Set stop criterion
-			\\ \texttt{const double error = 0.000001;}
-			\WHILE {stop criterion not met}
-			\STATE Compute f(root)
-			\STATE Compute f'(root)
-			\STATE root := root - f(root)/f'(root)
-			\ENDWHILE
-		\end{algorithmic}
-	\end{algorithm}
-
-
-	Note that code snippets or lists of crucial programming code or large UML diagrams should go in Appendix \ref{app:other} (or further appendices).
-
-	\subsection{Testing}
-
-	Describe what testing you have done on the interpreter (lexer, parser and execution), GUI and GUI-Interpreter communication, plotting, etc. Table \ref{Table2} in Appendix \ref{app:test} should be completed to do basic arithmetic expression tests.
+%\begin{algorithm}[th]
+%\caption{ The Newton-Raphson method }
+%\begin{algorithmic}[1]
+%\STATE Initialise root based on estimate
+%\STATE Set stop criterion
+%\\ \texttt{const double error = 0.000001;}
+%\WHILE {stop criterion not met}
+%	\STATE Compute f(root)
+%	\STATE Compute f'(root)
+%	\STATE root := root - f(root)/f'(root)
+%\ENDWHILE
+%\end{algorithmic}
+%\end{algorithm}
 
 
-	\chapter{Discussion, conclusion and future work}
+Note that code snippets or lists of crucial programming code or large UML diagrams should go in Appendix \ref{app:other} (or further appendices).
 
-	Briefly discuss your achievements and put them in perspective with the MoSCoW analysis you specified in Table \ref{Table1}. Also discuss future developments and how you see the deliverable improving if more time could be spent. Note that this section should not be used as a medium to vent frustrations on whatever did not work out (group issues, not enough time, illness, etc.) as this should be dealt with separately - keep it professional!
+\subsection{Testing}
+
+Describe what testing you have done on the interpreter (lexer, parser and execution), GUI and GUI-Interpreter communication, plotting, etc. Table \ref{Table2} in Appendix \ref{app:test} should be completed to do basic arithmetic expression tests.
 
 
-	\bibliographystyle{apalike}
+\chapter{Discussion, conclusion and future work}
+
+Briefly discuss  your achievements and put them in perspective with the MoSCoW analysis you specified in Table \ref{Table1}. Also discuss future developments and how you see the deliverable improving if more time could be spent. Note that this section should not be used as a medium to vent frustrations on whatever did not work out (group issues, not enough time, illness, etc.) as this should be dealt with separately - keep it professional!
+
+
+\bibliographystyle{apalike}
 %\raggedright
-	\bibliography{References}
+\bibliography{References}
 
 
-	\appendix
-	\chapter{Contributions}
-	\section{Contribution Table}
-	Here is a table of our contributions. \\
+\appendix
+\chapter{Contributions}
 
-	\begin{table}[h]
-		\begin{tabular}{|l|l|l|l|l|}
-			\hline
-			& Aaron Hurrell & Ethan Colman & Taylor Holton & Evelyn Stanfield \\ \hline
-			Percentage Contributed &               &              &               &                  \\ \hline
-		\end{tabular}
-	\end{table}
+State here the \% contribution to the project of each individual member of the group and describe in brief what each member has done (if this corresponds to particular sections in the report then please specify these).
 
-	\section{Aaron Hurrell Contributions}
-	\subsection{GUI Contributions}
-	I have not contributed to the Graphics User Interface.
-	\subsection{Interpreter Contributions}
-	\subsection{Report Contributions}
+\chapter{Testing}
+\label{app:test}
+\section{Arithmetic expression testing}
 
-	\section{Ethan Colman Contributions}
-	\subsection{GUI Contributions}
-	\subsection{Interpreter Contributions}
-	\subsection{Report Contributions}
+\begin{table}[h]
+\caption{Arithmetic expression tests. Note that floating pointing values are accurate to three decimal places for the fractional part. ResE is expected result and ResA is actual result. \\}
+\begin{tabular}{|p{1.8in}|p{0.5in}|p{0.4in}|p{0.6in}|p{1.4in}|} \hline
+Expression & ResE & ResA& Pass/Fail & Action/comment \\ \hline \hline
+$5*3+(2*3-2)/2+6$ & 23 &  &  &  ... \\ \hline
+$9-3-2$ & 4 & & & left assoc.\  \\ \hline
+$10/3$ & 3 & & & int division  \\ \hline
+$10/3.0$ & 3.333 & & & float division \\ \hline
+$10\%3$ & 1 & & & \\ \hline
+$10 - -2$ & 12 & & & unary minus\\ \hline
+$-2 + 10$ & 8 & & & \\ \hline
+$3*5\verb|^|(-1+3)-2\verb|^|2*-3$ & 87 & & & power test \\ \hline
+$-3\verb|^|2$ & -9(*) or 9 & & & precedence \\ \hline
+$-7\%3$ & 2(*) or -1 & & & precedence (*)Python\\ \hline
+$2*3^2$ & 18 & & & precedence pow > mult \\ \hline
+$3*5\verb|^|(-1+3)-2\verb|^|-2*-3$ & 75.750 or 75 & & & \\ \hline
+$3*5\verb|^|(-1+3)-2.0\verb|^|-2*-3$ & 75.750 & & & \\ \hline
+$(((3*2--2)))$ & 8 & & & \\ \hline 
+$(((3*2--2))$ & Error & & & syntax error \\ \hline
+$-((3*5-2*3))$ & -9 & & &  minus expression \\ \hline
+$x = 3; (2*x)-x\verb|^|2*5$ & -39 & & & var assign \\ \hline
+$x = 3; (2*x)-x\verb|^|2*5/2$ & -16 & & & \\ \hline
+$x = 3; (2*x)-x\verb|^|2*(5/2)$ & -12 & & & \\ \hline
+$x = 3; (2*x)-x\verb|^|2*5/2.0$ & -16.5 & & & \\ \hline
+$x = 3; (2*x)-x\verb|^|2*5\%2$ & 5 & & &  \\ \hline
+$x = 3; (2*x)-x\verb|^|2*(5\%2)$ & -3 & & &  \\ \hline
+... & ... & ... & ... & ... \\ \hline
+\end{tabular}
+\label{Table2}
+\end{table}
 
-	\section{Taylor Holton Contributions}
-	\subsection{GUI Contributions}
-	\subsection{Interpreter Contributions}
-	\subsection{Report Contributions}
+\section{GUI testing}
 
-	\section{Evelyn Stanfield Contributions}
-	\subsection{GUI Contributions}
-	\subsection{Interpreter Contributions}
-	\subsection{Report Contributions}
+\section{Plot testing}
 
-	State here the \% contribution to the project of each individual member of the group and describe in brief what each member has done (if this corresponds to particular sections in the report then please specify these).
-
-	\chapter{Testing}
-	\label{app:test}
-	\section{Arithmetic expression testing}
-
-	\begin{table}[h]
-		\caption{Arithmetic expression tests. Note that floating pointing values are accurate to three decimal places for the fractional part. ResE is expected result and ResA is actual result. \\}
-		\begin{tabular}{|p{1.8in}|p{0.5in}|p{0.6in}|p{0.6in}|p{1.4in}|} \hline
-		Expression & ResE & ResA& Pass/Fail & Action/comment \\ \hline \hline
-		$5*3+(2*3-2)/2+6$ & 23 & 23 & Pass &  ... \\ \hline
-		$9-3-2$ & 4 & 4& Pass & left assoc.\  \\ \hline
-		$10/3$ & 3 & 3& Pass & int division  \\ \hline
-		$10/3.0$ & 3.333 & 3.3333333& Pass & float division \\ \hline
-		$10\%3$ & 1 & 1& Pass & \\ \hline
-		$10 - -2$ & 12 & 12& Pass & unary minus\\ \hline
-		$-2 + 10$ & 8 & 8& Pass & \\ \hline
-		$3*5\verb|^|(-1+3)-2\verb|^|2*-3$ & 87 & 87& Pass & power test \\ \hline
-		$-3\verb|^|2$ & -9(*) or 9 & 9& Pass & precedence \\ \hline
-		$-7\%3$ & 2(*) or -1 & -1& Pass & precedence (*)Python\\ \hline
-		$2*3^2$ & 18 & 18& Pass & precedence pow > mult \\ \hline
-		$3*5\verb|^|(-1+3)-2\verb|^|-2*-3$ & 75.750 or 75 & 75& Pass & \\ \hline
-		$3*5\verb|^|(-1+3)-2.0\verb|^|-2*-3$ & 75.750 &75.75 & Pass & \\ \hline
-		$(((3*2--2)))$ & 8 & 8& Pass & \\ \hline
-		$(((3*2--2))$ & Error &Error & Pass & syntax error \\ \hline
-		$-((3*5-2*3))$ & -9 & -9& Pass &  minus expression \\ \hline
-		$x = 3; (2*x)-x\verb|^|2*5$ & -39 & -39& Pass & var assign \\ \hline
-		$x = 3; (2*x)-x\verb|^|2*5/2$ & -16 & -16 & Pass & \\ \hline
-		$x = 3; (2*x)-x\verb|^|2*(5/2)$ & -12 &  -12 & Pass & \\ \hline
-		$x = 3; (2*x)-x\verb|^|2*5/2.0$ & -16.5 & -16.5 & Pass & \\ \hline
-		$x = 3; (2*x)-x\verb|^|2*5\%2$ & 5 & 5 & Pass &  \\ \hline
-		$x = 3; (2*x)-x\verb|^|2*(5\%2)$ & -3 &  -3 & Pass &  \\ \hline
-		... & ... & ... & ... & ... \\ \hline
-		\end{tabular}
-		\label{Table2}
-	\end{table}
-
-	\section{GUI testing}
-
-	\section{Plot testing}
-
-	\section{Trigonometric and Logarithmic Function Testing}
-
-
-	\chapter{Other stuff}
-	\section{Wolfram Alpha Images:Plotted} \label{WolframPlotted}
-
-	\includegraphics[width=160mm]{Screenshot 2025-01-03 161746.png} \\
-
-
-	\section{Wolfram Alpha Images:Non-Plotted}\label{WolframUnplotted}
-
-	\includegraphics[width = 160mm]{Screenshot 2025-01-03 162013.png} \\
-
-	\label{app:other}
+\chapter{Other stuff}
+\label{app:other}
 \end{document}
-
 
