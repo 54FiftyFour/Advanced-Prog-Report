@@ -29,7 +29,7 @@
             \vspace{1.5cm}
             \\{\LARGE Maths Interpreter software} % You can add to this title of modify it if you wish
             \vspace{1.0cm}
-            \\{\Large Group members: \\ Ethan Colman, Taylor Holton, Aaron Hurrell, Connor Stansfield.\ }
+            \\{\Large Group members: \\ Ethan Colman, Taylor Holton, Aaron  Hurrell, Connor Stansfield.\ }
             \vspace{10.0cm}
             \\{\large School of Computing Sciences, University of East Anglia}
             \\ \rule{12cm}{0.5mm}
@@ -367,7 +367,13 @@ Grammar in BNF:
                 "(" <E> ")"
     \end{verbatim}
     \subsection{Commentary}
-    Additional patterns are added for variable assignment such that users can either explicitly specify the type of a variable assignment, or let the interpreter infer it. If one of the explicit assignments are used (such as "Typ Integer::Var::Assign::tail"), or a variables value is being reassigned, then the interpreter checks that the types match before assignment, throwing an error if they do not.
+    Additional patterns are added for variable assignment such that users can either explicitly specify the type of a variable assignment, or let the interpreter infer it. 
+	If one of the explicit assignments are used (such as "Typ Integer::Var::Assign::tail"), or a variables value is being reassigned, then the interpreter checks that the types match before assignment, throwing an error if they do not.
+
+	Explicit type declarations are specified with the keywords: \verb|int, float, frac and bool|.
+	While inferred typing can be specified with the keyword \verb|var| in place of an explicit type.
+	A legacy option for variable declaration also exists where type declaration is omitted.
+	This is for use in sending plotting functions from the front end to the interpreter.
 
     \subsection{Testing}
     Refer to Appendix \{X.n\} for unit tests.
