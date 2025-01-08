@@ -9,8 +9,8 @@
 \newcommand{\bs}{\boldsymbol}
 \newcommand{\ra}{\rightarrow}
 \newcommand{\la}{\leftarrow}
-%\usepackage{algorithm}
-%\usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage{algorithmic}
 \topmargin = 0pt
 \voffset = -80pt
 \oddsidemargin = 15pt
@@ -19,121 +19,121 @@
 
 \begin{document}
 
-    \begin{titlepage}
-        \begin{center}
-            \rule{12cm}{1mm} \\
-            \vspace{1cm}
-            {\large  CMP-6048A/7009A Advanced Programming} %Delete as appropriate
-            \vspace{7.5cm}
-            \\{\Large Project Report - 13 January 2025}
-            \vspace{1.5cm}
-            \\{\LARGE Maths Interpreter software} % You can add to this title of modify it if you wish
-            \vspace{1.0cm}
-            \\{\Large Group members: \\ Ethan Colman, Taylor Holton, Aaron  Hurrell, Connor Stansfield.\ }
-            \vspace{10.0cm}
-            \\{\large School of Computing Sciences, University of East Anglia}
-            \\ \rule{12cm}{0.5mm}
-            \\ \hspace{8.5cm} {\large Version 2.0}
-        \end{center}
-    \end{titlepage}
+\begin{titlepage}
+\begin{center}
+\rule{12cm}{1mm} \\
+\vspace{1cm}
+{\large  CMP-6048A/7009A Advanced Programming} %Delete as appropriate
+\vspace{7.5cm}
+\\{\Large Project Report - 13 January 2025}
+\vspace{1.5cm}
+\\{\LARGE Maths Interpreter software} % You can add to this title of modify it if you wish
+\vspace{1.0cm}
+\\{\Large Group members: \\ Ethan Colman, Taylor Holton, Aaron Hurrell, Evelyn Stansfield.\ }
+\vspace{10.0cm}
+\\{\large School of Computing Sciences, University of East Anglia}
+\\ \rule{12cm}{0.5mm}
+\\ \hspace{8.5cm} {\large Version 2.0}
+\end{center}
+\end{titlepage}
 
 
-    \setcounter{page}{1}
+\setcounter{page}{1}
 %\pagenumbering{roman}
 %\newpage
 
 % ============================================================== ABSTRACT ================================================================
-    \begin{abstract}
-        Please replace this section with your own abstract. An abstract is a brief summary (maximum 250 words) of your entire project. It should cover your objectives, your methodologies used, a brief developmental history, your final results, in particular covering the optional tasks, and a discussion and conclusion. You do not cover the literature or background in an abstract nor should you use abbreviations or acronyms. The remainder of this report template has clear chapter titles and we suggest to stick to these although you can organise your material inside each chapter to your own preferences. A guideline in size is approximately 3,500 words (not including abstract, captions and references) but no real limit on figures, tables, diagrams, pseudo-code etc.
-    \end{abstract}
+\begin{abstract}
+Please replace this section with your own abstract. An abstract is a brief summary (maximum 250 words) of your entire project. It should cover your objectives, your methodologies used, a brief developmental history, your final results, in particular covering the optional tasks, and a discussion and conclusion. You do not cover the literature or background in an abstract nor should you use abbreviations or acronyms. The remainder of this report template has clear chapter titles and we suggest to stick to these although you can organise your material inside each chapter to your own preferences. A guideline in size is approximately 3,500 words (not including abstract, captions and references) but no real limit on figures, tables, diagrams, pseudo-code etc.
+\end{abstract}
 
 % ============================================================== CHAPTER 1 ===============================================================
-    \chapter{Introduction}
-    \label{chap:intro}
-    The introduction should be brief and comprise the following:
+\chapter{Introduction}
+\label{chap:intro}
+The introduction should be brief and comprise the following:
 
-    \section{Project statement}
+\section{Project statement}
 % \paragraph{}
 % We will produce a mathematics package written using the .NET environment. We will use C# with Avalonia to produce an application with a graphical user interface, which includes a graph plotting utility as well as a mathematical interpreter capable of processing a wide range of common mathematical utilities.
 % \paragraph{}
 % Said interpreter will be written in F#, a functional language. The interpreter will deconstruct user input into a series of tokens, which are then processed by a parser to produce a result or create some binding such as a function or variable.
-    \paragraph{}
-    We will produce a mathematics package written using the .NET environment. We will produce an application with a graphical user interface, which includes a graph plotting utility as well as a mathematical interpreter capable of processing a wide range of common mathematical operations. The application will take user input, which is then lexed and parsed by the interpreter. The output will then be written to an output field while also being plotted to the graph window.
+\paragraph{}
+We will produce a mathematics package written using the .NET environment. We will produce an application with a graphical user interface, which includes a graph plotting utility as well as a mathematical interpreter capable of processing a wide range of common mathematical operations. The application will take user input, which is then lexed and parsed by the interpreter. The output will then be written to an output field while also being plotted to the graph window.
 
-    \section{Aims and objectives}
-    \paragraph{}
-    We plan to:
-    \begin{itemize}
-        \item produce a basic mathematical interpreter
-        \item produce a gui to plot the results of said interpreter
-        \item expand our implementation of the interpreter to cover complex features, such as complex numbers, function bindings with parameter passing and evaluating boolean expressions
-    \end{itemize}
-    \paragraph{}
-    To be more specific about the requirements of our project, a table is included below indicating the priority of different objectives.
+\section{Aims and objectives}
+\paragraph{}
+We plan to:
+\begin{itemize}
+    \item produce a basic mathematical interpreter
+    \item produce a gui to plot the results of said interpreter
+    \item expand our implementation of the interpreter to cover complex features, such as complex numbers, function bindings with parameter passing and evaluating boolean expressions 
+\end{itemize}
+\paragraph{}
+To be more specific about the requirements of our project, a table is included below indicating the priority of different objectives.
 
 % \paragraph{}
-% On top of this, we should aim to implement different representations of numbers, such as rational numbers which are more suitable for storing numbers when exact precision is required (which a floating point number cannot provide). We should also add further features, such as functions - sequences of tokens stored to be evaluated at the point of execution, complete with a parameter system to provide function-level scope to the expression. Features like this, in addition to the implementation of expression iteration (either in the GUI or interpreter) could be used to generate a series of coordinates for the graph plotting utility of the application.
+% On top of this, we should aim to implement different representations of numbers, such as rational numbers which are more suitable for storing numbers when exact precision is required (which a floating point number cannot provide). We should also add further features, such as functions - sequences of tokens stored to be evaluated at the point of execution, complete with a parameter system to provide function-level scope to the expression. Features like this, in addition to the implementation of expression iteration (either in the GUI or interpreter) could be used to generate a series of coordinates for the graph plotting utility of the application.   
 
 % Clearly specify the main aim and objective(s) and subsequent tasks of your project. You can use a MoSCoW to further elaborate on each individual task. If you do so, use a table with three columns (e.g.\ Table \ref{Table1}), the first one having the four categories; the second column a brief description of the task and the third column further elaboration or comments on the task. Note that a MoSCoW is normally for functional requirements only. You should treat non-functional requirements in a separate MoSCoW.
 
-    \begin{table}[h]
-        \caption{MoSCoW}
-        \begin{center}
-            \begin{tabular}{|p{1in}|p{2in}|p{2.5in}|} \hline
-            Priority & Task & Comments \\ \hline \hline
+\begin{table}[h]
+\caption{MoSCoW}
+\begin{center}
+\begin{tabular}{|p{1in}|p{2in}|p{2.5in}|} \hline
+Priority & Task & Comments \\ \hline \hline
 
 % MUST
-            \multirow{3}{1in}{Must}
-            & Expressions (INT1) & - \\ \cline{2-3}
-            & Assignment (INT2) & - \\ \cline{2-3}
-            & GUI (GUI1) & - \\ \cline{2-3}
-            & Plotting (GUI2) & - \\ \cline{2-3}
-            & Numbers as Floats/Ints & Related to INT1 and mandatory \\ \hline \hline
+\multirow{3}{1in}{Must}
+& Expressions (INT1) & - \\ \cline{2-3}
+& Assignment (INT2) & - \\ \cline{2-3}
+& GUI (GUI1) & - \\ \cline{2-3}
+& Plotting (GUI2) & - \\ \cline{2-3}
+& Numbers as Floats/Ints & Related to INT1 and mandatory \\ \hline \hline
 
 % SHOULD
-            \multirow{3}{1in}{Should}
-            & Rational Numbers & - \\ \cline{2-3}
-            & Complex Numbers & - \\ \cline{2-3}
-            & Functions & - \\ \cline{2-3}
-            & Booleans & - \\ \cline{2-3}
-            & Static Type System & - \\ \hline \hline
+\multirow{3}{1in}{Should}
+& Rational Numbers & - \\ \cline{2-3}
+& Complex Numbers & - \\ \cline{2-3}
+& Functions & - \\ \cline{2-3}
+& Booleans & - \\ \cline{2-3}
+& Static Type System & - \\ \hline \hline
 
 % COULD
-            \multirow{3}{1in}{Could}
-            & Iteration and Control Flow (INT3) & - \\ \cline{2-3}
-            & Condition Control & - \\ \cline{2-3}
-            & Math Tools (INT4) & - \\ \hline \hline
+\multirow{3}{1in}{Could}
+& Iteration and Control Flow (INT3) & - \\ \cline{2-3}
+& Condition Control & - \\ \cline{2-3}
+& Math Tools (INT4) & - \\ \hline \hline
 
 % SHOULD NOT
-            \multirow{3}{1in}{Should not}
-            & Compiler (INT5) & Would involve modifying the entire interpreter package to output a target language and would take a prohibitive amount of time. \\ \cline{2-3}
-            & Updated GUI (GUI4) & - \\ \hline
-            \end{tabular}
-            \label{Table1}
-        \end{center}
-    \end{table}
+\multirow{3}{1in}{Should not}
+& Compiler (INT5) & Would involve modifying the entire interpreter package to output a target language and would take a prohibitive amount of time. \\ \cline{2-3}
+& Updated GUI (GUI4) & - \\ \hline
+\end{tabular}
+\label{Table1}
+\end{center}
+\end{table}
 
 % ============================================================== CHAPTER 2 ===============================================================
-    \chapter{Background}
+\chapter{Background}
 
-    When developing this project, we consulted and referenced some similar systems. These systems were Desmos \citep{Desmos:2023} Matlab \citep{Matlab:2023} and Wolfram Alpha \citep{Wolfram-Alpha:2025}. \\
+When developing this project, we consulted and referenced some similar systems. These systems were Desmos \citep{Desmos:2023} Matlab \citep{Matlab:2023} and Wolfram Alpha \citep{Wolfram-Alpha:2025}. \\
 
-    Focusing on Desmos first, this web application has a series of calculators available to users. The graphing calculator with its small input area and much larger plotting area is useful for graphs and lines. The scientific calculator has a large input area with buttons for functions, numbers, and other purposes. These are just two calculators available to users. Some of its capabilities include Interactive variables for graphs, various function graphing, and calculus with a limitation of limits. \\
+Focusing on Desmos first, this web application has a series of calculators available to users. The graphing calculator with its small input area and much larger plotting area is useful for graphs and lines. The scientific calculator has a large input area with buttons for functions, numbers, and other purposes. These are just two calculators available to users. Some of its capabilities include Interactive variables for graphs, various function graphing, and calculus with a limitation of limits. \\
 
-    MatLab is a programming language that is used across data analysis, control systems, and robots. For these services, it has features such as; interactive apps, specialised libraries, and tools used for generating embedded code. It can do matrix manipulation \citep{Matlab-Feat:2025} and because of its large library of mathematical functions, it can also fulfil a role similar to our system or Desmos. \\
+MatLab is a programming language that is used across data analysis, control systems, and robots. For these services, it has features such as; interactive apps, specialised libraries, and tools used for generating embedded code. It can do matrix manipulation \citep{Matlab-Feat:2025} and because of its large library of mathematical functions, it can also fulfil a role similar to our system or Desmos. \\
 
-    Wolfram Alpha, similarly to Desmos, is also a web application with the capacity to solve mathematical problems inputted into it and graph lines. Unlike Desmos, Wolfram Alpha fulfils a purpose of answering questions across a much broader range from questions about maths to questions about nutritional content of food. Another difference is that rather than having a number of environments for the user, it has one with a text input. Then it will output the solution based on the input. For example, an input of "plot sin 30" will create a linear line of 0.5 on the y axis. (\ref{WolframPlotted})
-    However, if you just enter "sin 30", you will not get a result formatted as a graph. (\ref{WolframUnplotted})
-    Therefore its acts similarly to a search engine with a number of functions that you can call to alter its output format. \\
+Wolfram Alpha, similarly to Desmos, is also a web application with the capacity to solve mathematical problems inputted into it and graph lines. Unlike Desmos, Wolfram Alpha fulfils a purpose of answering questions across a much broader range from questions about maths to questions about nutritional content of food. Another difference is that rather than having a number of environments for the user, it has one with a text input. Then it will output the solution based on the input. For example, an input of "plot sin 30" will create a linear line of 0.5 on the y axis. (\ref{WolframPlotted})
+However, if you just enter "sin 30", you will not get a result formatted as a graph. (\ref{WolframUnplotted})
+Therefore its acts similarly to a search engine with a number of functions that you can call to alter its output format. \\
 
-    Here is a feature comparison of the three systems. \\//////
+Here is a feature comparison of the three systems. \\//////
 
-    With an idea of what our system would do and potential ways to show it, we now needed an understanding of how we were going to do it.
+With an idea of what our system would do and potential ways to show it, we now needed an understanding of how we were going to do it. 
 
 
-    Also, cite the books \citep{Nystrom:2021} or documentation \citep{WPF:2023} that you consulted.
+Also, cite the books \citep{Nystrom:2021} or documentation \citep{WPF:2023} that you consulted.
 % ============================================================== CHAPTER 3 ===============================================================
-    \chapter{Development History}\label{Chap:DevHist}
+\chapter{Development History}\label{Chap:DevHist}
 
 % IN ORDER
 
@@ -153,89 +153,89 @@
 % Count Controlled Loops
 % Symbol Table as a Class, Embedded Type Checks
 
-    \paragraph{Foreword} The presentation of the sprints below is as accurate as possible. However, most of these sprints have some level of overlap with others. This is because for each feature we would work individually on it and add it to the main git branch when it was complete. Additionally, small-scale commits for minor tweaks or bugfixes have been omitted, unless substantially relevant.
+\paragraph{Foreword} The presentation of the sprints below is as accurate as possible. However, most of these sprints have some level of overlap with others. This is because for each feature we would work individually on it and add it to the main git branch when it was complete. Additionally, small-scale commits for minor tweaks or bugfixes have been omitted, unless substantially relevant.  
 
 
 % ---------------------------------------------------------------- SPRINT 1 ----------------------------------------------------------------
-    \section{Sprint 1: Basic Implementation and GUI}
-    \subsection{Grammar in BNF}
-    \begin{verbatim}
+\section{Sprint 1: Basic Implementation and GUI}
+\subsection{Grammar in BNF}
+\begin{verbatim}
 // <E>        ::= <T> <Eopt>
 // <Eopt>     ::= "+" <T> <Eopt> | "-" <T> <Eopt> | <empty>
 // <T>        ::= <F> <Topt>
 // <Topt>     ::= "*" <F> <Topt> | "/" <F> <Topt> |  "%" <F> <Topt> |<empty>
 // <F>        ::= <NR> <Fopt>
-// <Fopt>     ::= "^" <NR> <Fopt> | "-" <NR> | "+" <NR> | <empty>
+// <Fopt>     ::= "^" <NR> <Fopt> | "-" <NR> | "+" <NR> | <empty> 
 // <NR>       ::= "Int" <value> | "Flt" <value> | "(" <E> ")"
-    \end{verbatim}
+\end{verbatim}
 
-    \subsection{Basic GUI}
-    We used Avalonia with C\# to develop a basic GUI - see Figure \ref{gui01}.
-    \begin{figure}[htb]
-        \begin{center}
+\subsection{Basic GUI}
+We used Avalonia with C\# to develop a basic GUI - see Figure \ref{gui01}.
+\begin{figure}[htb]
+\begin{center}
 
 % REPLACE IMAGE!!!!
-            \includegraphics[width=0.9 \columnwidth]{GUI_01}
+\includegraphics[width=0.9 \columnwidth]{GUI_01}
 
-            \caption{GUI, first revision.}
-            \label{GUI_01}
-        \end{center}
-    \end{figure}
+\caption{GUI, first revision.}
+\label{gui01}
+\end{center}
+\end{figure}
 
-    \subsection{Commentary}
-    An additional pair of functions, F and Fopt, were added to the parser to offer an additional level of precedence. This allows the parser to evaluate the unary minus and power operators before the rest. This allows unary minus to be evaluated properly (as instead it would be evaluated as a binary minus) and it preserves the order of operations for the power operator.
+\subsection{Commentary}
+An additional pair of functions, F and Fopt, were added to the parser to offer an additional level of precedence. This allows the parser to evaluate the unary minus and power operators before the rest. This allows unary minus to be evaluated properly (as instead it would be evaluated as a binary minus) and it preserves the order of operations for the power operator. 
 
-    \subsection{Testing}
-    Refer to Appendix \{X.n\} for unit tests.
-
-    \clearpage
+\subsection{Testing}
+Please refer to this (\ref{ArithTest}) in the appendices to view our Testing. \\
+\clearpage
 % ------------------------------------------------------------- END OF SPRINT ------------------------------------------------------------------
 % ---------------------------------------------------------------- SPRINT 2 ----------------------------------------------------------------
-    \section{Sprint 2: Variable Assignment}
-    \subsection{Grammar in BNF}
-    \begin{verbatim}
+\section{Sprint 2: Variable Assignment}
+\subsection{Grammar in BNF}
+\begin{verbatim}
 Grammar in BNF:
 <E>        ::= <T> <Eopt>
 <Eopt>     ::= "+" <T> <Eopt> | "-" <T> <Eopt> | <empty>
 <T>        ::= <F> <Topt>
 <Topt>     ::= "*" <F> <Topt> | "/" <F> <Topt> |  "%" <F> <Topt> |<empty>
 <F>        ::= <NR> <Fopt>
-<Fopt>     ::= "^" <NR> <Fopt> | "-" <NR> | <empty>
+<Fopt>     ::= "^" <NR> <Fopt> | "-" <NR> | <empty> 
 <NR>       ::= "Var" <value> "Assign" <NR> | "Var" <value> | "Int" <value> |                  "Flt" <value> | "(" <E> ")"
 
-    \end{verbatim}
+\end{verbatim}
 
-    \subsection{Commentary}
-    In order to store variables we made use of a hash map for fast access to the variable associated with the requested binding. This table is the only mutable component of our software.
+\subsection{Commentary}
+In order to store variables we made use of a hash map for fast access to the variable associated with the requested binding. This table is the only mutable component of our software.
 
-    The lexer reads any string of characters not beginning with a numeric character as a "Var". It parses the remaining characters until it finds white space to create a string associated with the "Var" terminal symbol.
+The lexer reads any string of characters not beginning with a numeric character as a "Var". It parses the remaining characters until it finds white space to create a string associated with the "Var" terminal symbol. 
 
-    The parser then looks for the pattern "Var :: Assign :: tail" ("=" is lexed as Assign). It then calls NR on the tail, and adds the string associated with the "Var" symbol and the the result of "NR tail" to the symbol table as a key value pair.
+The parser then looks for the pattern "Var :: Assign :: tail" ("=" is lexed as Assign). It then calls NR on the tail, and adds the string associated with the "Var" symbol and the the result of "NR tail" to the symbol table as a key value pair.
 
-    When the "Var :: tail" pattern if found, and the "Var :: Assign :: tail" pattern isn't, the program checks to see if the requested variable is in the symbol table. If it is, a number is returned; if it isn't, an exception is raised.
+When the "Var :: tail" pattern if found, and the "Var :: Assign :: tail" pattern isn't, the program checks to see if the requested variable is in the symbol table. If it is, a number is returned; if it isn't, an exception is raised. 
 
-    \subsection{Testing}
-    Refer to Appendix \{X.n\} for unit tests.
+\subsection{Testing}
+Please refer to this (\ref{VarAssTest}) in the appendices to view our Testing. \\
 
-    \clearpage
+
+\clearpage
 % ------------------------------------------------------------- END OF SPRINT ------------------------------------------------------------------
 % ---------------------------------------------------------------- SPRINT 3 ----------------------------------------------------------------
-    \section{Sprint 3: Plotting}
-    \subsection{Grammar in BNF}
-    No change was made to the grammar at this stage, as plotting is not directly relevant to the interpreter.
+\section{Sprint 3: Plotting}
+\subsection{Grammar in BNF}
+No change was made to the grammar at this stage, as plotting is not directly relevant to the interpreter.
 
-    \subsection{Commentary}
-    \{FOR TAYLOR TO WRITE\}
+\subsection{Commentary}
+\{FOR TAYLOR TO WRITE\}
 
-    \subsection{Testing}
-    Refer to Appendix \{X.n\} for unit tests.
+\subsection{Testing}
+Please refer to this (\ref{PlotTest}) in the appendices to view our Testing. \\
 
-    \clearpage
+\clearpage
 % ------------------------------------------------------------- END OF SPRINT ------------------------------------------------------------------
 % ---------------------------------------------------------------- SPRINT 4 ----------------------------------------------------------------
-    \section{Sprint 4: Trigonometric and Natural Logarithm Functions}
-    \subsection{Grammar in BNF}
-    \begin{verbatim}
+\section{Sprint 4: Trigonometric and Natural Logarithm Functions}
+\subsection{Grammar in BNF}
+\begin{verbatim}
 Grammar in BNF:
 
 <E>        ::= <T> <Eopt>
@@ -243,42 +243,43 @@ Grammar in BNF:
 <T>        ::= <F> <Topt>
 <Topt>     ::= "*" <F> <Topt> | "/" <F> <Topt> |  "%" <F> <Topt> |<empty>
 <F>        ::= <NR> <Fopt>
-<Fopt>     ::= "^" <NR> <Fopt> | "-" <NR> |<empty>
+<Fopt>     ::= "^" <NR> <Fopt> | "-" <NR> |<empty> 
 <NR>       ::=  "Var" <value> "Assign" <NR> |
                 "Var" <value> |
-                "Num Int" <value> | "Num Flt" <value> |
+                "Num Int" <value> | "Num Flt" <value> | 
                 "Sin" <NR>  | "Cos" <NR> | "Tan" <NR> |
                 "Asin" <NR> | "Acos" <NR> | "Atan" <NR> |
                 "LogNat" <NR> | "LogNum" <NR> | "Exp" <NR> |
                 "(" <E> ")"
-    \end{verbatim}
-    \subsection{Commentary}
-    To have a good maths interpreter, trigonometry and logarithmic functions are key. Therefore, we have implemented cosine, sine and tangent with their inverse variants. When using these functions, they are expected to input the values in degrees and also get the result corresponding in degrees.
+\end{verbatim}
+\subsection{Commentary}
+To have a good maths interpreter, trigonometry and logarithmic functions are key. Therefore, we have implemented cosine, sine and tangent with their inverse variants. When using these functions, they are expected to input the values in degrees and also get the result corresponding in degrees. 
 
-    Additionally, we implemented logarithm functions during this sprint, as well as the natural constant "e".
+Additionally, we implemented logarithm functions during this sprint, as well as the natural constant "e".
 
-    \subsection{Basic GUI}
-    We used WPF with C\# to develop a basic GUI - see Figure \ref{gui01}.
-    \begin{figure}[htb]
-        \begin{center}
+\subsection{Basic GUI}
+We used WPF with C\# to develop a basic GUI - see Figure \ref{gui01}.
+\begin{figure}[htb]
+\begin{center}
 
 % REPLACE IMAGE!!!!
-            \includegraphics[width=0.9 \columnwidth]{GUI_01}
+\includegraphics[width=0.9 \columnwidth]{GUI_01}
 
-            \caption{GUI, first revision.}
-            \label{gui01}
-        \end{center}
-    \end{figure}
+\caption{GUI, first revision.}
+\label{gui01}
+\end{center}
+\end{figure}
 
-    \subsection{Testing}
-    Refer to Appendix \{X.n\} for unit tests.
+\subsection{Testing}
+Please refer to this (\ref{TrigTest}) in the appendices to view our Testing. \\
 
-    \clearpage
+
+\clearpage
 % ------------------------------------------------------------- END OF SPRINT ------------------------------------------------------------------
 % ---------------------------------------------------------------- SPRINT 5 ----------------------------------------------------------------
-    \section{Sprint 5: Functions}
-    \subsection{Grammar in BNF}
-    \begin{verbatim}
+\section{Sprint 5: Functions}
+\subsection{Grammar in BNF}
+\begin{verbatim}
 Grammar in BNF:
 
 <E>        ::= <T> <Eopt>
@@ -286,33 +287,34 @@ Grammar in BNF:
 <T>        ::= <F> <Topt>
 <Topt>     ::= "*" <F> <Topt> | "/" <F> <Topt> |  "%" <F> <Topt> |<empty>
 <F>        ::= <NR> <Fopt>
-<Fopt>     ::= "^" <NR> <Fopt> | "-" <NR> |<empty>
+<Fopt>     ::= "^" <NR> <Fopt> | "-" <NR> |<empty> 
 <NR>       ::=  "Var" <value> "Assign" <NR> |
                 "Fn" "Var" <value> "Assign" 0 |
                 "Var" <value> |
-                "Num Int" <value> | "Flt" <value> |
+                "Num Int" <value> | "Flt" <value> | 
                 "Sin" <NR>  | "Cos" <NR> | "Tan" <NR> |
                 "Asin" <NR> | "Acos" <NR> | "Atan" <NR> |
                 "LogNat" <NR> | "LogNum" <NR> | "Exp" <NR> |
                 "(" <E> ")"
-    \end{verbatim}
+\end{verbatim}
 
-    \subsection{Commentary}
-    Here, we updated the symbol table to hold functions as well as variables. This is achieved by modifying the table to take a 3-tuple as a value - this tuple contains a BindingType (indicating if a binding is a Function or Variable), a list of parameters, and a list of tokens representing the function body. For variables, the parameter list is left intentionally blank when being assigned, and the token list is only one token long, holding a "Num".
+\subsection{Commentary}
+Here, we updated the symbol table to hold functions as well as variables. This is achieved by modifying the table to take a 3-tuple as a value - this tuple contains a BindingType (indicating if a binding is a Function or Variable), a list of parameters, and a list of tokens representing the function body. For variables, the parameter list is left intentionally blank when being assigned, and the token list is only one token long, holding a "Num".
 
-    The "Fn" token is used in the assign pattern to specify that the binding is a function - the assignment code sets the BindingType to "Function" and parses a parameter sequence out of the left side of the assignment.
+The "Fn" token is used in the assign pattern to specify that the binding is a function - the assignment code sets the BindingType to "Function" and parses a parameter sequence out of the left side of the assignment.
 
-    When "Var::tail" is matched, the parser checks if the binding is in the table, and either the value of the variable is returned or the body of the function has parameters substituted before being executed with the result being returned.
+When "Var::tail" is matched, the parser checks if the binding is in the table, and either the value of the variable is returned or the body of the function has parameters substituted before being executed with the result being returned.  
 
-    \subsection{Testing}
-    Refer to Appendix \{X.n\} for unit tests.
+\subsection{Testing}
+Please refer to this (\ref{FuncTest}) in the appendices to view our Testing. \\
 
-    \clearpage
+
+\clearpage
 % ------------------------------------------------------------- END OF SPRINT ------------------------------------------------------------------
 % ---------------------------------------------------------------- SPRINT 6 ----------------------------------------------------------------
-    \section{Sprint 6: Pi and Abs}
-    \subsection{Grammar in BNF}
-    \begin{verbatim}
+\section{Sprint 6: Pi and Abs}
+\subsection{Grammar in BNF}
+\begin{verbatim}
 Grammar in BNF:
 
 <E>        ::= <T> <Eopt>
@@ -320,31 +322,32 @@ Grammar in BNF:
 <T>        ::= <F> <Topt>
 <Topt>     ::= "*" <F> <Topt> | "/" <F> <Topt> |  "%" <F> <Topt> |<empty>
 <F>        ::= <NR> <Fopt>
-<Fopt>     ::= "^" <NR> <Fopt> | "-" <NR> |<empty>
+<Fopt>     ::= "^" <NR> <Fopt> | "-" <NR> |<empty> 
 <NR>       ::=  "Var" <value> "Assign" <NR> |
                 "Fn" "Var" <value> "Assign" 0 |
                 "Var" <value> |
-                "Num Int" <value> | "Num Flt" <value> |
+                "Num Int" <value> | "Num Flt" <value> | 
                 "Sin" <NR>  | "Cos" <NR> | "Tan" <NR> |
                 "Asin" <NR> | "Acos" <NR> | "Atan" <NR> |
                 "LogNat" <NR> | "LogNum" <NR> | "Exp" <NR> |
                 "Pi" | "Abs" <NR>
                 "(" <E> ")"
-    \end{verbatim}
+\end{verbatim}
 
-    \subsection{Commentary}
-    During this sprint we added a token that returns the value of Pi as a float, and the Abs function which returns the absolute value of a number.
+\subsection{Commentary}
+During this sprint we added a token that returns the value of Pi as a float, and the Abs function which returns the absolute value of a number.
 
 
-    \subsection{Testing}
-    Refer to Appendix \{X.n\} for unit tests.
+\subsection{Testing}
+Please refer to this (\ref{PiTest}) in the appendices to view our Testing. \\
 
-    \clearpage
+
+\clearpage
 % ------------------------------------------------------------- END OF SPRINT ------------------------------------------------------------------
 % ---------------------------------------------------------------- SPRINT 7 ----------------------------------------------------------------
-    \section{Sprint 7: Static Type System}
-    \subsection{Grammar in BNF}
-    \begin{verbatim}
+\section{Sprint 7: Static Type System}
+\subsection{Grammar in BNF}
+\begin{verbatim}
 Grammar in BNF:
 
 <E>        ::= <T> <Eopt>
@@ -352,7 +355,7 @@ Grammar in BNF:
 <T>        ::= <F> <Topt>
 <Topt>     ::= "*" <F> <Topt> | "/" <F> <Topt> |  "%" <F> <Topt> |<empty>
 <F>        ::= <NR> <Fopt>
-<Fopt>     ::= "^" <NR> <Fopt> | "-" <NR> |<empty>
+<Fopt>     ::= "^" <NR> <Fopt> | "-" <NR> |<empty> 
 <NR>       ::=  "Var" <value> "Assign" <NR> |
                 "Typ Auto" "Var" <value> "Assign" <NR> |
                 "Typ Integer" "Var" <value> "Assign" <NR> |
@@ -365,25 +368,20 @@ Grammar in BNF:
                 "LogNat" <NR> | "LogNum" <NR> | "Exp" <NR> |
                 "Pi" | "Abs" <NR> |
                 "(" <E> ")"
-    \end{verbatim}
-    \subsection{Commentary}
-    Additional patterns are added for variable assignment such that users can either explicitly specify the type of a variable assignment, or let the interpreter infer it. 
-	If one of the explicit assignments are used (such as "Typ Integer::Var::Assign::tail"), or a variables value is being reassigned, then the interpreter checks that the types match before assignment, throwing an error if they do not.
+\end{verbatim}
+\subsection{Commentary}
+Additional patterns are added for variable assignment such that users can either explicitly specify the type of a variable assignment, or let the interpreter infer it. If one of the explicit assignments are used (such as "Typ Integer::Var::Assign::tail"), or a variables value is being reassigned, then the interpreter checks that the types match before assignment, throwing an error if they do not.
 
-	Explicit type declarations are specified with the keywords: \verb|int, float, frac and bool|.
-	While inferred typing can be specified with the keyword \verb|var| in place of an explicit type.
-	A legacy option for variable declaration also exists where type declaration is omitted.
-	This is for use in sending plotting functions from the front end to the interpreter.
+\subsection{Testing}
+Please refer to this (\ref{StaticTest}) in the appendices to view our Testing. \\
 
-    \subsection{Testing}
-    Refer to Appendix \{X.n\} for unit tests.
 
-    \clearpage
+\clearpage
 % ------------------------------------------------------------- END OF SPRINT ------------------------------------------------------------------
 % ---------------------------------------------------------------- SPRINT 8 ----------------------------------------------------------------
-    \section{Sprint 8: Rational Numbers}
-    \subsection{Grammar in BNF}
-    \begin{verbatim}
+\section{Sprint 8: Rational Numbers}
+\subsection{Grammar in BNF}
+\begin{verbatim}
 Grammar in BNF:
 
 <E>        ::= <T> <Eopt>
@@ -391,7 +389,7 @@ Grammar in BNF:
 <T>        ::= <F> <Topt>
 <Topt>     ::= "*" <F> <Topt> | "/" <F> <Topt> |  "%" <F> <Topt> |<empty>
 <F>        ::= <NR> <Fopt>
-<Fopt>     ::= "^" <NR> <Fopt> | "-" <NR> |<empty>
+<Fopt>     ::= "^" <NR> <Fopt> | "-" <NR> |<empty> 
 <NR>       ::=  "Var" <value> "Assign" <NR> |
                 "Typ Auto" "Var" <value> "Assign" <NR> |
                 "Typ Integer" "Var" <value> "Assign" <NR> |
@@ -406,27 +404,28 @@ Grammar in BNF:
                 "LogNat" <NR> | "LogNum" <NR> | "Exp" <NR> |
                 "Pi" | "Abs" <NR> |
                 "(" <E> ")"
-    \end{verbatim}
-    \subsection{Commentary}
-    Here we implemented rational numbers, internally represented as two numbers for a fractions numerator and denominator. This is ideal for use cases where an exact representation of a non-integer number is needed, where the imprecision of a float is not sufficient.
+\end{verbatim}
+\subsection{Commentary}
+Here we implemented rational numbers, internally represented as two numbers for a fractions numerator and denominator. This is ideal for use cases where an exact representation of a noninteger number is needed, where the imprecision of a float is not sufficient.
 
-    \subsection{Testing}
-    Refer to Appendix \{X.n\} for unit tests.
+\subsection{Testing}
+Please refer to this (\ref{RationTest}) in the appendices to view our Testing. \\
 
-    \clearpage
+
+\clearpage
 % ------------------------------------------------------------- END OF SPRINT ------------------------------------------------------------------
 % ---------------------------------------------------------------- SPRINT 9 ----------------------------------------------------------------
-    \section{Sprint 9: Booleans }
-    \subsection{Grammar in BNF}
-    \begin{verbatim}
+\section{Sprint 9: Booleans }
+\subsection{Grammar in BNF}
+\begin{verbatim}
 Grammar in BNF:
 
 <L>        ::= <R> <Lopt>
-<Lopt>     ::= "&&" <R> <Lopt> | "||" <R> <Lopt>
+<Lopt>     ::= "&&" <R> <Lopt> | "||" <R> <Lopt> 
 <R>        ::= <E> <Ropt>
-<Ropt>     ::=  "<" <E> <Ropt> |
-                ">" <E> <Ropt> |
-                "<=" <E> <Ropt> |
+<Ropt>     ::=  "<" <E> <Ropt> | 
+                ">" <E> <Ropt> |  
+                "<=" <E> <Ropt> | 
                 ">=" <E> <Ropt> |
                 "==" <E> <Ropt>
 <E>        ::= <T> <Eopt>
@@ -434,7 +433,7 @@ Grammar in BNF:
 <T>        ::= <F> <Topt>
 <Topt>     ::= "*" <F> <Topt> | "/" <F> <Topt> |  "%" <F> <Topt> |<empty>
 <F>        ::= <NR> <Fopt>
-<Fopt>     ::= "^" <NR> <Fopt> | "-" <NR> |<empty>
+<Fopt>     ::= "^" <NR> <Fopt> | "-" <NR> |<empty> 
 <NR>       ::=  "!" <NR>
                 "Var" <value> "Assign" <NR> |
                 "Typ Auto" "Var" <value> "Assign" <NR> |
@@ -451,35 +450,34 @@ Grammar in BNF:
                 "LogNat" <NR> | "LogNum" <NR> | "Exp" <NR> |
                 "Pi" | "Abs" <NR> |
                 "(" <L> ")"
-    \end{verbatim}
-    \subsection{Commentary}
-    In this sprint we added Boolean values, logical operators and relational operators to our code, allowing it to evaluate logical expressions and make comparisons between numbers. Here, booleans are internally represented as a number (0 for false, 1 for true).
+\end{verbatim}
+\subsection{Commentary}
+In this sprint we added Boolean values, logical operators and relational operators to our code, allowing it to evaluate logical expressions and make comparisons between numbers. Here, booleans are internally represented as a number (0 for false, 1 for true).
 
-    Four new functions - "L", "R", "Lopt" and "Ropt" - are introduced. This is done such that the mathematical result of an expression can be derived before relational or logical evaluation occurs for a given expression.
+Four new functions - "L", "R", "Lopt" and "Ropt" - are introduced. This is done such that the mathematical result of an expression can be derived before relational or logical evaluation occurs for a given expression.
 
-    \subsection{Testing}
-    Refer to Appendix \{X.n\} for unit tests.
+\subsection{Testing}
+Please refer to this (\ref{BoolTest}) in the appendices to view our Testing. \\
+
 % ------------------------------------------------------------- END OF SPRINT ------------------------------------------------------------------
 % ---------------------------------------------------------------- SPRINT 10 ----------------------------------------------------------------
-    \section{Sprint 10: Count Controlled Loops}
-    \subsection{Grammar in BNF}
-    \begin{verbatim}
+\section{Sprint 10: Count Controlled Loops}
+\subsection{Grammar in BNF}
+\begin{verbatim}
 Grammar in BNF:
 
 <L>        ::= <R> <Lopt>
-<Lopt>     ::= "&&" <R> <Lopt> | "||" <R> <Lopt>
+<Lopt>     ::= "&&" <R> <Lopt> | "||" <R> <Lopt> 
 <R>        ::= <E> <Ropt>
-<Ropt>     ::=  "<" <E> <Ropt> |
-                ">" <E> <Ropt> |
-                "<=" <E> <Ropt> |
-                ">=" <E> <Ropt> |
+<Ropt>     ::=  "<" <E> <Ropt> | 
+                ">" <E> <Ropt> |  
                 "==" <E> <Ropt>
 <E>        ::= <T> <Eopt>
 <Eopt>     ::= "+" <T> <Eopt> | "-" <T> <Eopt> | <empty>
 <T>        ::= <F> <Topt>
 <Topt>     ::= "*" <F> <Topt> | "/" <F> <Topt> |  "%" <F> <Topt> |<empty>
 <F>        ::= <NR> <Fopt>
-<Fopt>     ::= "^" <NR> <Fopt> | "-" <NR> |<empty>
+<Fopt>     ::= "^" <NR> <Fopt> | "-" <NR> |<empty> 
 <NR>       ::=  "!" <NR>
                 "Var" <value> "Assign" <NR> |
                 "Typ Auto" "Var" <value> "Assign" <NR> |
@@ -497,16 +495,17 @@ Grammar in BNF:
                 "Pi" | "Abs" <NR> |
                 "For" "(" "Num Int" <value> ")" "{" <L> "}"
                 "(" <L> ")"
-    \end{verbatim}
-    \subsection{Commentary}
-    During this sprint we added count controlled loops. A user specifies the number of iterations in the parentheses, and the function to iterate in the braces. This feature does return a number, but it returns the value returned by the last execution of the code in the braces.
+\end{verbatim}
+\subsection{Commentary}
+During this sprint we added count controlled loops. A user specifies the number of iterations in the parentheses, and the function to iterate in the braces. This feature does return a number, but it returns the value returned by the last execution of the code in the braces. 
 
-    \subsection{Testing}
-    Refer to Appendix \{X.n\} for unit tests.
+\subsection{Testing}
+Please refer to this (\ref{CounTConTest}) in the appendices to view our Testing. \\
 
-    \clearpage
+
+\clearpage
 % ------------------------------------------------------------- END OF SPRINT ------------------------------------------------------------------
-
+ 
 % % ---------------------------------------------------------------- SPRINT 11 ----------------------------------------------------------------
 % \section{Sprint 11: Symbol Table as a Class}
 % \subsection{Grammar in BNF}
@@ -519,20 +518,20 @@ Grammar in BNF:
 % Refer to Appendix \{X.n\} for unit tests.
 % % ------------------------------------------------------------- END OF SPRINT ------------------------------------------------------------------
 
-    \chapter{Final deliverable}\label{Impl}
+\chapter{Final deliverable}\label{Impl}
 
-    In this chapter you cover the final or ``ultimate'' version of your project. It will show the final BNF, the final GUI, the architecture (which should be MVVM or MVC) that includes UML diagrams, additional algorithms if not already included in the previous sprint sections.
+In this chapter you cover the final or ``ultimate'' version of your project. It will show the final BNF, the final GUI, the architecture (which should be MVVM or MVC) that includes UML diagrams, additional algorithms if not already included in the previous sprint sections.
 
-    \section{Final BNF}
-    \begin{verbatim}
+\section{Final BNF}
+\begin{verbatim}
 Grammar in BNF:
 
 <L>        ::= <R> <Lopt>
-<Lopt>     ::= "&&" <R> <Lopt> | "||" <R> <Lopt>
+<Lopt>     ::= "&&" <R> <Lopt> | "||" <R> <Lopt> 
 <R>        ::= <E> <Ropt>
-<Ropt>     ::=  "<" <E> <Ropt> |
-                ">" <E> <Ropt> |
-                "<=" <E> <Ropt> |
+<Ropt>     ::=  "<" <E> <Ropt> | 
+                ">" <E> <Ropt> |  
+                "<=" <E> <Ropt> | 
                 ">=" <E> <Ropt> |
                 "==" <E> <Ropt>
 <E>        ::= <T> <Eopt>
@@ -540,7 +539,7 @@ Grammar in BNF:
 <T>        ::= <F> <Topt>
 <Topt>     ::= "*" <F> <Topt> | "/" <F> <Topt> |  "%" <F> <Topt> |<empty>
 <F>        ::= <NR> <Fopt>
-<Fopt>     ::= "^" <NR> <Fopt> | "-" <NR> |<empty>
+<Fopt>     ::= "^" <NR> <Fopt> | "-" <NR> |<empty> 
 <NR>       ::=  "!" <NR>
                 "Var" <value> "Assign" <NR> |
                 "Typ Auto" "Var" <value> "Assign" <NR> |
@@ -558,160 +557,729 @@ Grammar in BNF:
                 "Pi" | "Abs" <NR> |
                 "For" "(" "Num Int" <value> ")" "{" <L> "}"
                 "(" <L> ")"
-    \end{verbatim}
-    \section{Final GUI}
+\end{verbatim}
+\section{Final GUI}
 
-    See Figure \ref{gui02}.
+See Figure \ref{gui02}.
 
-    \begin{figure}[htb]
+\begin{figure}[htb]
 %\begin{center}
-        \includegraphics[width=0.9 \columnwidth]{GUI_02.png}
-        \caption{A potentially final GUI!}
-        \label{gui02}
+\includegraphics[width=0.9 \columnwidth]{GUI_02.png}
+\caption{A potentially final GUI!}
+\label{gui02}
 %\end{center}
-    \end{figure}
+\end{figure}
 
-    \section{Code architecture}
+\section{Code architecture}
 
-    Fig.\ \ref{class} shows a UML class diagram (class, sequence and state diagrams are the most frequently used UML diagrams). Illustrating your code architecture - that should be of the MVC family and, considering it is developed in C\# with WPF more specifcally the MVVM pattern - is very important.
+Fig.\ \ref{class} shows a UML class diagram (class, sequence and state diagrams are the most frequently used UML diagrams). Illustrating your code architecture - that should be of the MVC family and, considering it is developed in C\# with WPF more specifcally the MVVM pattern - is very important.
 
-    \begin{figure}[htb]
+\begin{figure}[htb]
 %\begin{center}
-        \includegraphics[width=1.0 \columnwidth]{class.png}
-        \caption{A UML class diagram to be replaced with yours!}
-        \label{class}
+\includegraphics[width=1.0 \columnwidth]{class.png}
+\caption{A UML class diagram to be replaced with yours!}
+\label{class}
 %\end{center}
-    \end{figure}
+\end{figure}
 
-    \section{Algorithms}
+\section{Algorithms}
 
-    Algorithms can be described in this chapter if not already covered in previous sections. Pseudo-code is preferred over code snippets. If you use the latter then make sure it is well commented inside the code or via the figure caption.
+Algorithms can be described in this chapter if not already covered in previous sections. Pseudo-code is preferred over code snippets. If you use the latter then make sure it is well commented inside the code or via the figure caption. 
 
-%    \begin{algorithm}[th]
-%        \caption{ The Newton-Raphson method }
-%        \begin{algorithmic}[1]
-%            \STATE Initialise root based on estimate
-%            \STATE Set stop criterion
-%            \\ \texttt{const double error = 0.000001;}
-%            \WHILE {stop criterion not met}
-%            \STATE Compute f(root)
-%            \STATE Compute f'(root)
-%            \STATE root := root - f(root)/f'(root)
-%            \ENDWHILE
-%        \end{algorithmic}
-%    \end{algorithm}
-
-
-    Note that code snippets or lists of crucial programming code or large UML diagrams should go in Appendix \ref{app:other} (or further appendices).
-
-    \subsection{Testing}
-
-    Describe what testing you have done on the interpreter (lexer, parser and execution), GUI and GUI-Interpreter communication, plotting, etc. Table \ref{Table2} in Appendix \ref{app:test} should be completed to do basic arithmetic expression tests.
+\begin{algorithm}[th]
+\caption{ The Newton-Raphson method }
+\begin{algorithmic}[1]
+\STATE Initialise root based on estimate
+\STATE Set stop criterion
+\\ \texttt{const double error = 0.000001;}
+\WHILE {stop criterion not met}
+	\STATE Compute f(root)
+	\STATE Compute f'(root)
+	\STATE root := root - f(root)/f'(root)
+\ENDWHILE
+\end{algorithmic}
+\end{algorithm}
 
 
-    \chapter{Discussion, conclusion and future work}
+Note that code snippets or lists of crucial programming code or large UML diagrams should go in Appendix \ref{app:other} (or further appendices).
 
-    Briefly discuss your achievements and put them in perspective with the MoSCoW analysis you specified in Table \ref{Table1}. Also discuss future developments and how you see the deliverable improving if more time could be spent. Note that this section should not be used as a medium to vent frustrations on whatever did not work out (group issues, not enough time, illness, etc.) as this should be dealt with separately - keep it professional!
+\subsection{Testing}
+
+Describe what testing you have done on the interpreter (lexer, parser and execution), GUI and GUI-Interpreter communication, plotting, etc. Table \ref{Table2} in Appendix \ref{app:test} should be completed to do basic arithmetic expression tests.
 
 
-    \bibliographystyle{apalike}
+\chapter{Discussion, conclusion and future work}
+
+Briefly discuss your achievements and put them in perspective with the MoSCoW analysis you specified in Table \ref{Table1}. Also discuss future developments and how you see the deliverable improving if more time could be spent. Note that this section should not be used as a medium to vent frustrations on whatever did not work out (group issues, not enough time, illness, etc.) as this should be dealt with separately - keep it professional!
+
+
+\bibliographystyle{apalike}
 %\raggedright
-    \bibliography{References}
+\bibliography{References}
 
 
-    \appendix
-    \chapter{Contributions}
-    \section{Contribution Table}
-    Here is a table of our contributions. \\
+\appendix
+\chapter{Contributions} 
+\section{Contribution Table}
+Here is a table of our contributions. \\
 
-    \begin{table}[h]
-        \begin{tabular}{|l|l|l|l|l|}
-            \hline
-            & Aaron Hurrell & Ethan Colman & Taylor Holton & Evelyn Stanfield \\ \hline
-            Percentage Contributed &               &              &               &                  \\ \hline
-        \end{tabular}
-    \end{table}
+\begin{table}[h]
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+                       & Aaron Hurrell & Ethan Colman & Taylor Holton & Evelyn Stanfield \\ \hline
+Percentage Contributed &               &              &               &                  \\ \hline
+\end{tabular}
+\end{table}
 
-    \section{Aaron Hurrell Contributions}
-    \subsection{GUI Contributions}
-    I have not contributed to the Graphics User Interface.
-    \subsection{Interpreter Contributions}
-    \subsection{Report Contributions}
+\section{Aaron Hurrell Contributions}
+\subsection{GUI Contributions}
+I have not contributed to the Graphics User Interface.
+\subsection{Interpreter Contributions}
+\subsection{Report Contributions}
 
-    \section{Ethan Colman Contributions}
-    \subsection{GUI Contributions}
-    \subsection{Interpreter Contributions}
-    \subsection{Report Contributions}
+\section{Ethan Colman Contributions}
+\subsection{GUI Contributions}
+\subsection{Interpreter Contributions}
+\subsection{Report Contributions}
 
-    \section{Taylor Holton Contributions}
-    \subsection{GUI Contributions}
-    \subsection{Interpreter Contributions}
-    \subsection{Report Contributions}
+\section{Taylor Holton Contributions}
+\subsection{GUI Contributions}
+\subsection{Interpreter Contributions}
+\subsection{Report Contributions}
 
-    \section{Evelyn Stanfield Contributions}
-    \subsection{GUI Contributions}
-    \subsection{Interpreter Contributions}
-    \subsection{Report Contributions}
+\section{Evelyn Stanfield Contributions}
+\subsection{GUI Contributions}
+\subsection{Interpreter Contributions}
+\subsection{Report Contributions}
 
-    State here the \% contribution to the project of each individual member of the group and describe in brief what each member has done (if this corresponds to particular sections in the report then please specify these).
+State here the \% contribution to the project of each individual member of the group and describe in brief what each member has done (if this corresponds to particular sections in the report then please specify these).
 
-    \chapter{Testing}
-    \label{app:test}
-    \section{Arithmetic expression testing}
+\chapter{Testing}
+\label{app:test}
+\section{Arithmetic expression testing} \label{ArithTest}
 
-    \begin{table}[h]
-        \caption{Arithmetic expression tests. Note that floating pointing values are accurate to three decimal places for the fractional part. ResE is expected result and ResA is actual result. \\}
-        \begin{tabular}{|p{1.8in}|p{0.5in}|p{0.6in}|p{0.6in}|p{1.4in}|} \hline
-        Expression & ResE & ResA& Pass/Fail & Action/comment \\ \hline \hline
-        $5*3+(2*3-2)/2+6$ & 23 & 23 & Pass &  ... \\ \hline
-        $9-3-2$ & 4 & 4& Pass & left assoc.\  \\ \hline
-        $10/3$ & 3 & 3& Pass & int division  \\ \hline
-        $10/3.0$ & 3.333 & 3.3333333& Pass & float division \\ \hline
-        $10\%3$ & 1 & 1& Pass & \\ \hline
-        $10 - -2$ & 12 & 12& Pass & unary minus\\ \hline
-        $-2 + 10$ & 8 & 8& Pass & \\ \hline
-        $3*5\verb|^|(-1+3)-2\verb|^|2*-3$ & 87 & 87& Pass & power test \\ \hline
-        $-3\verb|^|2$ & -9(*) or 9 & 9& Pass & precedence \\ \hline
-        $-7\%3$ & 2(*) or -1 & -1& Pass & precedence (*)Python\\ \hline
-        $2*3^2$ & 18 & 18& Pass & precedence pow > mult \\ \hline
-        $3*5\verb|^|(-1+3)-2\verb|^|-2*-3$ & 75.750 or 75 & 75& Pass & \\ \hline
-        $3*5\verb|^|(-1+3)-2.0\verb|^|-2*-3$ & 75.750 &75.75 & Pass & \\ \hline
-        $(((3*2--2)))$ & 8 & 8& Pass & \\ \hline
-        $(((3*2--2))$ & Error &Error & Pass & syntax error \\ \hline
-        $-((3*5-2*3))$ & -9 & -9& Pass &  minus expression \\ \hline
-        $x = 3; (2*x)-x\verb|^|2*5$ & -39 & -39& Pass & var assign \\ \hline
-        $x = 3; (2*x)-x\verb|^|2*5/2$ & -16 & -16 & Pass & \\ \hline
-        $x = 3; (2*x)-x\verb|^|2*(5/2)$ & -12 &  -12 & Pass & \\ \hline
-        $x = 3; (2*x)-x\verb|^|2*5/2.0$ & -16.5 & -16.5 & Pass & \\ \hline
-        $x = 3; (2*x)-x\verb|^|2*5\%2$ & 5 & 5 & Pass &  \\ \hline
-        $x = 3; (2*x)-x\verb|^|2*(5\%2)$ & -3 &  -3 & Pass &  \\ \hline
-        ... & ... & ... & ... & ... \\ \hline
-        \end{tabular}
-        \label{Table2}
-    \end{table}
+% UNIT TESTS UNIT TESTS UNIT TESTS UNIT TESTS UNIT TESTS UNIT TESTS UNIT TESTS UNIT TESTS UNIT TESTS
+\begin{table}
+\centering
+\caption{Rational Tests. Note that floating pointing values are accurate to three decimal places for the fractional part. ResE is expected result and ResA is actual result. \\}
+\label{Table2}
+\begin{tabular}{|p{1.5in}|p{1.5in}|p{1.6in}|p{1.6in}|p{2.4in}|} 
+\hline
+TEST NAME       & INPUT                     & EXPECTED RESULT/OUTCOME                & COMMENTS                                \\ 
+\hline
+T1.Int          & "3"                       & 3                                      &                                         \\ 
+\hline
+T1.Flt          & "3.5"                     & 3.5                                    &                                         \\ 
+\hline
+T1.Add          & "1 + 1"                   & 2                                      &                                         \\ 
+\hline
+T1.Sub          & "2 - 1"                   & 1                                      &                                         \\ 
+\hline
+T1.Mult         & "2 * 2"                   & 4                                      &                                         \\ 
+\hline
+T1.Div          & "4 / 2"                   & 2                                      &                                         \\ 
+\hline
+T1.Pow          & "2 \^{} 3"                & 8                                      &                                         \\ 
+\hline
+T1.UnaryPlus    & "+ 3 + 4"                 & 7                                      &                                         \\ 
+\hline
+T1.UnaryMinus   & -7 - 3"                   & -10                                    &                                         \\ 
+\hline
+T1.Brackets     & "(3 + 4)"                 & 7                                      &                                         \\ 
+\hline
+T1.BIDMAS1      & "3*(3+4)"                 & 12                                     & parentheses precedence                  \\ 
+\hline
+T1.BIDMAS2      & "3*7\^{}2"                & 147                                    & index precedence                        \\ 
+\hline
+T1.BIDMAS3      & "6+6/12"                  & 6.5                                    & division precedence over add/sub        \\ 
+\hline
+T1.BIDMAS4      & "3+2*10"                  & 23                                     & multiplication precedence over add/sub  \\ 
+\hline
+T2.BadAssign1   & - 30"                     & Error                                  &                                         \\ 
+\hline
+T2.BadAssign2   & "foo ="                   & Error                                  &                                         \\ 
+\hline
+T2.BadAssign3   & "foo = seventy"           & Error                                  & binding ßeventy" not in table           \\ 
+\hline
+T2.AssignNum    & "foo = 3"                 & 3 (Symbol Table should have updated)   &                                         \\ 
+\hline
+T2.Call         & "foo = 3 "foo"            & 3, 3                                   &                                         \\ 
+\hline
+T2.InExpression & "foo = 3 "foo + 2"        & 3, 5                                   &                                         \\ 
+\hline
+T2.VarAsArg     & "foo = 3 "bar = foo "bar" & "3 "3 "3"                              &                                         \\ 
+\hline
+T2.Chain        & "foo = bar = 3 "foo "bar" & "3 "3 "3"                              &                                         \\ 
+\hline
+T2.Reassign     & "foo = 3 "foo = 2 "foo"   & "3"2 "2"                               &                                         \\ 
+\hline
+T2.AssignFloat  & "foo = 3.5"               & 3.5 (Symbol Table should have updated) &                                         \\ 
+\hline
+T4.Sin90        & ßin 90"                   & 1                                      &                                         \\ 
+\hline
+T4.Cos0         & "cos 0"                   & 1                                      &                                         \\ 
+\hline
+T4.Sin0         & ßin 0"                    & 0                                      &                                         \\ 
+\hline
+T4.Cos90        & "cos 90"                  & 0                                      &                                         \\ 
+\hline
+T4.Sin45        & ßin 45"                   & 0.7071067812                           &                                         \\ 
+\hline
+T4.Cos45        & "cos 45"                  & 0.7071067812                           &                                         \\ 
+\hline
+T4.Tan0         & "tan 0"                   & 0                                      &                                         \\ 
+\hline
+T4.Tan45        & "tan 45"                  & 1                                      &                                         \\ 
+\hline
+T4.Tan180       & "tan 180"                 & undefined or Error                     &                                         \\ 
+\hline
+T4.ASin1        & äsin 1"                   & 90                                     &                                         \\ 
+\hline
+T4.ACos0        & äcos 0"                   & 90                                     &                                         \\ 
+\hline
+T4.ASin0        & äsin 0"                   & 0                                      &                                         \\ 
+\hline
+T4.ACos1        & äcos 1"                   & 0                                      &                                         \\ 
+\hline
+T4.ASin0.7      & äsin 0.7071067812"        & 45                                     &                                         \\ 
+\hline
+T4.ACos0.7      & äcos 0.7071067812"        & 45                                     &                                         \\ 
+\hline
+\end{tabular}
+\end{table}
 
-    \section{GUI testing}
 
-    \section{Plotting testing}
+\begin{table}
+\centering
+\caption{Rational Tests. Note that floating pointing values are accurate to three decimal places for the fractional part. ResE is expected result and ResA is actual result. \\}
+\label{Table2}
+\begin{tabular}{|p{1.5in}|p{1.5in}|p{1.6in}|p{1.6in}|p{2.4in}|} 
+\hline
+TEST NAME       & INPUT                     & EXPECTED RESULT/OUTCOME                & COMMENTS                                \\ 
+\hline
+T4.ATan0        & ätan 0"                   & 0                                      &                                         \\ 
+\hline
+T4.ATan1        & ätan 1"                   & 45                                     &                                         \\ 
+\hline
+T4.ATanLarge    & "tan 999"                 & 89.94264689                            & as x increases atan x approaches 180    \\ 
+\hline
+T4.ASinRange1   & äsin 2"                   & Error                                  &                                         \\ 
+\hline
+T4.ASinRange2   & äsin -2"                  & Error                                  &                                         \\ 
+\hline
+T4.ACosRange1   & äcos 2"                   & Error                                  &                                         \\ 
+\hline
+T4.ACosRange2   & äcos -2"                  & Error                                  &                                         \\ 
+\hline
+T4.LnE          & "ln 2.71828182846"        & 1                                      & as x increases atan x approaches 180    \\ 
+\hline
+T4.Ln0          & "ln 0"                    & undefined or Error                     &                                         \\ 
+\hline
+T4.LogX\_Y      & "log 2 8"                 & 3                                      &                                         \\ 
+\hline
+T4.LogX\_X      & "log 2 2"                 & 1                                      &                                         \\ 
+\hline
+T4.Log0         & "log 2 0"                 & undefined or Error                     &                                         \\ 
+\hline
+T4.Exp          & ë\^{}1"                   & 2.718281828                            &                                         \\
+\hline
+\end{tabular}
+\end{table}
 
-    \section{Trigonometric and Logarithmic Function Testing}
-    \section{Functions Testing}
-    \section{Pi and Abs Testing}
-    \section{Static Type System Testing}
-    \section{Rational Number Testing}
-    \section{Boolean Testing}
-    \section{Count-Controlled Loop Testing}
 
-    \chapter{Other stuff}
-    \section{Wolfram Alpha Images:Plotted} \label{WolframPlotted}
+\begin{table}
+\centering
+\caption{Rational Tests. Note that floating pointing values are accurate to three decimal places for the fractional part. ResE is expected result and ResA is actual result. \\}
+\label{Table2}
+\begin{tabular}{|p{1.5in}|p{1.5in}|p{1.6in}|p{1.6in}|p{2.4in}|} 
+\hline
+T5.FuncDec     & "fn foo (x) = x + 3"                           & 0 (Symbol Table should have updated)     & function declaration always returns 0  \\ 
+\hline
+T5.BadAssign1  & "foo (x) = x + 3"                              & Error                                    &                                        \\ 
+\hline
+T5.BadAssign2  & "fn (x) = x + 3"                               & Error                                    &                                        \\ 
+\hline
+T5.BadAssign3  & "fn foo (x) = 3"                               & Error                                    & too many params                        \\ 
+\hline
+T5.Call        & "fn foo(x) = x + 3 "foo(2)"                    & 0, 5                                     &                                        \\ 
+\hline
+T5.BadCall1    & "fn foo(x) = x + 3 "foo()"                     & 0, Error                                 &                                        \\ 
+\hline
+T5.BadCall2    & "fn foo(x) = x + 3 "foo(3 4)"                  & 0, Error                                 & two args                               \\ 
+\hline
+T5.InExp       & "fn foo(x) = x + 3 "3 + foo(3)"                & 0, 9                                     &                                        \\ 
+\hline
+T5.Reassign    & "fn foo(x) = x + 3 "fn foo(x) = x + 2 "foo(3)" & 0, 5                                     &                                        \\ 
+\hline
+T6.Pi          & "pi"                                           & 3.141592654                              &                                        \\ 
+\hline
+T6.AbsNegInt   & äbs -1"                                        & 1                                        &                                        \\ 
+\hline
+T6.AbsNegFlt   & äbs -1.5"                                      & 1.5                                      &                                        \\ 
+\hline
+T6.AbsPosInt   & äbs 1"                                         & 1                                        &                                        \\ 
+\hline
+T6.AbsPosFlt   & äbs 1.5"                                       & 1.5                                      &                                        \\ 
+\hline
+T7.AutoInt     & "var foo = 1"                                  & 1 (Symbol Table should have updated)     &                                        \\ 
+\hline
+T7.AutoFlt     & "var foo = 1.5"                                & 1.5 (Symbol Table should have updated)   &                                        \\ 
+\hline
+T7.AutoBad     & "var foo = seventy"                            & Error                                    & binding ßeventy" not in table          \\ 
+\hline
+T7.IntInt      & ïnt foo = 1"                                   & 1 (Symbol Table should have updated)     &                                        \\ 
+\hline
+T7.IntFlt      & ïnt foo = 1.5"                                 & Error                                    & type mismatch                          \\ 
+\hline
+T7.IntBad      & ïnt foo = seventy"                             & Error                                    & binding ßeventy" not in table          \\ 
+\hline
+T7.FltInt      & "float foo = 1"                                & Error                                    & type mismatch                          \\ 
+\hline
+T7.FltFlt      & "float foo = 1.5"                              & 1.5 (Symbol Table should have updated)   &                                        \\ 
+\hline
+T7.FltBad      & "float foo = seventy"                          & Error                                    & binding ßeventy" not in table          \\ 
+\hline
+T7.ReIntInt    & ïnt foo = 1 "foo = 2"                          & "1 "2"                                   &                                        \\ 
+\hline
+T7.ReFltFlt    & "float foo = 1.5 "foo = 2.5"                   & "1.5 "2.5"                               &                                        \\ 
+\hline
+T7.ReFltInt    & "float foo = 1.5 "foo = 1"                     & Error                                    & type mismatch                          \\ 
+\hline
+T7.ReIntFlt    & ïnt foo = 1 "foo = 1.5"                        & Error                                    & type mismatch                          \\ 
+\hline
+T8.Rational    & "frac 3/5"                                     & "3/5"                                    &                                        \\ 
+\hline
+T8.Simplify    & "frac 60/100"                                  & "3/5"                                    &                                        \\ 
+\hline
+T8.Add         & "frac 30/100 + frac 30/100"                    & "3/5"                                    & = 60/100 = 3/5                         \\ 
+\hline
+T8.Sub         & "frac 60/100 - frac 30/100"                    & "3/10"                                   & = 30/100 = 3/10                        \\ 
+\hline
+T8.Div         & "frac 50/100 / frac 2/1"                       & "1/4"                                    & = 25/100 = 1/4                         \\ 
+\hline
+T8.Mult        & "frac 50/100 * frac 1/2"                       & "1/4"                                    & = 25/100 = 1/4                         \\ 
+\hline
+T8.Pow         & "frac 3/2 \^{} 2"                              & "9/4"                                    &                                        \\ 
+\hline
+T8.FracPow     & "frac 9/4 \^{} 1/2"                            & "3/2"                                    &                                        \\ 
+\hline
+T8.AddInt      & "frac 3/2 + 1"                                 & "5/2"                                    &                                        \\ 
+\hline
+T8.AddFlt      & "frac 3/2 + 0.123456789"                       & "1623456789/1000000000"                  &                                        \\ 
+\hline
+T8.SubInt      & "frac 3/2 - 1"                                 & "1/2"                                    &                                        \\ 
+\hline
+T8.SubFlt      & "frac 3/2 - 0.123456789"                       & "1376543211/1000000000"                  &                                        \\ 
+\hline
+T8.DivInt      & "frac 3/2 / 2"                                 & 3/4                                      &                                        \\ 
+\hline
+T8.DivFlt      & "frac 3/4 / 0.54321"                           & "138068140439057/100000000000"           &                                        \\ 
+\hline
+T8.MultInt     & "frac 3/2 * 7"                                 & "21/2"                                   &                                        \\ 
+\hline
+T8.MultFlt     & "frac 3/2 * 0.54321"                           & "162963/400000"                          &                                        \\ 
+\hline
+T8.AssignFrac1 & "frac foo = frac 3/2"                          & "3/2" (Symbol Table should have updated) &                                        \\ 
+\hline
+T8.AssignFrac2 & "foo = frac 3/2"                               & "3/2" (Symbol Table should have updated) &                                        \\ 
+\hline
+T8.AssignFrac3 & "var foo = frac 3/2"                           & "3/2" (Symbol Table should have updated) &                                        \\ 
+\hline
+T8.ReIntFrac   & "foo = 1 "foo = frac 3/2"                      & "1 "3/2"                                 &                                        \\ 
+\hline
+T8.ReFltFrac   & "foo = 1.5 "foo = frac 3/2"                    & "1.5 "3/2"                               &                                        \\ 
+\hline
+T8.ReFracInt   & "foo = frac 3/2 "foo = 1"                      & "3/2 "1"                                 &                                        \\ 
+\hline
+T8.ReFracFlt   & "foo = frac 3/2 "foo = 1.5"                    & "3/2 "1.5"                               &                                        \\
+\hline
+\end{tabular}
+\end{table}
 
-    \includegraphics[width=160mm]{Screenshot 2025-01-03 161746.png} \\
+
+\begin{table}
+\centering
+\caption{Rational Tests. Note that floating pointing values are accurate to three decimal places for the fractional part. ResE is expected result and ResA is actual result. \\}
+\label{Table2}
+\begin{tabular}{|p{1.5in}|p{1.5in}|p{1.6in}|p{1.6in}|p{2.4in}|} 
+\hline
+T9.Assign                         & "foo = true"                            & "true"        &                \\ 
+\hline
+T9.AssignAuto                     & "var foo = true"                        & "true"        &                \\ 
+\hline
+T9.AssignBool                     & "bool foo = true"                       & "true"        &                \\ 
+\hline
+T9.ReBoolBool                     & "foo = true "foo = false"               & "true "false" &                \\ 
+\hline
+T9.ReBoolInt                      & "foo = true "foo = 1"                   & Error         & type mismatch  \\ 
+\hline
+T9.ReBoolFlt                      & "foo = true "foo = 1.5"                 & Error         & type mismatch  \\ 
+\hline
+T9.ReBoolFrac                     & "foo = true "foo = frac 3/2"            & Error         & type mismatch  \\ 
+\hline
+T9.AddInt                         & "true + 3"                              & "4"           &                \\ 
+\hline
+T9.AddFlt                         & "true + 1.5"                            & "2.5"         &                \\ 
+\hline
+T9.AddFrac                        & "false + frac 3/2"                      & "3/2"         &                \\ 
+\hline
+T9.SubInt                         & "false - 3"                             & -3"           &                \\ 
+\hline
+T9.SubFlt                         & "false - 2.5"                           & -2.5"         &                \\ 
+\hline
+T9.SubFrac                        & "true - frac 1/2"                       & "1/2"         &                \\ 
+\hline
+T9.DivInt                         & "true / 2"                              & "0.5"         &                \\ 
+\hline
+T9.DivFlt                         & "true / 0.8"                            & "1.25"        &                \\ 
+\hline
+T9.DivFrac                        & "true / frac 1/2"                       & "2/1"         &                \\ 
+\hline
+T9.MultInt                        & "false * 1"                             & "0"           &                \\ 
+\hline
+T9.MultFlt                        & "true * 0.7855"                         & "0.7855"      &                \\ 
+\hline
+T9.MultFrac                       & "true * frac 34/77"                     & "34/77"       &                \\ 
+\hline
+T9.PowInt                         & "true \^{} 2"                           & "1 "0"        &                \\ 
+\hline
+T9.PowFlt                         & "false \^{} 0.5"                        & "1 "0"        &                \\ 
+\hline
+T9.PowFrac                        & "true \^{} frac 1/2"                    & "1 "0"        &                \\ 
+\hline
+T9.And1                           & "true  true"                            & "true"        &                \\ 
+\hline
+T9.And2                           & "true  false"                           & "false"       &                \\ 
+\hline
+T9.And3                           & "false  false"                          & "false"       &                \\ 
+\hline
+T9.Or1                            & "true \textbar{}\textbar{} true"        & "true"        &                \\ 
+\hline
+T9.Or2                            & "true \textbar{}\textbar{} false"       & "true"        &                \\ 
+\hline
+T9.Or3                            & "false \textbar{}\textbar{} false"      & "false"       &                \\ 
+\hline
+T9.Not                            & "!true"                                 & "false"       &                \\ 
+\hline
+T9.Equals1                        & "9 == 9"                                & "true"        &                \\ 
+\hline
+T9.Equals2                        & "9 == 8"                                & "false"       &                \\ 
+\hline
+T9.Less1                          & "9  10"                                 & "true"        &                \\ 
+\hline
+T9.Less2                          & "10  9"                                 & "false"       &                \\ 
+\hline
+T9.Less3                          & "9  9"                                  & "false"       &                \\ 
+\hline
+T9.Greater1                       & "10  9"                                 & "true"        &                \\ 
+\hline
+T9.Greater2                       & "9  10"                                 & "false"       &                \\ 
+\hline
+T9.Greater3                       & "9  9"                                  & "false"       &                \\ 
+\hline
+T9.BadLogical                     & "true  9"                               & Error         &                \\ 
+\hline
+T9.BadLogical\textbar{}\textbar{} & "true \textbar{}\textbar{} 9"           & Error         &                \\ 
+\hline
+T10.NormalUse                     & "foo = 3" "for (3) \{foo = foo + 3\}"   & "3 "12"       &                \\ 
+\hline
+T10.NonIntCount                   & "foo = 3" "for (0.3) \{foo = foo + 3\}" & Error         &                \\ 
+\hline
+F.LessEq1                         & "9 = 10"                                & "true"        &                \\ 
+\hline
+F.LessEq2                         & "10 = 9"                                & "false"       &                \\ 
+\hline
+F.LessEq3                         & "9 = 9"                                 & "true"        &                \\ 
+\hline
+F.GreaterEq1                      & "10 = 9"                                & "true"        &                \\ 
+\hline
+F.GreaterEq2                      & "9 = 10"                                & "false"       &                \\ 
+\hline
+F.GreaterEq3                      & "9 = 9"                                 & "true"        &                \\
+\hline
+\end{tabular}
+\end{table}
+% UNIT TESTS UNIT TESTS UNIT TESTS UNIT TESTS UNIT TESTS UNIT TESTS UNIT TESTS UNIT TESTS UNIT TESTS
+
+\clearpage
+\begin{table}[h]
+\caption{Arithmetic expression tests. Note that floating pointing values are accurate to three decimal places for the fractional part. ResE is expected result and ResA is actual result. \\}
+\begin{tabular}{|p{1.8in}|p{0.5in}|p{0.6in}|p{0.6in}|p{1.4in}|} \hline
+Expression & ResE & ResA& Pass/Fail & Action/comment \\ \hline \hline
+$5*3+(2*3-2)/2+6$ & 23 & 23 & Pass &  ... \\ \hline
+$9-3-2$ & 4 & 4& Pass & left assoc.\  \\ \hline
+$10/3$ & 3 & 3& Pass & int division  \\ \hline
+$10/3.0$ & 3.333 & 3.3333333& Pass & float division \\ \hline
+$10\%3$ & 1 & 1& Pass & \\ \hline
+$10 - -2$ & 12 & 12& Pass & unary minus\\ \hline
+$-2 + 10$ & 8 & 8& Pass & \\ \hline
+$3*5\verb|^|(-1+3)-2\verb|^|2*-3$ & 87 & 87& Pass & power test \\ \hline
+$-3\verb|^|2$ & -9(*) or 9 & 9& Pass & precedence \\ \hline
+$-7\%3$ & 2(*) or -1 & -1& Pass & precedence (*)Python\\ \hline
+$2*3^2$ & 18 & 18& Pass & precedence pow > mult \\ \hline
+$3*5\verb|^|(-1+3)-2\verb|^|-2*-3$ & 75.750 or 75 & 75& Pass & \\ \hline
+$3*5\verb|^|(-1+3)-2.0\verb|^|-2*-3$ & 75.750 &75.75 & Pass & \\ \hline
+$(((3*2--2)))$ & 8 & 8& Pass & \\ \hline 
+$(((3*2--2))$ & Error &Error & Pass & syntax error \\ \hline
+$-((3*5-2*3))$ & -9 & -9& Pass &  minus expression \\ \hline
+$x = 3; (2*x)-x\verb|^|2*5$ & -39 & -39& Pass & var assign \\ \hline
+$x = 3; (2*x)-x\verb|^|2*5/2$ & -16 & -16 & Pass & \\ \hline
+$x = 3; (2*x)-x\verb|^|2*(5/2)$ & -12 &  -12 & Pass & \\ \hline
+$x = 3; (2*x)-x\verb|^|2*5/2.0$ & -16.5 & -16.5 & Pass & \\ \hline
+$x = 3; (2*x)-x\verb|^|2*5\%2$ & 5 & 5 & Pass &  \\ \hline
+$x = 3; (2*x)-x\verb|^|2*(5\%2)$ & -3 &  -3 & Pass &  \\ \hline
+... & ... & ... & ... & ... \\ \hline
+\end{tabular}
+\label{Table2}
+\end{table}
+
+\section{GUI testing}\label{GUITest}
+
+\section{Plotting testing}\label{PlotTest}
+\section{Variable Assignment Testing}\label{VarAssTest}
+% \usepackage{hhline}
 
 
-    \section{Wolfram Alpha Images:Non-Plotted}\label{WolframUnplotted}
+\begin{table}[h]
+\centering
+\caption{Variable Assignment tests. Note that floating pointing values are accurate to three decimal places for the fractional part. ResE is expected result and ResA is actual result. \\}
+\label{Table2}
+\begin{tabular}{|p{1.8in}|p{0.5in}|p{0.6in}|p{0.6in}|p{1.4in}|} 
+\hline
+Expression                          & ResE  & ResA & Pass/Fail & Action/comment  \\ 
+\hline \hline
+$int x = 10; x$                     & 10    &      &           &                 \\ 
+\hline
+$int x = 1; int five = 1; x + five$ & 2     &      &           &                 \\ 
+\hline
+$float n = 10.2; n = 10;n$          & 10.0  &      &           &                 \\ 
+\hline
+$float y = 1.2; float y = 1.3;y$    & Error &      &           &                 \\ 
+\hline
+\$\$                                &       &      &           &                 \\ 
+\hline
+\$\$                                &       &      &           &                 \\ 
+\hline
+\$\$                                &       &      &           &                 \\
+\hline
+\end{tabular}
+\end{table}
 
-    \includegraphics[width = 160mm]{Screenshot 2025-01-03 162013.png} \\
 
-    \label{app:other}
+\section{Trigonometric and Logarithmic Function Testing}\label{TrigTest}
+
+\begin{table}[h]
+\centering
+\caption{Trigonometric and Logarithmic Function Tests. Note that floating pointing values are accurate to three decimal places for the fractional part. ResE is expected result and ResA is actual result. \\}
+\label{Table3}
+\begin{tabular}{|l|l|l|l|l|} 
+\hline
+Expression                  & ResE                            & ResA & Pass/Fail & Action/comment  \\ 
+\hline \hline
+$sin 30$                    & 0.5                             &      &           &                 \\ 
+\hline
+$sin 270$                   & -1                              &      &           &                 \\ 
+\hline
+$sin -20$                   & -0.3420201433                   &      &           &                 \\ 
+\hline
+$sin 2000$                  & -0.342020143                    &      &           &                 \\ 
+\hline
+$sin two$                 & error                           &      &           &                 \\ 
+\hline
+$int two = 30; sin two$   & 0.5                             &      &           &                 \\ 
+\hline
+$cos 60$                  & 0.5                             &      &           &                 \\ 
+\hline
+$cos 360$                 & 1                               &      &           &                 \\ 
+\hline
+$cos -80$                 & 0.1736481777                    &      &           &                 \\ 
+\hline
+$cos -1920$               & -0.5                            &      &           &                 \\ 
+\hline
+$cos cosine$              & error                           &      &           &                 \\ 
+\hline
+$int two = 60; cos two$   & 0.5                             &      &           &                 \\ 
+\hline
+$tan 90$                  & Error-\textgreater{} undefined  &      &           &                 \\ 
+\hline
+$tan 180$                 & 0                               &      &           &                 \\ 
+\hline
+$tan -300$                & 1.732050808                     &      &           &                 \\ 
+\hline
+$tan tany$                & error                           &      &           &                 \\ 
+\hline
+$int two = 180; tan two$  & 0                               &      &           &                 \\ 
+\hline
+$asin 0.5$                & 30                              &      &           &                 \\ 
+\hline
+$asin -1$                 & -90                             &      &           &                 \\ 
+\hline
+$asin -0.3420201433$      & 20                              &      &           &                 \\ 
+\hline
+$asin test$               & error                           &      &           &                 \\ 
+\hline
+$int two = 0.5; asin two$ & 30                              &      &           &                 \\ 
+\hline
+$asin 1.5$                & Error -\textgreater{} undefined &      &           &                 \\ 
+\hline
+$asin -1.5$               & Error - undefined               &      &           &                 \\ 
+\hline
+$acos 0.5$                & 60                              &      &           &                 \\ 
+\hline
+$acos -1$                 & 180                             &      &           &                 \\ 
+\hline
+$acos 0.1736481777$       & 80                              &      &           &                 \\ 
+\hline
+$acos test$               & Error                           &      &           &                 \\ 
+\hline
+$int two = 0.5; acos two$ & 60                              &      &           &                 \\ 
+\hline
+$acos 1.5$                & Error - undefined               &      &           &                 \\ 
+\hline
+$acos -1.5$               & Error - undefined               &      &           &                 \\ 
+\hline
+$ atan 1$                 & 45                              &      &           &                 \\ 
+\hline
+$ atan 0.3$               & 16.69924423                     &      &           &                 \\ 
+\hline
+$ atan 01.732050808$      & 60                              &      &           &                 \\ 
+\hline
+$ atan test$              & Error                           &      &           &                 \\ 
+\hline
+$int two = 0.5; atan two$ & 26.56505118                     &      &           &                 \\ 
+\hline
+$ atan 1.5$               & 56.30993247                     &      &           &                 \\ 
+\hline
+$ logNat 1$               & 0                               &      &           &                 \\ 
+\hline
+$ logNat 20$              & 2.995732274                     &      &           &                 \\ 
+\hline
+$ logNat 359$             & 5.883322388                     &      &           &                 \\ 
+\hline
+$ logNat -1$              & Error - undefined               &      &           &                 \\ 
+\hline
+$ logNum 10 100$          & 2                               &      &           &                 \\ 
+\hline
+$ logNum -2 10$           & Error                           &      &           &                 \\ 
+\hline
+$ logNum 2 -4$            & Error                           &      &           &                 \\
+\hline
+\end{tabular}
+\end{table}
+
+\section{Functions Testing}\label{FuncTest}
+\section{Pi and Abs Testing}\label{PiTest}
+
+\begin{table}[h]
+\centering
+\caption{Pi and Abs Tests. Note that floating pointing values are accurate to three decimal places for the fractional part. ResE is expected result and ResA is actual result. \\}
+\label{Table4}
+\begin{tabular}{|l|l|l|l|l|} 
+\hline
+Expression       & ResE        & ResA & Pass/Fail & Action/comment  \\ 
+\hline \hline
+$pi$             & 3.141592654 &      &           &                 \\ 
+\hline
+$2*pi$           & 6.283185307 &      &           &                 \\ 
+\hline
+$pi^2$           & 9.869604401 &      &           &                 \\ 
+\hline
+$int pi = pi;pi$ & Error       &      &           &                 \\ 
+\hline
+$ abs -2.5 $   & 2.5         &      &           &                 \\ 
+\hline
+$ abs 2.5 $    & 2.5         &      &           &                 \\ 
+\hline
+$ abs text $   & Error       &      &           &                 \\
+\hline
+\end{tabular}
+\end{table}
+
+\section{Static Type System Testing}\label{StaticTest}
+\section{Rational Number Testing}\label{RationTest}
+\section{Boolean Testing}\label{BoolTest}
+
+\begin{table}
+\centering
+\caption{Boolean Tests. Note that floating pointing values are accurate to three decimal places for the fractional part. ResE is expected result and ResA is actual result. \\}
+\label{Table5}
+\begin{tabular}{|l|l|l|l|l|} 
+\hline
+Expression       & ResE  & ResA & Pass/Fail & Action/comment  \\ 
+\hline \hline
+$true$           & true  &      &           &                 \\ 
+\hline
+$false$          & false &      &           &                 \\ 
+\hline
+$!true$          & false &      &           &                 \\ 
+\hline
+$!false$         & true  &      &           &                 \\ 
+\hline
+$ !!true $     & true  &      &           &                 \\ 
+\hline
+$12$           & true  &      &           &                 \\ 
+\hline
+$ -1020 $      & true  &      &           &                 \\ 
+\hline
+$45<21$          & false &      &           &                 \\ 
+\hline
+$23 < -12$       & false &      &           &                 \\ 
+\hline
+$2>1$            & true  &      &           &                 \\ 
+\hline
+$20>-10$         & true  &      &           &                 \\ 
+\hline
+$21>45$          & false &      &           &                 \\ 
+\hline
+$-12>23$         & false &      &           &                 \\ 
+\hline
+$2<=2$           & true  &      &           &                 \\ 
+\hline
+$2<=3$           & true  &      &           &                 \\ 
+\hline
+$2=<3$           & Error &      &           &                 \\ 
+\hline
+$102 <= 100$     & false &      &           &                 \\ 
+\hline
+$102 >= 102$     & true  &      &           &                 \\ 
+\hline
+$98 >= 105$      & false &      &           &                 \\ 
+\hline
+$7 == 7$         & true  &      &           &                 \\ 
+\hline
+$67 == 21$       & false &      &           &                 \\ 
+\hline
+$21<34 == 45>1$  & true  &      &           &                 \\ 
+\hline
+$true || true$   & true  &      &           &                 \\ 
+\hline
+$true || false$  & true  &      &           &                 \\ 
+\hline
+$false || false$ & false &      &           &                 \\ 
+\hline
+$true \&\& false$  & false &      &           &                 \\ 
+\hline
+$false \&\& false$ & false &      &           &                 \\ 
+\hline
+$true \&\& true$   & true  &      &           &                 \\ 
+\hline
+...              & ...   & ...  & ...       & ...             \\
+\hline
+\end{tabular}
+\end{table}
+
+\section{Count-Controlled Loop Testing}\label{CounTConTest}
+
+\chapter{Other stuff}
+\section{Wolfram Alpha Images:Plotted} \label{WolframPlotted}
+
+\includegraphics[width=160mm]{Screenshot 2025-01-03 161746.png} \\
+
+
+\section{Wolfram Alpha Images:Non-Plotted}\label{WolframUnplotted}
+
+\includegraphics[width = 160mm]{Screenshot 2025-01-03 162013.png} \\
+
+\label{app:other}
 \end{document}
 
