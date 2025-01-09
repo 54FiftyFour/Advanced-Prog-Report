@@ -29,7 +29,7 @@
 \vspace{1.5cm}
 \\{\LARGE Maths Interpreter software} % You can add to this title of modify it if you wish
 \vspace{1.0cm}
-\\{\Large Group members: \\ Ethan Colman, Taylor Holton, Aaron Hurrell, Evelyn Stansfield.\ }
+\\{\Large Group members: \\ Ethan Colman, Taylor Holton, Aaron Hurrell, Connor Stansfield.\ }
 \vspace{10.0cm}
 \\{\large School of Computing Sciences, University of East Anglia}
 \\ \rule{12cm}{0.5mm}
@@ -370,7 +370,13 @@ Grammar in BNF:
                 "(" <E> ")"
 \end{verbatim}
 \subsection{Commentary}
-Additional patterns are added for variable assignment such that users can either explicitly specify the type of a variable assignment, or let the interpreter infer it. If one of the explicit assignments are used (such as "Typ Integer::Var::Assign::tail"), or a variables value is being reassigned, then the interpreter checks that the types match before assignment, throwing an error if they do not.
+Additional patterns are added for variable assignment such that users can either explicitly specify the type of variable assignment, or let the interpreter infer it. 
+If one of the explicit assignments are used (such as "Typ Integer::Var::Assign::tail"), or a variables value is being reassigned, then the interpreter checks that the types match before assignment, throwing an error if they do not.
+
+Explicit type declarations are specified with the keywords: \verb|int, float, frac| and \verb|bool|.
+While inferred typing can be specified with the keyword \verb|var| in place of an explicit type.
+A legacy option for variable declaration also exists where type declaration is omitted.
+This is for use in sending plotting functions from the front end to the interpreter and could be removed in future if the plotting were rewritten.
 
 \subsection{Testing}
 Please refer to this (\ref{StaticTest}) in the appendices to view our Testing. \\
@@ -452,9 +458,16 @@ Grammar in BNF:
                 "(" <L> ")"
 \end{verbatim}
 \subsection{Commentary}
-In this sprint we added Boolean values, logical operators and relational operators to our code, allowing it to evaluate logical expressions and make comparisons between numbers. Here, booleans are internally represented as a number (0 for false, 1 for true).
+In this sprint we added Boolean values, logical operators and relational operators to our code, allowing it to evaluate logical expressions and make comparisons between numbers. 
+Here, booleans are internally represented as a number (0 for false, 1 for true).
 
-Four new functions - "L", "R", "Lopt" and "Ropt" - are introduced. This is done such that the mathematical result of an expression can be derived before relational or logical evaluation occurs for a given expression.
+Four new functions - "L", "R", "Lopt" and "Ropt" - are introduced. 
+This is done such that the mathematical result of an expression can be derived before relational or logical evaluation occurs for a given expression.
+
+As with programming languages such as C and Python, booleans are evaluated to integers when used in an integer context and vice versa.
+For instance, \verb|!1| returns \verb|false| and \verb|1 + true| returns \verb|2|.
+While this is intentionally implemented behaviour, should the need arise for stricter type behaviour, it would be relatively easy to retrofit.
+As the type system makes use of \verb|F#|'s operator overloading, it would simply be a matter of altering each operator's behaviour to reject booleans in an integer context and vice versa by throwing an error.
 
 \subsection{Testing}
 Please refer to this (\ref{BoolTest}) in the appendices to view our Testing. \\
@@ -626,7 +639,7 @@ Here is a table of our contributions. \\
 \begin{table}[h]
 \begin{tabular}{|l|l|l|l|l|}
 \hline
-                       & Aaron Hurrell & Ethan Colman & Taylor Holton & Evelyn Stanfield \\ \hline
+                       & Aaron Hurrell & Ethan Colman & Taylor Holton & Connor Stanfield \\ \hline
 Percentage Contributed &               &              &               &                  \\ \hline
 \end{tabular}
 \end{table}
@@ -647,7 +660,7 @@ I have not contributed to the Graphics User Interface.
 \subsection{Interpreter Contributions}
 \subsection{Report Contributions}
 
-\section{Evelyn Stanfield Contributions}
+\section{Connor Stanfield Contributions}
 \subsection{GUI Contributions}
 \subsection{Interpreter Contributions}
 \subsection{Report Contributions}
