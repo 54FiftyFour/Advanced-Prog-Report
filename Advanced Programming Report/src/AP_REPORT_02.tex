@@ -1,4 +1,4 @@
-% TO DO: ABSTRACT, CHAPTER 4, FINISH CHAPTER 1 MOSCOW, CHAPTER 5, CONTRIBUTIONS, PLOTTING NOTES (TAYLOR), FINISH TEST WRITEUP
+% TO DO: ABSTRACT, CHAPTER 4.3 and 4.4 (architecture and algorithms), FINISH CHAPTER 1 MOSCOW, CHAPTER 5, CONTRIBUTIONS, PLOTTING NOTES (TAYLOR), FINISH TEST WRITEUP
 \documentclass[a4paper, oneside, 11pt]{report}
 \usepackage{epsfig,pifont,float,multirow,amsmath,amssymb}
 \usepackage{natbib}
@@ -591,15 +591,20 @@ Grammar in BNF:
     \end{verbatim}
     \section{Final GUI}
 
-    See Figure \ref{gui02}.
+    As seen in Figure \ref{gui02}, our application offers both access to our interpreter as well as offering a plotting tool built on top of said interpreter.
+
+    The graphing tool draws a series of plots to the graph by calling the interpreter repeatedly for a series of x values. These plots are made between and upper and lower x bound, determined by the present scale of the graph at the time of plotting. A user specified interval is used by the plotter to determine the change between x values for each plot.
 
     \begin{figure}[htb]
 %\begin{center}
-        \includegraphics[width=0.9 \columnwidth]{GUI_02.png}
-        \caption{A potentially final GUI!}
+        \includegraphics[width=0.9 \columnwidth]{advProgScreencap.png}
+        \caption{Final GUI, complete with plotting and computation tools.}
         \label{gui02}
 %\end{center}
     \end{figure}
+
+    Because the plotter uses the interpreter to determine which values to plot, it can also draw upon the trigonometric or logarithmic functions defined by the interpreter, as well as any user defined functions. This is seen in Figure \ref{gui02}, where the plotter has plotted bar(x), previously defined in the computation interface as \( x^2 + 2x - 4 \).
+
 
     \section{Code architecture}
 
@@ -635,8 +640,7 @@ Grammar in BNF:
     Note that code snippets or lists of crucial programming code or large UML diagrams should go in Appendix \ref{app:other} (or further appendices).
 
     \subsection{Testing}
-
-    Describe what testing you have done on the interpreter (lexer, parser and execution), GUI and GUI-Interpreter communication, plotting, etc. Table \ref{Table2} in Appendix \ref{app:test} should be completed to do basic arithmetic expression tests.
+    The interpreter passed most tests from \ref{ArithTest} through \ref{FinalTest}, with a few exceptions:
 
 
     \chapter{Discussion, conclusion and future work}
