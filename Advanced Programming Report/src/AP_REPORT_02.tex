@@ -362,8 +362,6 @@ Grammar in BNF:
 <R>        ::= <E> <Ropt>
 <Ropt>     ::=  "<" <E> <Ropt> |
                 ">" <E> <Ropt> |
-                "<=" <E> <Ropt> |
-                ">=" <E> <Ropt> |
                 "==" <E> <Ropt>
 <E>        ::= <T> <Eopt>
 <Eopt>     ::= "+" <T> <Eopt> | "-" <T> <Eopt> | <empty>
@@ -492,8 +490,6 @@ Grammar in BNF:
 <R>        ::= <E> <Ropt>
 <Ropt>     ::=  "<" <E> <Ropt> |
                 ">" <E> <Ropt> |
-                "<=" <E> <Ropt> |
-                ">=" <E> <Ropt> |
                 "==" <E> <Ropt>
 <E>        ::= <T> <Eopt>
 <Eopt>     ::= "+" <T> <Eopt> | "-" <T> <Eopt> | <empty>
@@ -555,7 +551,7 @@ Grammar in BNF:
 % % ------------------------------------------------------------- END OF SPRINT ------------------------------------------------------------------
     \chapter{Final deliverable}\label{Impl}
 
-    In this chapter you cover the final or ``ultimate'' version of your project. It will show the final BNF, the final GUI, the architecture (which should be MVVM or MVC) that includes UML diagrams, additional algorithms if not already included in the previous sprint sections.
+    Before our final build, we added a number of small features, such as the greater-than-or-equal-to and less-than-or-equal-to operators. Additionally, type-checking for variable assignment was moved to a type as a member function, making our code more maintainable long term.
 
     \section{Final BNF}
     \begin{verbatim}
