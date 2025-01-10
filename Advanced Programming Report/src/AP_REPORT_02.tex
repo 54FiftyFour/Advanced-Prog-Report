@@ -1,4 +1,4 @@
-% TO DO: ABSTRACT, CHAPTER 4.3 and 4.4 (architecture and algorithms), FINISH CHAPTER 1 MOSCOW, CHAPTER 5, CONTRIBUTIONS, PLOTTING NOTES (TAYLOR), FINISH TEST WRITEUP
+% TO DO:CHAPTER 4.3 and 4.4 (architecture and algorithms), CHAPTER 5, CONTRIBUTIONS, PLOTTING NOTES (TAYLOR), FINISH TEST WRITEUP
 \documentclass[a4paper, oneside, 11pt]{report}
 \usepackage{epsfig,pifont,float,multirow,amsmath,amssymb}
 \usepackage{natbib}
@@ -67,54 +67,17 @@
     We plan to:
     \begin{itemize}
         \item produce a basic mathematical interpreter
-        \item produce a gui to plot the results of said interpreter
+        \item produce a graphical user interface to output the results of said interpreter
         \item expand our implementation of the interpreter to cover complex features, such as complex numbers, function bindings with parameter passing and evaluating boolean expressions
+        \item expand our user interface to support graph plotting and associated features.
     \end{itemize}
     \paragraph{}
-    To be more specific about the requirements of our project, a table is included below indicating the priority of different objectives.
+    To be more specific about the requirements of our project, a table is included in Appendix \ref{MOSCOW} indicating the priority of different objectives by way of MoSCoW Requirements Analysis.
 
 % \paragraph{}
 % On top of this, we should aim to implement different representations of numbers, such as rational numbers which are more suitable for storing numbers when exact precision is required (which a floating point number cannot provide). We should also add further features, such as functions - sequences of tokens stored to be evaluated at the point of execution, complete with a parameter system to provide function-level scope to the expression. Features like this, in addition to the implementation of expression iteration (either in the GUI or interpreter) could be used to generate a series of coordinates for the graph plotting utility of the application.
 
 % Clearly specify the main aim and objective(s) and subsequent tasks of your project. You can use a MoSCoW to further elaborate on each individual task. If you do so, use a table with three columns (e.g.\ Table \ref{Table1}), the first one having the four categories; the second column a brief description of the task and the third column further elaboration or comments on the task. Note that a MoSCoW is normally for functional requirements only. You should treat non-functional requirements in a separate MoSCoW.
-
-    \begin{table}[h]
-        \caption{MoSCoW}
-        \begin{center}
-            \begin{tabular}{|p{1in}|p{2in}|p{2.5in}|} \hline
-            Priority & Task & Comments \\ \hline \hline
-
-% MUST
-            \multirow{3}{1in}{Must}
-            & Expressions (INT1) & - \\ \cline{2-3}
-            & Assignment (INT2) & - \\ \cline{2-3}
-            & GUI (GUI1) & - \\ \cline{2-3}
-            & Plotting (GUI2) & - \\ \cline{2-3}
-            & Numbers as Floats/Ints & Related to INT1 and mandatory \\ \hline \hline
-
-% SHOULD
-            \multirow{3}{1in}{Should}
-            & Rational Numbers & - \\ \cline{2-3}
-            & Complex Numbers & - \\ \cline{2-3}
-            & Functions & - \\ \cline{2-3}
-            & Booleans & - \\ \cline{2-3}
-            & Static Type System & - \\ \hline \hline
-
-% COULD
-            \multirow{3}{1in}{Could}
-            & Iteration and Control Flow (INT3) & - \\ \cline{2-3}
-            & Condition Control & - \\ \cline{2-3}
-            & Math Tools (INT4) & - \\ \hline \hline
-
-% SHOULD NOT
-            \multirow{3}{1in}{Should not}
-            & Compiler (INT5) & Would involve modifying the entire interpreter package to output a target language and would take a prohibitive amount of time. \\ \cline{2-3}
-            & Updated GUI (GUI4) & - \\ \hline
-            \end{tabular}
-            \label{Table1}
-        \end{center}
-    \end{table}
-
 % ============================================================== CHAPTER 2 ===============================================================
     \chapter{Background}
 
@@ -178,9 +141,9 @@
     \end{figure}
 
     \subsection{Commentary}
-    An additional pair of functions, F and Fopt, were added to the parser to offer an additional level of precedence. 
-	This allows the parser to evaluate the unary minus and power operators before the rest of the arithmetic operators. 
-	Which allows unary minus to be evaluated properly (as instead it would be evaluated as a binary minus and throw an error).
+    An additional pair of functions, F and Fopt, were added to the parser to offer an additional level of precedence.
+    This allows the parser to evaluate the unary minus and power operators before the rest of the arithmetic operators.
+    Which allows unary minus to be evaluated properly (as instead it would be evaluated as a binary minus and throw an error).
 
 
     \subsection{Testing}
@@ -1080,6 +1043,45 @@ Grammar in BNF:
         F.GreaterEq3                      & $"9 >= 9"$                                 & "true"        &                \\
         \hline
     \end{tabular}
+% -------------------------------------------------------------------------------------
+    \section{MoSCoW Requirements Analysis} \label{MOSCOW}
+    \begin{center}
+        \begin{tabular}{|p{1in}|p{2in}|p{2.5in}|} \hline
+        Priority & Task & Comments \\ \hline \hline
+
+% MUST
+        \multirow{3}{1in}{Must}
+        & Expressions (INT1) & Outline basic operator precedence structure and implement simple binary operations (+, -, /, *, \verb|^|) as well as unary (+ / -) operators. \\ \cline{2-3}
+        & Assignment (INT2) & Allow for simple variable assignment by assigning user values to a table, associated with a user defined identifier. \\ \cline{2-3}
+        & GUI (GUI1) & Provide a graphical interface capable of taking user input, processing it via the interpreter, and displaying the results. \\ \cline{2-3}
+        & Plotting (GUI2) & Expand the graphical interface to allow for graph plotting. \\ \cline{2-3}
+        & Numbers as Floats/Ints & Related to INT1 and mandatory \\ \hline \hline
+
+% SHOULD
+        \multirow{3}{1in}{Should}
+        & Rational Numbers & Add support for rational numbers, represented internally as a pair of numbers (numerator and denominator). \\ \cline{2-3}
+        & Complex Numbers & Add support for complex numbers, represented internally as a pair of numbers (real and imaginary components).  \\ \cline{2-3}
+        & Functions & Expand symbol table used for variable assignment to allow for user defined functions, including functions to parse and replace parameters where appropriate.  \\ \cline{2-3}
+        & Booleans & Add support for boolean values, as well as both logical (\verb|&&| or \textbar{}\textbar{}) and relational (\verb|<|, \verb|>| and \verb|==|) operators.   \\ \cline{2-3}
+        & Static Type System & Assign specific types to numbers, and conduct type checking whenever a user assigns a value to a variable or function. \\ \hline \hline
+        \end{tabular}
+    \end{center}
+    \begin{center}
+        \begin{tabular}{|p{1in}|p{2in}|p{2.5in}|} \hline
+        Priority & Task & Comments \\ \hline \hline
+% COULD
+        \multirow{3}{1in}{Could}
+        & Iteration and Control Flow (INT3) & Add functionality to either the plotter or interpreter allowing a user to define a function to plot, as well as a range to plot over and an interval to define how frequently to plot. Plotter should produce a graph representing this series of plots. \\ \cline{2-3}
+        & Condition Control (Assumes boolean implementation) & Add if/else statements to the interpreter, allowing the user to define more complex branching functions. \\ \cline{2-3}
+        & Math Tools (INT4) & Add support for more complex mathematics, such as calculus and root finding via methods such as Newton-Raphson approximation.\\ \cline{2-3}
+        & Expanded GUI Features (GUI3) (Assumes INT4 implementation) & Expand our GUI to support features introduced in Math Tools (INT4), such as drawing tangent lines utilising differentiation support introduced in INT4.\\\hline \hline
+
+% SHOULD NOT
+        \multirow{3}{1in}{Should not}
+        & Compiler (INT5) & Amend interpreter to instead compile to machine code or some intermediate language (such as C). \\ \cline{2-3}
+        & Compiler Interface (GUI4) (Assumes INT5 implementation) & Add a field to GUI allowing users to enter uncompiled code and another field to access compiled code. \\ \hline
+        \end{tabular}
+    \end{center}
 % -------------------------------------------------------------------------------------
 
     \chapter{Images}
