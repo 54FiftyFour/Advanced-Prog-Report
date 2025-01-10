@@ -1,6 +1,4 @@
-% TO DO: CHAPTER 4.4 (algos), CHAPTER 5 (evelyn), CONTRIBUTIONS, PLOTTING NOTES (taylor), Section 2 GUI discussion(taylor), section 2 simiar systems table (aaron), Section 2 interpreter talk (Aaron)
-
-
+% TO DO:CHAPTER 4.3 and 4.4 (architecture and algorithms), CHAPTER 5, CONTRIBUTIONS, PLOTTING NOTES (TAYLOR)
 \documentclass[a4paper, oneside, 11pt]{report}
 \usepackage{epsfig,pifont,float,multirow,amsmath,amssymb}
 \usepackage{natbib}
@@ -94,11 +92,8 @@
     Therefore its acts similarly to a search engine with a number of functions that you can call to alter its output format. \\
 
     Here is a feature comparison of the three systems. \\//////
-    Please reference [][] for the table comparison of the three systems.
 
-    With an idea of what our system would do and various ideas on how our system would look, we now needed an understanding of how we were going to make the system. We have two main components, a GUI and an interpreter of which is called by the GUI.\\
-    With some research, we decided upon using avalonia [][] and oxyplot [][] for our GUI. \\ //////TAYLOR please talk about stuff here please///////.
-    For our interpreter, we finalised upon a top down interpreter using
+    With an idea of what our system would do and potential ways to show it, we now needed an understanding of how we were going to do it.
 
 
     Also, cite the books \citep{Nystrom:2021} or documentation \citep{WPF:2023} that you consulted.
@@ -117,7 +112,7 @@
 
 % Symbol Table as a Class, Embedded Type Checks
 
-    \paragraph{Foreword} The presentation of the sprints below is as accurate as possible. However, most of these sprints have some level of overlap with others. This is because for each feature we would work individually on it and merge it with the main git branch when it was complete. Additionally, small-scale commits for minor tweaks or bugfixes have been omitted, unless substantially relevant. Finally, for each sprint we reused the unit tests from previous sprints, adding new tests where appropriate. A full table of these tests can be found in the Appendix.
+    \paragraph{Foreword} The presentation of the sprints below is as accurate as possible. However, most of these sprints have some level of overlap with others. This is because for each feature we would work individually on it and add it to the main git branch when it was complete. Additionally, small-scale commits for minor tweaks or bugfixes have been omitted, unless substantially relevant. Finally, for each sprint we reused the unit tests from previous sprints, adding new tests where appropriate. A full table of these tests can be found in the Appendix.
 
 
 % ---------------------------------------------------------------- SPRINT 1 ----------------------------------------------------------------
@@ -134,34 +129,19 @@
     \end{verbatim}
 
     \subsection{Basic GUI}
-    There are multiple frameworks we could have used in this project to create the GUI. We could have used Windows Presentation Foundation (WPF), but this had an issue of being limited to Windows devices. In order to be cross compatible with multiple devices we chose to use Avalonia, which is essentially an open source GUI framework quite similar to WPF.\newline First we needed to setup a basic window. This can be seen in figure \ref{gui01}. At this stage there was functionality to input an equation, and compute the result. The answer would appear in both the results box and the history box (which stores all previous results). However, not all inputs would be valid, and some were mathematically incorrect; for instance, 1/0 would result in a divide by zero error. To accommodate for this, an error history box was added, as can be seen in figure \ref{gui02}. Following this, we added a help section at the bottom of the window to provide users with an easy way to access usable symbols. Clicking one of these buttons adds the corresponding symbol to the input box automatically. This is shown in figure \ref{gui03}.
+    We used Avalonia with C\# to develop a basic GUI - see Figure \ref{gui01}.
 
     \begin{figure}[htb]
         \begin{center}
-            \includegraphics[width=0.9 \columnwidth]{gui_old_01.png}
+% REPLACE IMAGE!!!!
+            \includegraphics[width=0.9 \columnwidth]{GUI_01}
             \caption{GUI, first revision.}
             \label{gui01}
         \end{center}
     \end{figure}
 
-    \begin{figure}[htb]
-        \begin{center}
-            \includegraphics[width=0.9 \columnwidth]{gui_old_02.png}
-            \caption{GUI, error visualisation added.}
-            \label{gui02}
-        \end{center}
-    \end{figure}
-
-    \begin{figure}[htb]
-        \begin{center}
-            \includegraphics[width=0.9 \columnwidth]{gui_old_03.png}
-            \caption{GUI, help buttons added.}
-            \label{gui03}
-        \end{center}
-    \end{figure}
-
     \subsection{Commentary}
-    An additional pair of functions, F and Fopt, were added to the basic parser to offer an additional level of precedence.
+    An additional pair of functions, F and Fopt, were added to the parser to offer an additional level of precedence.
     This allows the parser to evaluate the unary minus and power operators before the rest of the arithmetic operators.
     Which allows unary minus to be evaluated properly (as instead it would be evaluated as a binary minus and throw an error).
 
@@ -231,42 +211,8 @@ Grammar in BNF:
     \subsection{Grammar in BNF}
     No change was made to the grammar at this stage, as plotting is not directly relevant to the interpreter.
 
-    \subsection{Plotting on GUI}
-
-    \begin{figure}[htb]
-        \begin{center}
-            \includegraphics[width=0.9 \columnwidth]{gui_old_04.png}
-            \caption{GUI, second revision with basic plotting added.}
-            \label{gui04}
-        \end{center}
-    \end{figure}
-
-    \begin{figure}[htb]
-        \begin{center}
-            \includegraphics[width=0.9 \columnwidth]{gui_old_05.png}
-            \caption{GUI, plotting allows functions to be implemented.}
-            \label{gui05}
-        \end{center}
-    \end{figure}
-
-    \begin{figure}[htb]
-        \begin{center}
-            \includegraphics[width=0.9 \columnwidth]{gui_old_06.png}
-            \caption{GUI, plotting now uses intervals.}
-            \label{gui06}
-        \end{center}
-    \end{figure}
-
-    \begin{figure}[htb]
-        \begin{center}
-            \includegraphics[width=0.9 \columnwidth]{gui_old_07.png}
-            \caption{GUI, plotting finished, automatically adjusts to size of graph view. Zoom can also be automatically toggled between regular and trig views.}
-            \label{gui07}
-        \end{center}
-    \end{figure}
-
     \subsection{Commentary}
-    Plotting was done using Oxyplot, an Avalonia library. At first, a basic plot window was added to the GUI, shown in figure \ref{gui04}. At this stage there was no functionality to add plots so this needed to be added next. This went through a few iterations. Firstly, the plotting used 4 input fields: an x minimum, an x maximum, a y function, and a number of points to interpolate. This can be seen in figure \ref{gui05}. However, it was decided that inputting a number of points wasn't very intuitive, so we decided to instead have the user input an interval, which would be the size of the gap between each point (figure \ref{gui06}.\newline Finally, some extra functionality was added to the plotting. Two new buttons to toggle between standard and trig views were added, and the x minimum and x maximum fields were removed in favour of generating the graph across the currently visible range of values. Some extra help buttons for trig functions were also added, and this can be seen in figure \ref{gui07}.
+    \{FOR TAYLOR TO WRITE\}
 
     \subsection{Testing}
     Please refer to this (\ref{PlotTest}) in the appendices to view our Testing. \\
@@ -296,7 +242,6 @@ Grammar in BNF:
 
 
     \subsection{Testing}
-
     This build passed every test from our unit tests \ref{ArithTest} up to \ref{PiAbsTest}.
 
     \clearpage
@@ -332,9 +277,7 @@ Grammar in BNF:
     This is for use in sending plotting functions from the front end to the interpreter and could be removed in future if the plotting were rewritten.
 
     \subsection{Testing}
-
     This build passed every test from our unit tests \ref{ArithTest} up to \ref{TypeSysTest}.
-
 
     \clearpage
 % ------------------------------------------------------------- END OF SPRINT ------------------------------------------------------------------
@@ -369,7 +312,6 @@ Grammar in BNF:
     When "Var::tail" is matched, the parser checks if the binding is in the table, and either the value of the variable is returned or the body of the function has parameters substituted before being executed with the result being returned.
 
     \subsection{Testing}
-
     This build passed most tests from our unit tests \ref{ArithTest} up to \ref{FuncAssignTest}, except:
     \begin{center}
         \begin{tabular}{|p{1.5in}|p{1.5in}|p{1in}|p{1.6in}|p{2.4in}|}
@@ -382,6 +324,7 @@ Grammar in BNF:
             \hline
         \end{tabular}
     \end{center}
+
 
     \clearpage
 % ------------------------------------------------------------- END OF SPRINT ------------------------------------------------------------------
@@ -428,7 +371,6 @@ Grammar in BNF:
     As the type system makes use of \verb|F#|'s operator overloading, it would simply be a matter of altering each operator's behaviour to reject booleans in an integer context and vice versa by throwing an error.
 
     \subsection{Testing}
-
     This build passed most tests from our unit tests \ref{ArithTest} up to \ref{BoolTest}, except:
     \begin{center}
         \begin{tabular}{|p{1.5in}|p{1.5in}|p{1in}|p{1.6in}|p{2.4in}|}
@@ -532,7 +474,6 @@ Grammar in BNF:
     Here we implemented rational numbers, internally represented as two numbers for a fractions numerator and denominator. This is ideal for use cases where an exact representation of a noninteger number is needed, where the imprecision of a float is not sufficient.
 
     \subsection{Testing}
-
     This build passed most tests from our unit tests \ref{ArithTest} up to \ref{RatNumTest}, except:
     \begin{center}
         \begin{tabular}{|p{1.5in}|p{1.5in}|p{1in}|p{1.6in}|p{2.4in}|}
@@ -545,6 +486,7 @@ Grammar in BNF:
             \hline
         \end{tabular}
     \end{center}
+
     \clearpage
 % ------------------------------------------------------------- END OF SPRINT ------------------------------------------------------------------
 % ---------------------------------------------------------------- SPRINT 10 ----------------------------------------------------------------
@@ -587,6 +529,19 @@ Grammar in BNF:
     To have a good maths interpreter, trigonometry and logarithmic functions are key. Therefore, we have implemented cosine, sine and tangent with their inverse variants. When using these functions, they are expected to input the values in degrees and also get the result corresponding in degrees.
 
     Additionally, we implemented logarithm functions during this sprint, as well as the natural constant "e".
+
+    \subsection{Basic GUI}
+    We used WPF with C\# to develop a basic GUI - see Figure \ref{gui01}.
+    \begin{figure}[htb]
+        \begin{center}
+
+% REPLACE IMAGE!!!!
+            \includegraphics[width=0.9 \columnwidth]{GUI_01}
+
+            \caption{GUI, first revision.}
+            \label{gui01}
+        \end{center}
+    \end{figure}
 
     \subsection{Testing}
     This build passed most tests from our unit tests \ref{ArithTest} up to \ref{TrigLogTest}, except:
@@ -659,7 +614,7 @@ Grammar in BNF:
     \end{verbatim}
     \section{Final GUI}
 
-    As seen in Figure \ref{gui08}, our application offers both access to our interpreter as well as offering a plotting tool built on top of said interpreter.
+    As seen in Figure \ref{gui02}, our application offers both access to our interpreter as well as offering a plotting tool built on top of said interpreter.
 
     The graphing tool draws a series of plots to the graph by calling the interpreter repeatedly for a series of x values. These plots are made between and upper and lower x bound, determined by the present scale of the graph at the time of plotting. A user specified interval is used by the plotter to determine the change between x values for each plot.
 
@@ -667,32 +622,22 @@ Grammar in BNF:
 %\begin{center}
         \includegraphics[width=0.9 \columnwidth]{advProgScreencap.png}
         \caption{Final GUI, complete with plotting and computation tools.}
-        \label{gui08}
+        \label{gui02}
 %\end{center}
     \end{figure}
 
-    Because the plotter uses the interpreter to determine which values to plot, it can also draw upon the trigonometric or logarithmic functions defined by the interpreter, as well as any user defined functions. This is seen in Figure \ref{gui08}, where the plotter has plotted bar(x), previously defined in the computation interface as \( x^2 + 2x - 4 \).
+    Because the plotter uses the interpreter to determine which values to plot, it can also draw upon the trigonometric or logarithmic functions defined by the interpreter, as well as any user defined functions. This is seen in Figure \ref{gui02}, where the plotter has plotted bar(x), previously defined in the computation interface as \( x^2 + 2x - 4 \).
 
 
     \section{Code architecture}
-    \paragraph{}
-    Our software loosely conforms for the Model-View-View Model (MVVM) architecture. It has one view, \verb|MainView.axaml|, which gives the structure of the application. Application behaviour is then controlled by the View Model, \verb|MainView.axaml.cs|.
-    \paragraph{}
-    The View Model supplies behaviours for each of the interactive elements, such as the plotting display as well as the interpreter input fields or buttons. The View Model calls the lexer and parser in Program.fs to evaluate mathematical functions, and the result is passed from the interpreter to the view model and back to the view.
-    \paragraph{}
-    % GET TAYLOR TO READ OVER THIS
-    The View Model also obtains graph updates by sending new plotting information to the Plotter found in MainViewModel.cs. This returns the plot model to the View Model, to then be rendered in the View.
-    \paragraph{}
-    The closest thing to a model our software has is the symbol table - we use a HashMap to access 3-tuples representing the type of binding, a list of parameters (for functions) and the list of tokens associated with a string identifer in O(1) time. The HashMap is wrapped in a custom "SymbolTable" type, which supplies type checking for access methods, making the parser more maintainable. This is contained as a component of the interpreter in Program.fs.
-    \paragraph{}
-    A full diagram demonstrating this arrangement can be found in Figure \ref{UML}.
 
+    Fig.\ \ref{class} shows a UML class diagram (class, sequence and state diagrams are the most frequently used UML diagrams). Illustrating your code architecture - that should be of the MVC family and, considering it is developed in C\# with WPF more specifcally the MVVM pattern - is very important.
 
     \begin{figure}[htb]
 %\begin{center}
-        \includegraphics[width=1.0 \columnwidth]{UML.png}
-        \caption{A structure diagram demonstrating how components of our program interact.}
-        \label{UML}
+        \includegraphics[width=1.0 \columnwidth]{class.png}
+        \caption{A UML class diagram to be replaced with yours!}
+        \label{class}
 %\end{center}
     \end{figure}
 
@@ -715,7 +660,7 @@ Grammar in BNF:
     % \end{algorithm}
 
 
-    % Note that code snippets or lists of crucial programming code or large UML diagrams should go in Appendix \ref{app:other} (or further appendices).
+    Note that code snippets or lists of crucial programming code or large UML diagrams should go in Appendix \ref{app:other} (or further appendices).
 
     \clearpage
     \section{Testing}
@@ -737,21 +682,8 @@ Grammar in BNF:
 
     \chapter{Discussion, conclusion and future work}
 
-    Briefly discuss your achievements and put them in perspective with the MoSCoW analysis you specified in Table \ref{Table1}. 
-	Also discuss future developments and how you see the deliverable improving if more time could be spent. 
-	Note that this section should not be used as a medium to vent frustrations on whatever did not work out (group issues, not enough time, illness, etc.) as this should be dealt with separately - keep it professional!
+    Briefly discuss your achievements and put them in perspective with the MoSCoW analysis you specified in Table \ref{Table1}. Also discuss future developments and how you see the deliverable improving if more time could be spent. Note that this section should not be used as a medium to vent frustrations on whatever did not work out (group issues, not enough time, illness, etc.) as this should be dealt with separately - keep it professional!
 
-	What we have achieved - expressions with arithmetic operators, variable assignment, GUI interface, plotting, different data types (int, float, rational, boolean), static typing, functions, iteration for a specified number
-
-	What we haven't achieved - complex numbers, boolean based iteration, condition control, Math Tools (INT4), expanded GUI features.
-
-	Met all of our essential goals and the majority of non-essential goals.
-
-	In future if we had more time to spend on development we could...
-
-	As specified in the MoSCoW analysis in table \ref{MOSCOW}, we did not plan to add compilation to the software and have not done so.
-
-	MoSCoW in .
 
     \bibliographystyle{apalike}
 %\raggedright
@@ -1226,6 +1158,7 @@ Grammar in BNF:
 
     \includegraphics[width=160mm]{Screenshot 2025-01-03 161746.png} \\
 
+
     \section{Wolfram Alpha Images:Non-Plotted}\label{WolframUnplotted}
 
     \includegraphics[width = 160mm]{Screenshot 2025-01-03 162013.png} \\
@@ -1266,4 +1199,239 @@ Grammar in BNF:
 % ... & ... & ... & ... & ... \\ \hline
 % \end{tabular}
 % \label{Table2}
+% \end{table}
+
+% \section{GUI testing}\label{GUITest}
+
+% \section{Plotting testing}\label{PlotTest}
+% \section{Variable Assignment Testing}\label{VarAssTest}
+% % \usepackage{hhline}
+
+
+% \begin{table}[h]
+% \centering
+% \caption{Variable Assignment tests. Note that floating pointing values are accurate to three decimal places for the fractional part. ResE is expected result and ResA is actual result. \\}
+% \label{Table2}
+% \begin{tabular}{|p{1.8in}|p{0.5in}|p{0.6in}|p{0.6in}|p{1.4in}|}
+% \hline
+% Expression                          & ResE  & ResA & Pass/Fail & Action/comment  \\
+% \hline \hline
+% $int x = 10; x$                     & 10    &      &           &                 \\
+% \hline
+% $int x = 1; int five = 1; x + five$ & 2     &      &           &                 \\
+% \hline
+% $float n = 10.2; n = 10;n$          & 10.0  &      &           &                 \\
+% \hline
+% $float y = 1.2; float y = 1.3;y$    & Error &      &           &                 \\
+% \hline
+% \$\$                                &       &      &           &                 \\
+% \hline
+% \$\$                                &       &      &           &                 \\
+% \hline
+% \$\$                                &       &      &           &                 \\
+% \hline
+% \end{tabular}
+% \end{table}
+
+
+% \section{Trigonometric and Logarithmic Function Testing}\label{TrigTest}
+
+% \begin{table}[h]
+% \centering
+% \caption{Trigonometric and Logarithmic Function Tests. Note that floating pointing values are accurate to three decimal places for the fractional part. ResE is expected result and ResA is actual result. \\}
+% \label{Table3}
+% \begin{tabular}{|l|l|l|l|l|}
+% \hline
+% Expression                  & ResE                            & ResA & Pass/Fail & Action/comment  \\
+% \hline \hline
+% $sin 30$                    & 0.5                             &      &           &                 \\
+% \hline
+% $sin 270$                   & -1                              &      &           &                 \\
+% \hline
+% $sin -20$                   & -0.3420201433                   &      &           &                 \\
+% \hline
+% $sin 2000$                  & -0.342020143                    &      &           &                 \\
+% \hline
+% $sin two$                 & error                           &      &           &                 \\
+% \hline
+% $int two = 30; sin two$   & 0.5                             &      &           &                 \\
+% \hline
+% $cos 60$                  & 0.5                             &      &           &                 \\
+% \hline
+% $cos 360$                 & 1                               &      &           &                 \\
+% \hline
+% $cos -80$                 & 0.1736481777                    &      &           &                 \\
+% \hline
+% $cos -1920$               & -0.5                            &      &           &                 \\
+% \hline
+% $cos cosine$              & error                           &      &           &                 \\
+% \hline
+% $int two = 60; cos two$   & 0.5                             &      &           &                 \\
+% \hline
+% $tan 90$                  & Error-\textgreater{} undefined  &      &           &                 \\
+% \hline
+% $tan 180$                 & 0                               &      &           &                 \\
+% \hline
+% $tan -300$                & 1.732050808                     &      &           &                 \\
+% \hline
+% $tan tany$                & error                           &      &           &                 \\
+% \hline
+% $int two = 180; tan two$  & 0                               &      &           &                 \\
+% \hline
+% $asin 0.5$                & 30                              &      &           &                 \\
+% \hline
+% $asin -1$                 & -90                             &      &           &                 \\
+% \hline
+% $asin -0.3420201433$      & 20                              &      &           &                 \\
+% \hline
+% $asin test$               & error                           &      &           &                 \\
+% \hline
+% $int two = 0.5; asin two$ & 30                              &      &           &                 \\
+% \hline
+% $asin 1.5$                & Error -\textgreater{} undefined &      &           &                 \\
+% \hline
+% $asin -1.5$               & Error - undefined               &      &           &                 \\
+% \hline
+% $acos 0.5$                & 60                              &      &           &                 \\
+% \hline
+% $acos -1$                 & 180                             &      &           &                 \\
+% \hline
+% $acos 0.1736481777$       & 80                              &      &           &                 \\
+% \hline
+% $acos test$               & Error                           &      &           &                 \\
+% \hline
+% $int two = 0.5; acos two$ & 60                              &      &           &                 \\
+% \hline
+% $acos 1.5$                & Error - undefined               &      &           &                 \\
+% \hline
+% $acos -1.5$               & Error - undefined               &      &           &                 \\
+% \hline
+% $ atan 1$                 & 45                              &      &           &                 \\
+% \hline
+% $ atan 0.3$               & 16.69924423                     &      &           &                 \\
+% \hline
+% $ atan 01.732050808$      & 60                              &      &           &                 \\
+% \hline
+% $ atan test$              & Error                           &      &           &                 \\
+% \hline
+% $int two = 0.5; atan two$ & 26.56505118                     &      &           &                 \\
+% \hline
+% $ atan 1.5$               & 56.30993247                     &      &           &                 \\
+% \hline
+% $ logNat 1$               & 0                               &      &           &                 \\
+% \hline
+% $ logNat 20$              & 2.995732274                     &      &           &                 \\
+% \hline
+% $ logNat 359$             & 5.883322388                     &      &           &                 \\
+% \hline
+% $ logNat -1$              & Error - undefined               &      &           &                 \\
+% \hline
+% $ logNum 10 100$          & 2                               &      &           &                 \\
+% \hline
+% $ logNum -2 10$           & Error                           &      &           &                 \\
+% \hline
+% $ logNum 2 -4$            & Error                           &      &           &                 \\
+% \hline
+% \end{tabular}
+% \end{table}
+
+% \section{Functions Testing}\label{FuncTest}
+% \section{Pi and Abs Testing}\label{PiTest}
+
+% \begin{table}[h]
+% \centering
+% \caption{Pi and Abs Tests. Note that floating pointing values are accurate to three decimal places for the fractional part. ResE is expected result and ResA is actual result. \\}
+% \label{Table4}
+% \begin{tabular}{|l|l|l|l|l|}
+% \hline
+% Expression       & ResE        & ResA & Pass/Fail & Action/comment  \\
+% \hline \hline
+% $pi$             & 3.141592654 &      &           &                 \\
+% \hline
+% $2*pi$           & 6.283185307 &      &           &                 \\
+% \hline
+% $pi^2$           & 9.869604401 &      &           &                 \\
+% \hline
+% $int pi = pi;pi$ & Error       &      &           &                 \\
+% \hline
+% $ abs -2.5 $   & 2.5         &      &           &                 \\
+% \hline
+% $ abs 2.5 $    & 2.5         &      &           &                 \\
+% \hline
+% $ abs text $   & Error       &      &           &                 \\
+% \hline
+% \end{tabular}
+% \end{table}
+
+% \section{Static Type System Testing}\label{StaticTest}
+% \section{Rational Number Testing}\label{RationTest}
+% \section{Boolean Testing}\label{BoolTest}
+
+% \begin{table}
+% \centering
+% \caption{Boolean Tests. Note that floating pointing values are accurate to three decimal places for the fractional part. ResE is expected result and ResA is actual result. \\}
+% \label{Table5}
+% \begin{tabular}{|l|l|l|l|l|}
+% \hline
+% Expression       & ResE  & ResA & Pass/Fail & Action/comment  \\
+% \hline \hline
+% $true$           & true  &      &           &                 \\
+% \hline
+% $false$          & false &      &           &                 \\
+% \hline
+% $!true$          & false &      &           &                 \\
+% \hline
+% $!false$         & true  &      &           &                 \\
+% \hline
+% $ !!true $     & true  &      &           &                 \\
+% \hline
+% $12$           & true  &      &           &                 \\
+% \hline
+% $ -1020 $      & true  &      &           &                 \\
+% \hline
+% $45<21$          & false &      &           &                 \\
+% \hline
+% $23 < -12$       & false &      &           &                 \\
+% \hline
+% $2>1$            & true  &      &           &                 \\
+% \hline
+% $20>-10$         & true  &      &           &                 \\
+% \hline
+% $21>45$          & false &      &           &                 \\
+% \hline
+% $-12>23$         & false &      &           &                 \\
+% \hline
+% $2<=2$           & true  &      &           &                 \\
+% \hline
+% $2<=3$           & true  &      &           &                 \\
+% \hline
+% $2=<3$           & Error &      &           &                 \\
+% \hline
+% $102 <= 100$     & false &      &           &                 \\
+% \hline
+% $102 >= 102$     & true  &      &           &                 \\
+% \hline
+% $98 >= 105$      & false &      &           &                 \\
+% \hline
+% $7 == 7$         & true  &      &           &                 \\
+% \hline
+% $67 == 21$       & false &      &           &                 \\
+% \hline
+% $21<34 == 45>1$  & true  &      &           &                 \\
+% \hline
+% $true || true$   & true  &      &           &                 \\
+% \hline
+% $true || false$  & true  &      &           &                 \\
+% \hline
+% $false || false$ & false &      &           &                 \\
+% \hline
+% $true \&\& false$  & false &      &           &                 \\
+% \hline
+% $false \&\& false$ & false &      &           &                 \\
+% \hline
+% $true \&\& true$   & true  &      &           &                 \\
+% \hline
+% ...              & ...   & ...  & ...       & ...             \\
+% \hline
+% \end{tabular}
 % \end{table}
