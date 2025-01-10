@@ -44,7 +44,7 @@
 
 % ============================================================== ABSTRACT ================================================================
     \begin{abstract}
-        In the past 80 years the capacity of computer programs has soared. During this time programmers have moved from writing programs in pure machine code to various forms of assembly, up into increasingly higher-level programming languages. This shift in the way programmers interact with computers is owed in large part to the development of compilers and interpreters, which facilitate more powerful and human-readable code. In this report, we use a functional language, F#, to develop a basic interpreter designed to handle mathematical computations as well as some basic language features such as iteration as well as variable or function binding. We outline our development process in terms of agile sprints completed to develop individual features or sets of features, and we discuss the final product in greater detail.
+        In the past 80 years the capacity of computer programs has soared. During this time programmers have moved from writing programs in pure machine code to various forms of assembly, up into increasingly higher-level programming languages. This shift in the way programmers interact with computers is owed in large part to the development of compilers and interpreters, which facilitate more powerful and human-readable code. In this report, we use a functional language, \verb|F#|, to develop a basic interpreter designed to handle mathematical computations as well as some basic language features such as iteration as well as variable or function binding. We outline our development process in terms of agile sprints completed to develop individual features or sets of features, and we discuss the final product in greater detail.
 
 % Please replace this section with your own abstract. An abstract is a brief summary (maximum 250 words) of your entire project. It should cover your objectives, your methodologies used, a brief developmental history, your final results, in particular covering the optional tasks, and a discussion and conclusion. You do not cover the literature or background in an abstract nor should you use abbreviations or acronyms. The remainder of this report template has clear chapter titles and we suggest to stick to these although you can organise your material inside each chapter to your own preferences. A guideline in size is approximately 3,500 words (not including abstract, captions and references) but no real limit on figures, tables, diagrams, pseudo-code etc.
     \end{abstract}
@@ -178,7 +178,10 @@
     \end{figure}
 
     \subsection{Commentary}
-    An additional pair of functions, F and Fopt, were added to the parser to offer an additional level of precedence. This allows the parser to evaluate the unary minus and power operators before the rest. This allows unary minus to be evaluated properly (as instead it would be evaluated as a binary minus) and it preserves the order of operations for the power operator.
+    An additional pair of functions, F and Fopt, were added to the parser to offer an additional level of precedence. 
+	This allows the parser to evaluate the unary minus and power operators before the rest of the arithmetic operators. 
+	Which allows unary minus to be evaluated properly (as instead it would be evaluated as a binary minus and throw an error).
+
 
     \subsection{Testing}
     This build passed every test from our unit tests \ref{ArithTest}, except:
