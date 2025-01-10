@@ -130,14 +130,29 @@
     \end{verbatim}
 
     \subsection{Basic GUI}
-    We used Avalonia with C\# to develop a basic GUI - see Figure \ref{gui01}.
+    There are multiple frameworks we could have used in this project to create the GUI. We could have used Windows Presentation Foundation (WPF), but this had an issue of being limited to Windows devices. In order to be cross compatible with multiple devices we chose to use Avalonia, which is essentially an open source GUI framework quite similar to WPF.\newline First we needed to setup a basic window. This can be seen in figure \ref{gui01}. At this stage there was functionality to input an equation, and compute the result. The answer would appear in both the results box and the history box (which stores all previous results). However, not all inputs would be valid, and some were mathematically incorrect; for instance, 1/0 would result in a divide by zero error. To accommodate for this, an error history box was added, as can be seen in figure \ref{gui02}. Following this, we added a help section at the bottom of the window to provide users with an easy way to access usable symbols. Clicking one of these buttons adds the corresponding symbol to the input box automatically. This is shown in figure \ref{gui03}.
 
     \begin{figure}[htb]
         \begin{center}
-% REPLACE IMAGE!!!!
-            \includegraphics[width=0.9 \columnwidth]{GUI_01}
+            \includegraphics[width=0.9 \columnwidth]{gui_old_01.png}
             \caption{GUI, first revision.}
             \label{gui01}
+        \end{center}
+    \end{figure}
+
+    \begin{figure}[htb]
+        \begin{center}
+            \includegraphics[width=0.9 \columnwidth]{gui_old_02.png}
+            \caption{GUI, error visualisation added.}
+            \label{gui02}
+        \end{center}
+    \end{figure}
+
+    \begin{figure}[htb]
+        \begin{center}
+            \includegraphics[width=0.9 \columnwidth]{gui_old_03.png}
+            \caption{GUI, help buttons added.}
+            \label{gui03}
         \end{center}
     \end{figure}
 
@@ -212,8 +227,42 @@ Grammar in BNF:
     \subsection{Grammar in BNF}
     No change was made to the grammar at this stage, as plotting is not directly relevant to the interpreter.
 
+    \subsection{Plotting on GUI}
+
+    \begin{figure}[htb]
+        \begin{center}
+            \includegraphics[width=0.9 \columnwidth]{gui_old_04.png}
+            \caption{GUI, second revision with basic plotting added.}
+            \label{gui04}
+        \end{center}
+    \end{figure}
+
+    \begin{figure}[htb]
+        \begin{center}
+            \includegraphics[width=0.9 \columnwidth]{gui_old_05.png}
+            \caption{GUI, plotting allows functions to be implemented.}
+            \label{gui05}
+        \end{center}
+    \end{figure}
+
+    \begin{figure}[htb]
+        \begin{center}
+            \includegraphics[width=0.9 \columnwidth]{gui_old_06.png}
+            \caption{GUI, plotting now uses intervals.}
+            \label{gui06}
+        \end{center}
+    \end{figure}
+
+    \begin{figure}[htb]
+        \begin{center}
+            \includegraphics[width=0.9 \columnwidth]{gui_old_07.png}
+            \caption{GUI, plotting finished, automatically adjusts to size of graph view. Zoom can also be automatically toggled between regular and trig views.}
+            \label{gui07}
+        \end{center}
+    \end{figure}
+
     \subsection{Commentary}
-    \{FOR TAYLOR TO WRITE\}
+    Plotting was done using Oxyplot, an Avalonia library. At first, a basic plot window was added to the GUI, shown in figure \ref{gui04}. At this stage there was no functionality to add plots so this needed to be added next. This went through a few iterations. Firstly, the plotting used 4 input fields: an x minimum, an x maximum, a y function, and a number of points to interpolate. This can be seen in figure \ref{gui05}. However, it was decided that inputting a number of points wasn't very intuitive, so we decided to instead have the user input an interval, which would be the size of the gap between each point (figure \ref{gui06}.\newline Finally, some extra functionality was added to the plotting. Two new buttons to toggle between standard and trig views were added, and the x minimum and x maximum fields were removed in favour of generating the graph across the currently visible range of values. Some extra help buttons for trig functions were also added, and this can be seen in figure \ref{gui07}.
 
     \subsection{Testing}
     Please refer to this (\ref{PlotTest}) in the appendices to view our Testing. \\
@@ -535,19 +584,6 @@ Grammar in BNF:
 
     Additionally, we implemented logarithm functions during this sprint, as well as the natural constant "e".
 
-    \subsection{Basic GUI}
-    We used WPF with C\# to develop a basic GUI - see Figure \ref{gui01}.
-    \begin{figure}[htb]
-        \begin{center}
-
-% REPLACE IMAGE!!!!
-            \includegraphics[width=0.9 \columnwidth]{GUI_01}
-
-            \caption{GUI, first revision.}
-            \label{gui01}
-        \end{center}
-    \end{figure}
-
     \subsection{Testing}
     This build passed most tests from our unit tests \ref{ArithTest} up to \ref{TrigLogTest}, except:
     \begin{center}
@@ -619,7 +655,7 @@ Grammar in BNF:
     \end{verbatim}
     \section{Final GUI}
 
-    As seen in Figure \ref{gui02}, our application offers both access to our interpreter as well as offering a plotting tool built on top of said interpreter.
+    As seen in Figure \ref{gui08}, our application offers both access to our interpreter as well as offering a plotting tool built on top of said interpreter.
 
     The graphing tool draws a series of plots to the graph by calling the interpreter repeatedly for a series of x values. These plots are made between and upper and lower x bound, determined by the present scale of the graph at the time of plotting. A user specified interval is used by the plotter to determine the change between x values for each plot.
 
@@ -627,7 +663,7 @@ Grammar in BNF:
 %\begin{center}
         \includegraphics[width=0.9 \columnwidth]{advProgScreencap.png}
         \caption{Final GUI, complete with plotting and computation tools.}
-        \label{gui02}
+        \label{gui08}
 %\end{center}
     \end{figure}
 
