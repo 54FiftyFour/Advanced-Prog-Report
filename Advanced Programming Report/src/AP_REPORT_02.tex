@@ -1,4 +1,4 @@
-% TO DO:CHAPTER 4.3 and 4.4 (architecture and algorithms), CHAPTER 5, CONTRIBUTIONS, PLOTTING NOTES (TAYLOR), FINISH TEST WRITEUP
+% TO DO:CHAPTER 4.3 and 4.4 (architecture and algorithms), CHAPTER 5, CONTRIBUTIONS, PLOTTING NOTES (TAYLOR)
 \documentclass[a4paper, oneside, 11pt]{report}
 \usepackage{epsfig,pifont,float,multirow,amsmath,amssymb}
 \usepackage{natbib}
@@ -150,7 +150,7 @@
     This build passed every test from our unit tests \ref{ArithTest}, except:
 
     \begin{center}
-        \begin{tabular}{|p{1.5in}|p{1.5in}|p{1.6in}|p{1.6in}|p{2.4in}|}
+        \begin{tabular}{|p{1.5in}|p{1.5in}|p{1in}|p{1.6in}|p{2.4in}|}
             \hline
             TEST NAME & INPUT & EXPECTED & RESULT \\
             \hline
@@ -192,7 +192,7 @@ Grammar in BNF:
     This build passed every test from our unit tests \ref{ArithTest} and \ref{VarAssignTest}, except:
 
     \begin{center}
-        \begin{tabular}{|p{1.5in}|p{1.5in}|p{1.6in}|p{1.6in}|p{2.4in}|}
+        \begin{tabular}{|p{1.5in}|p{1.5in}|p{1in}|p{1.6in}|p{2.4in}|}
             \hline
             TEST NAME & INPUT & EXPECTED & RESULT \\
             \hline
@@ -242,8 +242,7 @@ Grammar in BNF:
 
 
     \subsection{Testing}
-    ALL WORKS!!!
-
+    This build passed every test from our unit tests \ref{ArithTest} up to \ref{PiAbsTest}.
 
     \clearpage
 % ------------------------------------------------------------- END OF SPRINT ------------------------------------------------------------------
@@ -278,8 +277,7 @@ Grammar in BNF:
     This is for use in sending plotting functions from the front end to the interpreter and could be removed in future if the plotting were rewritten.
 
     \subsection{Testing}
-    ALL WORKS!!!
-
+    This build passed every test from our unit tests \ref{ArithTest} up to \ref{TypeSysTest}.
 
     \clearpage
 % ------------------------------------------------------------- END OF SPRINT ------------------------------------------------------------------
@@ -314,7 +312,18 @@ Grammar in BNF:
     When "Var::tail" is matched, the parser checks if the binding is in the table, and either the value of the variable is returned or the body of the function has parameters substituted before being executed with the result being returned.
 
     \subsection{Testing}
-    ERRORS ON T6.BadAssign3, T6.BadCall2 (parameter passing issues)
+    This build passed most tests from our unit tests \ref{ArithTest} up to \ref{FuncAssignTest}, except:
+    \begin{center}
+        \begin{tabular}{|p{1.5in}|p{1.5in}|p{1in}|p{1.6in}|p{2.4in}|}
+            \hline
+            TEST NAME & INPUT & EXPECTED & RESULT \\
+            \hline
+            T6.BadAssign3 & "fn foo(x) = 3”, & Error & 0 (Symbol table adds foo as though it were correctly formatted, rather than throwing an error for a parameter mismatch.) \\
+            \hline
+            T6.BadCall2 & ”fn foo(x) = x + 3”, ”foo(3 4)” & 0, Error & 0, 6 (Interpreter should throw an error as parameter signature does not match, instead foo(x) executes as though it had been passed (x).) \\
+            \hline
+        \end{tabular}
+    \end{center}
 
 
     \clearpage
@@ -362,7 +371,18 @@ Grammar in BNF:
     As the type system makes use of \verb|F#|'s operator overloading, it would simply be a matter of altering each operator's behaviour to reject booleans in an integer context and vice versa by throwing an error.
 
     \subsection{Testing}
-    ERRORS ON T6.BadAssign3, T6.BadCall2 (parameter passing issues)
+    This build passed most tests from our unit tests \ref{ArithTest} up to \ref{BoolTest}, except:
+    \begin{center}
+        \begin{tabular}{|p{1.5in}|p{1.5in}|p{1in}|p{1.6in}|p{2.4in}|}
+            \hline
+            TEST NAME & INPUT & EXPECTED & RESULT \\
+            \hline
+            T6.BadAssign3 & "fn foo(x) = 3”, & Error & 0 (Symbol table adds foo as though it were correctly formatted, rather than throwing an error for a parameter mismatch.) \\
+            \hline
+            T6.BadCall2 & ”fn foo(x) = x + 3”, ”foo(3 4)” & 0, Error & 0, 6 (Interpreter should throw an error as parameter signature does not match, instead foo(x) executes as though it had been passed (x).) \\
+            \hline
+        \end{tabular}
+    \end{center}
     \clearpage
 % ------------------------------------------------------------- END OF SPRINT ------------------------------------------------------------------
 % ---------------------------------------------------------------- SPRINT 8 ----------------------------------------------------------------
@@ -400,7 +420,18 @@ Grammar in BNF:
     During this sprint we added count controlled loops. A user specifies the number of iterations in the parentheses, and the function to iterate in the braces. This feature does return a number, but it returns the value returned by the last execution of the code in the braces.
 
     \subsection{Testing}
-    ERRORS ON T6.BadAssign3, T6.BadCall2 (parameter passing issues)
+    This build passed most tests from our unit tests \ref{ArithTest} up to \ref{LoopTest}, except:
+    \begin{center}
+        \begin{tabular}{|p{1.5in}|p{1.5in}|p{1in}|p{1.6in}|p{2.4in}|}
+            \hline
+            TEST NAME & INPUT & EXPECTED & RESULT \\
+            \hline
+            T6.BadAssign3 & "fn foo(x) = 3”, & Error & 0 (Symbol table adds foo as though it were correctly formatted, rather than throwing an error for a parameter mismatch.) \\
+            \hline
+            T6.BadCall2 & ”fn foo(x) = x + 3”, ”foo(3 4)” & 0, Error & 0, 6 (Interpreter should throw an error as parameter signature does not match, instead foo(x) executes as though it had been passed (x).) \\
+            \hline
+        \end{tabular}
+    \end{center}
 
 
     \clearpage
@@ -443,7 +474,18 @@ Grammar in BNF:
     Here we implemented rational numbers, internally represented as two numbers for a fractions numerator and denominator. This is ideal for use cases where an exact representation of a noninteger number is needed, where the imprecision of a float is not sufficient.
 
     \subsection{Testing}
-    ERRORS ON T6.BadAssign3, T6.BadCall2 (parameter passing issues)
+    This build passed most tests from our unit tests \ref{ArithTest} up to \ref{RatNumTest}, except:
+    \begin{center}
+        \begin{tabular}{|p{1.5in}|p{1.5in}|p{1in}|p{1.6in}|p{2.4in}|}
+            \hline
+            TEST NAME & INPUT & EXPECTED & RESULT \\
+            \hline
+            T6.BadAssign3 & "fn foo(x) = 3”, & Error & 0 (Symbol table adds foo as though it were correctly formatted, rather than throwing an error for a parameter mismatch.) \\
+            \hline
+            T6.BadCall2 & ”fn foo(x) = x + 3”, ”foo(3 4)” & 0, Error & 0, 6 (Interpreter should throw an error as parameter signature does not match, instead foo(x) executes as though it had been passed (x).) \\
+            \hline
+        \end{tabular}
+    \end{center}
 
     \clearpage
 % ------------------------------------------------------------- END OF SPRINT ------------------------------------------------------------------
@@ -502,7 +544,20 @@ Grammar in BNF:
     \end{figure}
 
     \subsection{Testing}
-    ERRORS ON T6.BadAssign3, T6.BadCall2 (parameter passing issues), T10.Tan180 (returns 0?)
+    This build passed most tests from our unit tests \ref{ArithTest} up to \ref{TrigLogTest}, except:
+    \begin{center}
+        \begin{tabular}{|p{1.5in}|p{1.5in}|p{1in}|p{1.6in}|p{2.4in}|}
+            \hline
+            TEST NAME & INPUT & EXPECTED & RESULT \\
+            \hline
+            T6.BadAssign3 & "fn foo(x) = 3”, & Error & 0 (Symbol table adds foo as though it were correctly formatted, rather than throwing an error for a parameter mismatch.) \\
+            \hline
+            T6.BadCall2 & ”fn foo(x) = x + 3”, ”foo(3 4)” & 0, Error & 0, 6 (Interpreter should throw an error as parameter signature does not match, instead foo(x) executes as though it had been passed (x).) \\
+            \hline
+            T10.Tan180 & ”tan 180” & Error & 0 (Should raise some kind of error, as tan 180 is undefined (x = 180 being an asymptote of tan(x).) \\
+            \hline
+        \end{tabular}
+    \end{center}
 
     \clearpage
 % ------------------------------------------------------------- END OF SPRINT ------------------------------------------------------------------
@@ -586,29 +641,43 @@ Grammar in BNF:
 %\end{center}
     \end{figure}
 
-    \section{Algorithms}
+    % \section{Algorithms}
 
-    Algorithms can be described in this chapter if not already covered in previous sections. Pseudo-code is preferred over code snippets. If you use the latter then make sure it is well commented inside the code or via the figure caption.
+    % Algorithms can be described in this chapter if not already covered in previous sections. Pseudo-code is preferred over code snippets. If you use the latter then make sure it is well commented inside the code or via the figure caption.
 
-    \begin{algorithm}[th]
-        \caption{ The Newton-Raphson method }
-        \begin{algorithmic}[1]
-            \STATE Initialise root based on estimate
-            \STATE Set stop criterion
-            \\ \texttt{const double error = 0.000001;}
-            \WHILE {stop criterion not met}
-            \STATE Compute f(root)
-            \STATE Compute f'(root)
-            \STATE root := root - f(root)/f'(root)
-            \ENDWHILE
-        \end{algorithmic}
-    \end{algorithm}
+    % \begin{algorithm}[th]
+    %     \caption{ The Newton-Raphson method }
+    %     \begin{algorithmic}[1]
+    %         \STATE Initialise root based on estimate
+    %         \STATE Set stop criterion
+    %         \\ \texttt{const double error = 0.000001;}
+    %         \WHILE {stop criterion not met}
+    %         \STATE Compute f(root)
+    %         \STATE Compute f'(root)
+    %         \STATE root := root - f(root)/f'(root)
+    %         \ENDWHILE
+    %     \end{algorithmic}
+    % \end{algorithm}
 
 
     Note that code snippets or lists of crucial programming code or large UML diagrams should go in Appendix \ref{app:other} (or further appendices).
 
-    \subsection{Testing}
+    \clearpage
+    \section{Testing}
     The interpreter passed most tests from \ref{ArithTest} through \ref{FinalTest}, with a few exceptions:
+    \begin{center}
+        \begin{tabular}{|p{1.5in}|p{1.5in}|p{1in}|p{1.6in}|p{2.4in}|}
+            \hline
+            TEST NAME & INPUT & EXPECTED & RESULT \\
+            \hline
+            T6.BadAssign3 & "fn foo(x) = 3”, & Error & 0 (Symbol table adds foo as though it were correctly formatted, rather than throwing an error for a parameter mismatch.) \\
+            \hline
+            T6.BadCall2 & ”fn foo(x) = x + 3”, ”foo(3 4)” & 0, Error & 0, 6 (Interpreter should throw an error as parameter signature does not match, instead foo(x) executes as though it had been passed (x).) \\
+            \hline
+            T10.Tan180 & ”tan 180” & Error & 0 (Should raise some kind of error, as tan 180 is undefined (x = 180 being an asymptote of tan(x).) \\
+            \hline
+        \end{tabular}
+    \end{center}
 
 
     \chapter{Discussion, conclusion and future work}
