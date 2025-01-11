@@ -97,8 +97,19 @@
     Please reference [][] for the table comparison of the three systems.
 
     With an idea of what our system would do and various ideas on how our system would look, we now needed an understanding of how we were going to make the system. We have two main components, a GUI and an interpreter of which is called by the GUI.\\
-    With some research, we decided upon using avalonia [][] and oxyplot [][] for our GUI. \\ //////TAYLOR please talk about stuff here please///////.
-    For our interpreter, we finalised upon a top down interpreter using
+    With some research, we decided upon using avalonia [][] and oxyplot [][] for our GUI. \\
+
+    //////TAYLOR please talk about stuff here please///////.
+
+    For our interpreter, we finalised upon a top-down over a bottom-up interpreter. This was decided as it was simpler to understand and implement \citep{Top-DownInterpreter}. However, it has a number of negatives.
+    \begin{itemize}
+        \item This choice does limit us to a left-recursive grammar due to inability to parse other grammar types.
+        \item Another negative is that the "expressiveness of the grammar is quite limited."
+        \item Backtracking can occur, potentially creating a costly overhead.
+    \end{itemize}
+    We have considered these negatives. The limitations of grammar are not harmful, as the project does not require complex and "expressive" grammar. Costly backtracking overhead would occur only with longer and more complex inputs. As the negatives do not have a strong detrimental effect on the proposed system, the simpler to implement and faster to add features such as trigonometry or other functions is much more suitable for this project.
+
+    For features described in the MoSCoW (\ref{MOSCOW}), we plan to use \citet{Nystrom:2021} as a resource to develop our understanding to produce an efficient and easily maintainable interpreter. \\
 
 
     Also, cite the books \citep{Nystrom:2021} or documentation \citep{WPF:2023} that you consulted.
@@ -1181,6 +1192,25 @@ Grammar in BNF:
         \hline
     \end{tabular}
 % -------------------------------------------------------------------------------------
+    \section{Similar Systems Analysis} \label{SSA}
+
+    \begin{center}
+        \begin{table}[h]
+            \begin{tabular}{|l|l|l|l|}
+                \hline
+                Features               & Desmos  & Wolfram Alpha & Matlab \\ \hline
+                Arithmetic             & Able    & Able          & Able   \\ \hline
+                Plotting               & Able    & Able          & Able   \\ \hline
+                Mathematical Functions & Able    & Able          & Able   \\ \hline
+                Rational Numbers       & Able    & Able          & Able   \\ \hline
+                Functions              & Able    & Able          & Able   \\ \hline
+                Trigonometry           & Able    & Able          & Able   \\ \hline
+                Integration            & Limited & Able          & Able   \\ \hline
+                Differentiation        & Able    & Able          & Able   \\ \hline
+                Statistics             & Able    & Able          & Able   \\ \hline
+            \end{tabular}
+        \end{table}
+    \end{center}
     \section{MoSCoW Requirements Analysis} \label{MOSCOW}
     \begin{center}
         \begin{tabular}{|p{1in}|p{2in}|p{2.5in}|} \hline
