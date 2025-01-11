@@ -1201,6 +1201,42 @@ Grammar in BNF:
         T10.Exp          & "e\^{}1"                   & 2.718281828                            &                                         \\
         \hline
     \end{tabular}
+% ------------------------------ FINAL GUI TESTS --------------------------------------
+    \section{Final GUI Testing}
+    \label{FinalGUITest}
+    \begin{tabular}{|p{1.5in}|p{1.5in}|p{1.6in}|p{1.6in}|p{2.4in}|}
+        \hline
+        TEST NAME       & INPUT                     & EXPECTED RESULT / OUTCOME              & COMMENTS                                \\
+        \hline
+        T11.InputField        & "3 + 4"                   & 7                                      &                                         \\
+        \hline
+        T11.ResultBox         & "3 + 4" in InputField                   & 7                                      & 7 should appear as the answer within the result box.                                        \\
+        \hline
+        T11.HistoryBox         & "3 + 4" in InputField, then "5 * 6" in InputField                   & 5 * 6 = 30\newline 3 + 4 = 7                                      & The results appear in the history box, from bottom to top.                                        \\
+        \hline
+        T11.HistoryToggleBtn        & History toggle button clicked                  & If current state is History, toggle to Error state, and vice versa                                      & This button is used to toggle the view of a history box and error box.                                         \\
+        \hline
+        T11.ResultInputBtn        & Calculator reset button clicked                   & Input field is cleared                           &                                         \\
+        \hline
+        T11.ComputeBtn        & Calculator compute button clicked                  & Result of the input box is calculated and displayed in result box                           &                                         \\
+        \hline
+        T11.DefaultPlot         & Plot button clicked while nothing is entered in y function or interval fields                   & Default plot of y = x is plotted on graph                                      & The default values for both fields are: y function = x, interval = 0.1.                                        \\
+        \hline
+        T11.PlotXSquared        & y function = x^2                  & Plot the graph of y = x^2 for the default interval of 0.1                                      &                                         \\
+        \hline
+        T11.PlotSinX        & y function = sin(x)                  & Plot the graph of y = sin(x) for default interval of 0.1                                  & Default view will display trig curves stretched so should change to trig view using the button. \\
+        \hline
+        T11.TrigViewBtn        & Trig View button is clicked                   & View of the graph is changed to display from x = -720 to x = 720, and y = -2 to y = 2                                     & This view is perfect for displaying and viewing trigonometric graphs.                                         \\
+        \hline
+        T11.InitialViewBtn        & Initial View button is clicked                   & View of the graph is changed to display from x = -40 to x = 40, and y = -20 to y = 20                                     & This view is perfect for displaying and viewing functions that don't have a trigonometric nature.                                         \\
+        \hline
+        T11.ResetPlot        & Reset Plot button is clicked                   & The input fields for the plotting, and the graph itself, are reset                                      & Clicking on the Plot button immediately afterwards will result in the default plot.                                        \\
+        \hline
+        T11.PlusHelpBtn        & + Helper button clicked                   & + is appended to the input box                                      &                                         \\
+        \hline
+        T11.WindowResized      & Window is resized        & Components of the GUI scale correctly                                     & There is a pre-defined minimum size for the window, in order to make sure all elements of the GUI appear correctly.                                         \\
+        \hline
+    \end{tabular}
 % ------------------------------    FINAL SPRINT TESTS    -----------------------------
     \section{Final Sprint Additional Testing}
     \label{FinalTest}
