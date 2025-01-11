@@ -98,7 +98,9 @@
     With an idea of what our system would do and various ideas on how our system would look, we now needed an understanding of how we were going to make the system. We have two main components, a GUI and an interpreter of which is called by the GUI.\\
     With some research, we decided upon using Avalonia \cite{Avalonia:2025} and Oxyplot \cite{Oxyplot:2024} for our GUI. \\
 
-    //////TAYLOR please talk about stuff here please///////.
+    Avalonia is a free opensource GUI framework, and is also cross-platform. Avalonia is based on Windows Presentation Foundation (WPF), so uses a similar syntax and structure. It uses a Model-View-ViewModel (MVVM) architecture: the View is the part that generates what is visible on screen, stored in .axaml files. The ViewModel is the code behind the View, stored as .axaml.cs files. The Model is essentially a data storage for usage with the application.\newline \newline
+
+    Oxyplot is a library that can be implemented in an Avalonia application. It allows for the creation of plots and graphs and is therefore very useful for the purposes of this project, where we need to have functionality for mathematical plots to be generated as part of our graphical calculator.\newline
 
     For our interpreter, we finalised upon a top-down over a bottom-up interpreter. This was decided as it was simpler to understand and implement \citep{Top-DownInterpreter}. However, it has a number of negatives.
     \begin{itemize}
