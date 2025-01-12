@@ -1,4 +1,6 @@
 % TO DO: CHAPTER 4.4 (algos), CHAPTER 5 (evelyn), CONTRIBUTIONS, PLOTTING NOTES (taylor), Section 2 GUI discussion(taylor), section 2 simiar systems table (aaron), Section 2 interpreter talk (Aaron)
+
+
 \documentclass[a4paper, oneside, 11pt]{report}
 \usepackage{epsfig,pifont,float,multirow,amsmath,amssymb}
 \usepackage{natbib}
@@ -9,8 +11,8 @@
 \newcommand{\bs}{\boldsymbol}
 \newcommand{\ra}{\rightarrow}
 \newcommand{\la}{\leftarrow}
-%\usepackage{algorithm}
-%\usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage{algorithmic}
 \topmargin = 0pt
 \voffset = -80pt
 \oddsidemargin = 15pt
@@ -30,7 +32,7 @@
             \\{\LARGE Maths Interpreter software} % You can add to this title of modify it if you wish
             \vspace{1.5cm}
             \vspace{1.0cm}
-            \\{\Large Group members: \\ Ethan Colman, Taylor Holton, Aaron Hurrell, Connor Stansfield.}
+            \\{\Large Group members: \\ Ethan Colman, Taylor Holton, Aaron Hurrell, Connor Stansfield.
             \vspace{10.0cm}
             \\{\large School of Computing Sciences, University of East Anglia}
         \end{center}
@@ -131,7 +133,7 @@
 // <Topt>     ::= "*" <F> <Topt> | "/" <F> <Topt> |  "%" <F> <Topt> |<empty>
 // <F>        ::= <NR> <Fopt>
 // <Fopt>     ::= "^" <NR> <Fopt> | "-" <NR> | "+" <NR> | <empty>
-// <NR>       ::= "Int" <value> | "Flt" <value> | "(" <E> ")"
+// <NR>       ::= "Int" <L> | "Flt" <value> | "(" <E> ")"
     \end{verbatim}
 
     \subsection{Basic GUI}
@@ -636,22 +638,22 @@ Grammar in BNF:
 <T>        ::= <F> <Topt>
 <Topt>     ::= "*" <F> <Topt> | "/" <F> <Topt> |  "%" <F> <Topt> |<empty>
 <F>        ::= <NR> <Fopt>
-<Fopt>     ::= "^" <NR> <Fopt> | "-" <NR> |<empty>
-<NR>       ::=  "!" <NR>
-                "Var" <value> "Assign" <NR> |
-                "Typ Auto" "Var" <value> "Assign" <NR> |
-                "Typ Integer" "Var" <value> "Assign" <NR> |
-                "Typ Float" "Var" <value> "Assign" <NR> |
-                "Typ Frac" "Var" <value> "Assign" <NR> |
-                "Typ Bool" "Var" <value> "Assign" <NR> |
+<Fopt>     ::= "^" <L> <Fopt> | "-" <L> |<empty>
+<NR>       ::=  "!" <L>
+                "Var" <value> "Assign" <L> |
+                "Typ Auto" "Var" <value> "Assign" <L> |
+                "Typ Integer" "Var" <value> "Assign" <L> |
+                "Typ Float" "Var" <value> "Assign" <L> |
+                "Typ Frac" "Var" <value> "Assign" <L> |
+                "Typ Bool" "Var" <value> "Assign" <L> |
                 "Fn" "Var" <value> "Assign" <L> |
                 "Var" <value> |
                 "Num Int" <value> | "Num Flt" <value> |
                 "Num Bool" <value> | "Frac" "Num Frac" <value> |
-                "Sin" <NR>  | "Cos" <NR> | "Tan" <NR> |
-                "Asin" <NR> | "Acos" <NR> | "Atan" <NR> |
-                "LogNat" <NR> | "LogNum" <NR> | "Exp" <NR> |
-                "Pi" | "Abs" <NR> |
+                "Sin" <L>  | "Cos" <L> | "Tan" <L> |
+                "Asin" <L> | "Acos" <L> | "Atan" <L> |
+                "LogNat" <L> | "LogNum" <L> | "Exp" <L> |
+                "Pi" | "Abs" <L> |
                 "For" "(" "Num Int" <value> ")" "{" <L> "}"
                 "(" <L> ")"
     \end{verbatim}
@@ -1315,7 +1317,7 @@ Grammar in BNF:
 
     \includegraphics[width=160mm]{Screenshot 2025-01-03 161746.png} \\
 
-    \section{Wolfram Alpha Images:Non-Plotted} \label{WolframUnplotted}
+    \section{Wolfram Alpha Images:Non-Plotted}\label{WolframUnplotted}
 
     \includegraphics[width = 160mm]{Screenshot 2025-01-03 162013.png} \\
 
