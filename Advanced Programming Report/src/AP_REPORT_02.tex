@@ -1,6 +1,4 @@
 % TO DO: CHAPTER 4.4 (algos), CHAPTER 5 (evelyn), CONTRIBUTIONS, PLOTTING NOTES (taylor), Section 2 GUI discussion(taylor), section 2 simiar systems table (aaron), Section 2 interpreter talk (Aaron)
-
-
 \documentclass[a4paper, oneside, 11pt]{report}
 \usepackage{epsfig,pifont,float,multirow,amsmath,amssymb}
 \usepackage{natbib}
@@ -11,8 +9,8 @@
 \newcommand{\bs}{\boldsymbol}
 \newcommand{\ra}{\rightarrow}
 \newcommand{\la}{\leftarrow}
-\usepackage{algorithm}
-\usepackage{algorithmic}
+%\usepackage{algorithm}
+%\usepackage{algorithmic}
 \topmargin = 0pt
 \voffset = -80pt
 \oddsidemargin = 15pt
@@ -30,15 +28,13 @@
             \\{\Large Project Report - 13 January 2025}
             \vspace{1.5cm}
             \\{\LARGE Maths Interpreter software} % You can add to this title of modify it if you wish
+            \vspace{1.5cm}
             \vspace{1.0cm}
-            \\{\Large Group members: \\ Ethan Colman, Taylor Holton, Aaron Hurrell, Connor Stansfield.\ }
+            \\{\Large Group members: \\ Ethan Colman, Taylor Holton, Aaron Hurrell, Connor Stansfield.}
             \vspace{10.0cm}
             \\{\large School of Computing Sciences, University of East Anglia}
-            \\ \rule{12cm}{0.5mm}
-            \\ \hspace{8.5cm} {\large Version 2.0}
         \end{center}
     \end{titlepage}
-
 
     \setcounter{page}{1}
 %\pagenumbering{roman}
@@ -54,8 +50,6 @@
 % ============================================================== CHAPTER 1 ===============================================================
     \chapter{Introduction}
     \label{chap:intro}
-    The introduction should be brief and comprise the following:
-
     \section{Project statement}
 % \paragraph{}
 % We will produce a mathematics package written using the .NET environment. We will use C# with Avalonia to produce an application with a graphical user interface, which includes a graph plotting utility as well as a mathematical interpreter capable of processing a wide range of common mathematical utilities.
@@ -81,24 +75,22 @@
 
 % Clearly specify the main aim and objective(s) and subsequent tasks of your project. You can use a MoSCoW to further elaborate on each individual task. If you do so, use a table with three columns (e.g.\ Table \ref{Table1}), the first one having the four categories; the second column a brief description of the task and the third column further elaboration or comments on the task. Note that a MoSCoW is normally for functional requirements only. You should treat non-functional requirements in a separate MoSCoW.
 % ============================================================== CHAPTER 2 ===============================================================
-    \chapter{Background}
+    \chapter{Background} \label{Chap:background}
 
     When developing this project, we consulted and referenced some similar systems. These systems were Desmos \citep{Desmos:2023} Matlab \citep{Matlab:2023} and Wolfram Alpha \citep{Wolfram-Alpha:2025}. \\
 
-    Focusing on Desmos first, this web application has a series of calculators available to users. The graphing calculator with its small input area and much larger plotting area is useful for graphs and lines. The scientific calculator has a large input area with buttons for functions, numbers, and other purposes. These are just two calculators available to users. Some of its capabilities include Interactive variables for graphs, various function graphing, and calculus with a limitation of limits. \\
+    Focusing on Desmos first, this web application has a series of calculators available to users. The graphing calculator with its small input area and much larger plotting area is useful for graphs and lines. The scientific calculator has a large input area with buttons for functions, numbers, and other purposes. These are just two calculators available to users. Some of its capabilities include interactive variables for graphs, various function graphing, and calculus with a limitation of limits. \\
 
-    MatLab is a programming language that is used across data analysis, control systems, and robots. For these services, it has features such as; interactive apps, specialised libraries, and tools used for generating embedded code. It can do matrix manipulation \citep{Matlab-Feat:2025} and because of its large library of mathematical functions, it can also fulfil a role similar to our system or Desmos. \\
+    MatLab is a programming language that is used across data analysis, control systems, and robots. For these services, it has features such as; interactive apps, specialised libraries, and tools used for generating embedded code. It can do matrix manipulation \citep{Matlab-Feat:2025} and due to its large library of mathematical functions, it can also fulfil a role similar to our system or Desmos. \\
 
-    Wolfram Alpha, similarly to Desmos, is also a web application with the capacity to solve mathematical problems inputted into it and graph lines. Unlike Desmos, Wolfram Alpha fulfils a purpose of answering questions across a much broader range from questions about maths to questions about nutritional content of food. Another difference is that rather than having a number of environments for the user, it has one with a text input. Then it will output the solution based on the input. For example, an input of "plot sin 30" will create a linear line of 0.5 on the y axis. (\ref{WolframPlotted})
+    Wolfram Alpha, similarly to Desmos, is also a web application with the capacity to solve mathematical problems inputted into it and graph lines. Unlike Desmos, Wolfram Alpha fulfils a purpose of answering questions across a much broader range from questions about maths to questions about nutritional content of food. Another difference is that rather than having a number of environments for the user, it has one with a text input. Then it will output the solution based on the input. For example, an input of "plot sin 30" will create a linear line of 0.5 on the y-axis. (\ref{WolframPlotted})
     However, if you just enter "sin 30", you will not get a result formatted as a graph. (\ref{WolframUnplotted})
-    Therefore its acts similarly to a search engine with a number of functions that you can call to alter its output format. \\
+    Therefore its acts similarly to a search engine with a number of functions that you can call to alter its output format. A comparison table of the three systems can be found in Appendix \ref{SSA}. \\
 
-    Please reference Appendix \ref{SSA} for a comparison table of the three systems.//
+    With an idea of what our system would do and various ideas on how our system would look, we needed an understanding of how we were going to make the system. We have two main components, a GUI and an interpreter, of which is called by the GUI.\\
+    With some research, we decided to use Avalonia \citep{Avalonia:2025} and Oxyplot \citep{Oxyplot:2024} for our GUI. \\
 
-    With an idea of what our system would do and various ideas on how our system would look, we now needed an understanding of how we were going to make the system. We have two main components, a GUI and an interpreter of which is called by the GUI.\\
-    With some research, we decided upon using Avalonia \cite{Avalonia:2025} and Oxyplot \cite{Oxyplot:2024} for our GUI. \\
-
-    Avalonia is a free opensource GUI framework, and is also cross-platform. Avalonia is based on Windows Presentation Foundation (WPF), so uses a similar syntax and structure. It uses a Model-View-ViewModel (MVVM) architecture: the View is the part that generates what is visible on screen, stored in .axaml files. The ViewModel is the code behind the View, stored as .axaml.cs files. The Model is essentially a data storage for usage with the application.\newline \newline
+    Avalonia is a free open source GUI framework, and is also cross-platform. Avalonia is based on the Windows Presentation Foundation (WPF) \citep{WPF:2023}, so it uses a similar syntax and structure. It uses a Model-View-ViewModel (MVVM) architecture: the View is the part that generates what is visible on screen, stored in .axaml files. The ViewModel is the code behind the View, stored as .axaml.cs files. The Model is essentially a data storage for usage with the application.\newline \newline
 
     Oxyplot is a library that can be implemented in an Avalonia application. It allows for the creation of plots and graphs and is therefore very useful for the purposes of this project, where we need to have functionality for mathematical plots to be generated as part of our graphical calculator.\newline
 
@@ -106,14 +98,11 @@
     \begin{itemize}
         \item This choice does limit us to a left-recursive grammar due to inability to parse other grammar types.
         \item Another negative is that the "expressiveness of the grammar is quite limited."
-        \item Backtracking can occur, potentially creating a costly overhead.
+        \item Backtracking can occur, potentially creating costly overhead.
     \end{itemize}
     We have considered these negatives. The limitations of grammar are not harmful, as the project does not require complex and "expressive" grammar. Costly backtracking overhead would occur only with longer and more complex inputs. As the negatives do not have a strong detrimental effect on the proposed system, the simpler to implement and faster to add features such as trigonometry or other functions is much more suitable for this project.
 
     For features described in the MoSCoW (\ref{MOSCOW}), we plan to use \citet{Nystrom:2021} as a resource to develop our understanding to produce an efficient and easily maintainable interpreter. \\
-
-
-    Also, cite the books \citep{Nystrom:2021} or documentation \citep{WPF:2023} that you consulted.
 % ============================================================== CHAPTER 3 ===============================================================
     \chapter{Development History}\label{Chap:DevHist}
 % Basic Implementation (INT1) & GUI (GUI1)
@@ -172,6 +161,7 @@
         \end{center}
     \end{figure}
 
+    \clearpage
     \subsection{Commentary}
     An additional pair of functions, F and Fopt, were added to the basic parser to offer an additional level of precedence.
     This allows the parser to evaluate the unary minus and power operators before the rest of the arithmetic operators.
@@ -277,11 +267,9 @@ Grammar in BNF:
         \end{center}
     \end{figure}
 
+    \clearpage
     \subsection{Commentary}
     Plotting was done using Oxyplot, an Avalonia library. At first, a basic plot window was added to the GUI, shown in figure \ref{gui04}. At this stage there was no functionality to add plots so this needed to be added next. This went through a few iterations. Firstly, the plotting used 4 input fields: an x minimum, an x maximum, a y function, and a number of points to interpolate. This can be seen in figure \ref{gui05}. However, it was decided that inputting a number of points wasn't very intuitive, so we decided to instead have the user input an interval, which would be the size of the gap between each point (figure \ref{gui06}.\newline Finally, some extra functionality was added to the plotting. Two new buttons to toggle between standard and trig views were added, and the x minimum and x maximum fields were removed in favour of generating the graph across the currently visible range of values. Some extra help buttons for trig functions were also added, and this can be seen in figure \ref{gui07}.
-
-    \subsection{Testing}
-    Please refer to this (\ref{PlotTest}) in the appendices to view our Testing. \\
 
     \clearpage
 % ------------------------------------------------------------- END OF SPRINT ------------------------------------------------------------------
@@ -629,7 +617,7 @@ Grammar in BNF:
 % % ------------------------------------------------------------- END OF SPRINT ------------------------------------------------------------------
     \chapter{Final deliverable}\label{Impl}
 
-    Before our final build, we added a number of small features, such as the greater-than-or-equal-to and less-than-or-equal-to operators. Additionally, type-checking for variable assignment was moved to a type as a member function, making our code more maintainable long term.
+    Before our final build, we added a number of small features, such as the greater-than-or-equal-to and less-than-or-equal-to operators. Additionally, type-checking for variable assignment was moved to a type as a series of member functions, making our code more maintainable long term.
 
     \section{Final BNF}
     \begin{verbatim}
@@ -787,7 +775,6 @@ Grammar in BNF:
 %\raggedright
     \bibliography{References.bib}
 
-
     \appendix
     \chapter{Contributions}
     \section{Contribution Table}
@@ -797,20 +784,27 @@ Grammar in BNF:
         \begin{tabular}{|l|l|l|l|l|}
             \hline
             & Aaron Hurrell & Ethan Colman & Taylor Holton & Connor Stansfield \\ \hline
-            Percentage Contributed &               &              &               &                  \\ \hline
+            Percentage Contributed &       25        &        25      &         25      &       25       \\ \hline
         \end{tabular}
     \end{table}
 
     \section{Aaron Hurrell Contributions}
+    Percentage contribution: 25\verb|%|
     \subsection{GUI Contributions}
     I have not contributed to the Graphics User Interface.
     \subsection{Interpreter Contributions}
+    I provided work for rational numbers and mathematical functions. I have also contributed to PI and absolute. I have worked on the BNF.
     \subsection{Report Contributions}
+    I have contributed heavily to chapter \ref{Chap:background}. I have smaller contributions in chapter \ref{Chap:DevHist}.
 
     \section{Ethan Colman Contributions}
+    Percentage contribution: 25\verb|%|
     \subsection{GUI Contributions}
+    I did not contribute to development of the Graphics User Interface.
     \subsection{Interpreter Contributions}
+    I contributed development of user defined variables and functions, unit testing and migration of the symbol table to a type.
     \subsection{Report Contributions}
+    I contributed to the structure and set up of the report, early versions of sprint commentary, unit tests, the abstract, chapter 1 and chapter 4.
 
     \section{Taylor Holton Contributions}
     Percentage contribution: 25\verb|%|
@@ -832,8 +826,6 @@ Grammar in BNF:
     As well as other miscellaneous contributions.
     \subsection{Report Contributions}
     I wrote most of chapter \ref{discussion} of the report as well as contributing to the commentary for the sprints that I worked on.
-
-    State here the \% contribution to the project of each individual member of the group and describe in brief what each member has done (if this corresponds to particular sections in the report then please specify these).
 
     \chapter{Testing}
     \label{app:test}
@@ -1323,7 +1315,7 @@ Grammar in BNF:
 
     \includegraphics[width=160mm]{Screenshot 2025-01-03 161746.png} \\
 
-    \section{Wolfram Alpha Images:Non-Plotted}\label{WolframUnplotted}
+    \section{Wolfram Alpha Images:Non-Plotted} \label{WolframUnplotted}
 
     \includegraphics[width = 160mm]{Screenshot 2025-01-03 162013.png} \\
 
